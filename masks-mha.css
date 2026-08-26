@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Black+Han+Sans|Fjalla+One&display=swap');
+
 .sheet-maindiv label {
 	color: #333 !important;
 }
 
 p {
-    font-family: Arial, Helvetica, sans-serif !important;
+    font-family: 'Fjalla One', Arial, sans-serif !important;
 }
 
 .charsheet input[type="checkbox"] {
@@ -32,24 +34,1259 @@ label input.sheet-playbook + span {
         margin-left: auto;
         margin-right: auto;
     }
+    
+/* MAIN TABS */
 
-/* cityscape banner */
-    .charsheet .sheet-maindiv .sheet-section-header {
-        background: url('http://i.imgur.com/VzFYeyS.png')  repeat-x left center transparent;
-    	height: 45px;
-    	width: 100%;
-    	box-sizing: border-box;
-    	-moz-box-sizing: border-box;
+/* Hide the actual radio buttons */
+    .sheet-tab-player,
+    .sheet-tab-quirk,
+    .sheet-tab-playbook {
+        display: none;
     }
+
+
+/* Hide all three pages by default */
+    .sheet-player-tab,
+    .sheet-quirk-tab,
+    .sheet-playbook-tab {
+        display: none;
+    }
+
+
+/* Show the selected page */
+    .sheet-tab-player:checked ~ .sheet-player-tab {
+        display: block;
+    }
+
+    .sheet-tab-quirk:checked ~ .sheet-quirk-tab {
+        display: block;
+    }
+
+    .sheet-tab-playbook:checked ~ .sheet-playbook-tab {
+        display: block;
+    }
+
+
+
+/* main playbook page background / gutters */
+    .charsheet .sheet-maindiv {
+        background-color: #169bd5;
+        background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Favorite%20Color/background/MHA%20background%20%28blue%29.png') !important;
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-size: 2400px 2400px;
+        width: 100%;
+        max-width: none;
+        box-sizing: border-box;
+        padding-top: 30px;
+        padding-left: 48px;
+        padding-right: 48px;
+    }
+
+/* =========================================================
+   DOSSIER TOPPER / MAIN NAVIGATION — FINAL THREE-STATE FRAME
+   ========================================================= */
+
+
+.charsheet .sheet-dossier-topper {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 0 14px 0;
+    padding: 0;
+    overflow: visible;
+}
+
+/* ---------------------------------------------------------
+   FRAME GRID
+
+   Each frame chunk carries its own matching halftone background chunk.
+   The active-tab region only fills the lower body beneath the black tab.
+   --------------------------------------------------------- */
+
+.charsheet .sheet-dossier-topper-frame {
+    position: relative;
+    z-index: 2;
+
+    display: grid;
+    grid-template-columns:
+        max-content
+        minmax(8px, 1fr)
+        max-content
+        minmax(8px, 1fr)
+        max-content
+        minmax(8px, 1fr)
+        max-content
+        minmax(8px, 1fr)
+        max-content;
+    grid-template-rows: auto;
+
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    align-items: stretch;
+    line-height: 0;
+}
+
+/* Every piece is its own local coordinate system.
+   ::before = halftone fill
+   fixed PNG / ::after = frame linework */
+.charsheet .sheet-topper-piece {
+    position: relative;
+    grid-row: 1;
+    align-self: stretch;
+    min-width: 0;
+    overflow: visible;
+}
+
+/* Shared halftone material. */
+.charsheet .sheet-topper-piece::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    background-color: #f7f7f5;
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/MHA%20Character%20Sheet%20BG.png');
+    background-repeat: repeat;
+
+    pointer-events: none;
+}
+
+/* Fixed frame art always stays above its local fill. */
+.charsheet .sheet-topper-fixed-art {
+    position: relative;
+    z-index: 2;
+
+    display: block;
+    width: auto;
+    height: auto;
+
+    max-width: none !important;
+    max-height: none !important;
+
+    margin: 0;
+    padding: 0;
+}
+
+/* Native dimensions supplied from the exported topper art.
+   Fixed geometry stays fixed; only the Fill runs stretch. */
+.charsheet .sheet-topper-left-edge .sheet-topper-fixed-art  { width: 59px;  height: 145px; }
+.charsheet .sheet-topper-joint-1 .sheet-topper-fixed-art    { width: 157px; height: 145px; }
+.charsheet .sheet-topper-joint-2 .sheet-topper-fixed-art    { width: 152px; height: 145px; }
+.charsheet .sheet-topper-joint-3 .sheet-topper-fixed-art    { width: 99px;  height: 145px; }
+.charsheet .sheet-topper-right-edge .sheet-topper-fixed-art { width: 58px;  height: 145px; }
+
+.charsheet .sheet-topper-left-edge  { width: 59px; }
+.charsheet .sheet-topper-joint-1    { width: 157px; }
+.charsheet .sheet-topper-joint-2    { width: 152px; }
+.charsheet .sheet-topper-joint-3    { width: 99px; }
+.charsheet .sheet-topper-right-edge { width: 58px; }
+
+/* Grid positions */
+.charsheet .sheet-topper-left-edge   { grid-column: 1; }
+.charsheet .sheet-topper-run-1       { grid-column: 2; }
+.charsheet .sheet-topper-joint-1     { grid-column: 3; }
+.charsheet .sheet-topper-run-2       { grid-column: 4; }
+.charsheet .sheet-topper-joint-2     { grid-column: 5; }
+.charsheet .sheet-topper-run-3       { grid-column: 6; }
+.charsheet .sheet-topper-joint-3     { grid-column: 7; }
+.charsheet .sheet-topper-run-4       { grid-column: 8; }
+.charsheet .sheet-topper-right-edge  { grid-column: 9; }
+
+.charsheet .sheet-dossier-topper-frame-playbook {
+    grid-template-columns:
+        59px
+        .55fr
+        157px
+        .1fr
+        152px
+        1.7fr
+        99px
+        0.25fr
+        58px;
+}
+
+/* =========================================================
+   A) LOWER DOSSIER BODY
+   ========================================================= */
+
+.charsheet .sheet-topper-left-edge::before {
+    clip-path: polygon(
+        0px 55px,
+        59px 55px,
+        59px 127px,
+        31px 145px,
+        0px 145px
+    );
+}
+
+.charsheet .sheet-topper-run-1::before {
+    clip-path: polygon(
+        0 55px,
+        100% 55px,
+        100% 127px,
+        0 127px
+    );
+}
+
+/* CENTER 1 — 157 × 145
+   The V17 extra (0,145) corner was the little outside-facing yellow
+   triangle.  Return the lower-left bevel to the inside-facing path. */
+.charsheet .sheet-topper-joint-1::before {
+    clip-path: polygon(
+        0px 55px,
+        157px 55px,
+
+        157px 127px,
+        137px 127px,
+        117px 145px,
+        5px 145px,
+        20px 127px,
+        0px 127px
+    );
+}
+
+.charsheet .sheet-topper-run-2::before {
+    clip-path: polygon(
+        0 55px,
+        100% 55px,
+        100% 127px,
+        0 127px
+    );
+}
+
+/* CENTER 2A — same lower-notch orientation correction. */
+.charsheet .sheet-topper-joint-2::before {
+    clip-path: polygon(
+        0px 55px,
+        118px 55px,
+        118px 118px,
+        152px 118px,
+
+        152px 145px,
+        5px 145px,
+        20px 127px,
+        0px 127px
+    );
+}
+
+.charsheet .sheet-topper-run-3::before {
+    clip-path: polygon(
+        0 118px,
+        100% 118px,
+        100% 142px,
+        0 142px
+    );
+}
+
+/* Playbook lower-right edge:
+   V17 ran 118 -> 50 over the 99px fixed piece.  Raise the far end
+   by 2px; this is intentionally a tiny slope correction only. */
+.charsheet .sheet-topper-joint-3::before {
+    clip-path: polygon(
+        0px 118px,
+        99px 48px,
+        99px 142px,
+        0px 142px
+    );
+}
+
+.charsheet .sheet-topper-run-4::before {
+    clip-path: polygon(
+        0 50px,
+        100% 50px,
+        100% 142px,
+        0 142px
+    );
+}
+
+.charsheet .sheet-topper-right-edge::before {
+    clip-path: polygon(
+        0px 50px,
+        58px 92px,
+        58px 145px,
+        0px 145px
+    );
+}
+
+
+/* =========================================================
+   B) ISOLATED WHITE-TAB HALFTONE
+   ========================================================= */
+
+.charsheet .sheet-topper-tab-fill {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: block;
+
+    background-color: #f7f7f5;
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/MHA%20Character%20Sheet%20BG.png');
+    background-repeat: repeat;
+
+    pointer-events: none;
+}
+
+/* Character tab left cap. */
+.charsheet .sheet-topper-tab-character-left {
+    clip-path: polygon(
+        0px 45px,
+        54px 5px,
+        59px 5px,
+        59px 46px,
+        0px 46px
+    );
+}
+
+.charsheet .sheet-topper-tab-character-run {
+    clip-path: polygon(
+        0 5px,
+        100% 5px,
+        100% 46px,
+        0 46px
+    );
+}
+
+/* Character tab right chevron. */
+.charsheet .sheet-topper-tab-character-right {
+    clip-path: polygon(
+        0px 5px,
+        109px 5px,
+        126px 19px,
+        94px 46px,
+        0px 46px
+    );
+}
+
+/* Quirk left cap remains isolated on the far side of the gutter.
+   Pull its lower edge up by the same 3px. */
+.charsheet .sheet-topper-tab-quirk-left {
+    clip-path: polygon(
+        111px 43px,
+        157px 10px,
+        157px 46px,
+        111px 46px
+    );
+}
+
+.charsheet .sheet-topper-tab-quirk-run {
+    clip-path: polygon(
+        0 5px,
+        100% 5px,
+        100% 46px,
+        0 46px
+    );
+}
+
+/* Quirk tab right chevron. */
+.charsheet .sheet-topper-tab-quirk-right {
+    clip-path: polygon(
+        0px 5px,
+        129px 5px,
+        145px 19px,
+        110px 46px,
+        0px 46px
+    );
+}
+
+/* ---------------------------------------------------------
+   REPEATABLE FRAME ART
+
+   ::after repeats the actual line-art slice over the local
+   halftone, so frame and background expand together.
+   --------------------------------------------------------- */
+
+.charsheet .sheet-topper-flex-fill {
+    min-width: 8px;
+}
+
+.charsheet .sheet-topper-flex-fill::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+
+    background-position: left top;
+    background-repeat: repeat-x;
+
+    pointer-events: none;
+}
+
+.charsheet .sheet-topper-fill-1::after {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Playbook%20Topper/PB%20Topper%20Center-Fill.png');
+}
+
+.charsheet .sheet-topper-fill-2::after {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Playbook%20Topper/PB%20Topper%20Center-Fill%202.png');
+}
+
+.charsheet .sheet-topper-fill-3::after {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Playbook%20Topper/PB%20Topper%20Center-Fill%203.png');
+}
+
+/* ---------------------------------------------------------
+   ACTIVE FILE TAB
+
+   Seated from measured large-tab geometry:
+   begin on the large-tab track, then inset by the fixed 56px
+   entrance diagonal. This lands between the V9 and V10 anchors.
+   --------------------------------------------------------- */
+
+.charsheet .sheet-topper-active-file {
+    grid-column: 5 / 8;
+    grid-row: 1;
+
+    position: relative;
+    z-index: 3;
+
+    display: flex;
+    align-self: start;
+    align-items: stretch;
+
+    /* Measured seating:
+       use the large-tab tracks, then clear the fixed ~56px entrance
+       diagonal instead of jumping an entire responsive grid column. */
+    /* Final seated black-tab geometry.
+       Right edge stays fixed; left edge is inset to the measured slot.
+       -3px was visually confirmed as the final whole-tab nudge. */
+    margin-left: 124px;
+    width: calc(100% - 124px);
+    transform: translateX(-3px);
+
+    min-width: 0;
+    padding: 0;
+
+    pointer-events: none;
+    line-height: 0;
+}
+
+.charsheet .sheet-topper-file-fixed {
+    display: block;
+    flex: 0 0 auto;
+
+    width: auto;
+    height: auto;
+
+    max-width: none !important;
+    max-height: none !important;
+
+    margin: 0;
+    padding: 0;
+}
+
+/* Native active-file exports. */
+.charsheet .sheet-topper-file-left  { width: 59px; height: 145px; }
+.charsheet .sheet-topper-file-right { width: 95px; height: 145px; }
+
+.charsheet .sheet-topper-file-fill {
+    flex: 1 1 auto;
+    min-width: 1px;
+
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Playbook%20Topper/File%20Piece%20-%20Fill.png');
+    background-position: left top;
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+}
+
+/* ---------------------------------------------------------
+   NAVIGATION TEXT / CLICK TARGETS
+   GRID-ANCHORED PASS
+
+   The nav labels now use the SAME 9-column geometry as the
+   topper frame they sit on.  This keeps them attached to the
+   actual tab/wedge when the sheet gets wider or narrower.
+
+   Fine-tuning dials live in the three state sections below:
+   left / top = local nudge inside the anchored tab
+   padding     = breathing room before the PNG starts shrinking
+   grid-column = which topper pieces define the anchor
+   --------------------------------------------------------- */
+
+.charsheet .sheet-topper-nav-state {
+    display: none;
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+
+    /* Each visible state becomes an overlay grid matching its frame. */
+    grid-template-rows: 145px;
+    align-items: start;
+
+    pointer-events: none;
+}
+
+/* Show only the navigation layer for the selected page. */
+.sheet-tab-player:checked
+~ .sheet-dossier-topper
+.sheet-topper-nav-character,
+
+.sheet-tab-quirk:checked
+~ .sheet-dossier-topper
+.sheet-topper-nav-quirk,
+
+.sheet-tab-playbook:checked
+~ .sheet-dossier-topper
+.sheet-topper-nav-playbook {
+    display: grid;
+}
+
+
+/* ---------------------------------------------------------
+   MATCH EACH NAV OVERLAY TO ITS FRAME GRID
+   --------------------------------------------------------- */
+
+.charsheet .sheet-topper-nav-character {
+    grid-template-columns:
+        20px
+        1.55fr
+        112px
+        1fr
+        71px
+        1fr
+        58px
+        0.35fr
+        57px;
+
+    grid-template-rows: 139px;
+}
+
+.charsheet .sheet-topper-nav-quirk {
+    grid-template-columns:
+        53px
+        1fr
+        41px
+        1.4fr
+        108px
+        1fr
+        57px
+        0.6fr
+        57px;
+
+    grid-template-rows: 139px;
+}
+
+.charsheet .sheet-topper-nav-playbook {
+    grid-template-columns:
+        59px
+        .35fr
+        157px
+        .25fr
+        152px
+        1.7fr
+        99px
+        .45fr
+        58px;
+
+    grid-template-rows: 145px;
+}
+
+
+/* ---------------------------------------------------------
+   SHARED NAV ITEM BEHAVIOR
+   --------------------------------------------------------- */
+
+.charsheet .sheet-topper-nav-item {
+    position: relative;
+    grid-row: 1;
+
+    box-sizing: border-box;
+
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 0;
+    margin: 0 !important;
+
+    line-height: 0;
+    overflow: hidden;
+}
+
+.charsheet .sheet-topper-nav-item-link {
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.charsheet .sheet-topper-nav-item-active {
+    pointer-events: none;
+}
+
+/*
+   Native PNG size is the ceiling.
+   If its anchored tab gets smaller, the image scales down
+   proportionally instead of spilling outside the frame.
+*/
+.charsheet .sheet-topper-nav-item img {
+    display: block;
+
+    width: auto;
+    height: auto;
+
+    max-width: 100% !important;
+    max-height: 100% !important;
+
+    object-fit: contain;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+/* =========================================================
+   CHARACTER PAGE
+   Character active / Quirk inactive / Playbook inactive
+
+   DIALS:
+   - left: +/- px = move locally left/right
+   - top: +/- px  = move locally up/down
+   - padding      = how tightly the art fits its tab
+   ========================================================= */
+
+/* ACTIVE CHARACTER:
+   Mirrors the active Character wedge: grid 1 -> 4,
+   with the same 21px shortened right side. */
+.charsheet .sheet-topper-nav-character .sheet-topper-nav-item-character {
+    grid-column: 1 / 4;
+
+    width: calc(100% - 21px);
+    height: 69px;
+
+    left: -20px;
+    top: 18px;
+
+    padding: 2px 12px;
+}
+
+/* INACTIVE QUIRK:
+   Anchored to the first white tab region. */
+.charsheet .sheet-topper-nav-character .sheet-topper-nav-item-quirk {
+    grid-column: 4 / 6;
+
+    height: 40px;
+
+    left: -49px;
+    top: 3px;
+
+    padding: 3px 10px;
+}
+
+/* INACTIVE PLAYBOOK:
+   Anchored to the second white tab region. */
+.charsheet .sheet-topper-nav-character .sheet-topper-nav-item-playbook {
+    grid-column: 6 / 9;
+
+    height: 40px;
+
+    left: -59px;
+    top: 2px;
+
+    padding: 3px 12px;
+}
+
+
+/* =========================================================
+   QUIRK PAGE
+   Character inactive / Quirk active / Playbook inactive
+   ========================================================= */
+
+/* INACTIVE CHARACTER:
+   Detached Character tab occupies pieces 1 -> 4. */
+.charsheet .sheet-topper-nav-quirk .sheet-topper-nav-item-character {
+    grid-column: 1 / 4;
+
+    height: 40px;
+
+    left: 14px;
+    top: 2px;
+
+    padding: 3px 12px;
+}
+
+/* ACTIVE QUIRK:
+   Mirrors .sheet-topper-active-file-quirk:
+   grid 3 -> 6, shifted +10px, shortened by 27px. */
+.charsheet .sheet-topper-nav-quirk .sheet-topper-nav-item-quirk {
+    grid-column: 3 / 6;
+
+    width: calc(100% - 27px);
+    height: 69px;
+
+    left: 8px;
+    top: 18px;
+
+    padding: 2px 14px;
+}
+
+/* INACTIVE PLAYBOOK:
+   Anchored to its upper-right white tab. */
+.charsheet .sheet-topper-nav-quirk .sheet-topper-nav-item-playbook {
+    grid-column: 6 / 9;
+
+    height: 40px;
+
+    left: -27px;
+    top: 2px;
+
+    padding: 3px 12px;
+}
+
+
+/* =========================================================
+   PLAYBOOK PAGE
+   Character inactive / Quirk inactive / Playbook active
+   ========================================================= */
+
+/* INACTIVE CHARACTER:
+   Character white tab = pieces 1 -> 4. */
+.charsheet .sheet-topper-nav-playbook .sheet-topper-nav-item-character {
+    grid-column: 1 / 4;
+
+    height: 42px;
+
+    left: 1px;
+    top: 6px;
+
+    padding: 3px 14px;
+}
+
+/* INACTIVE QUIRK:
+   Quirk white tab = pieces 3 -> 6. */
+.charsheet .sheet-topper-nav-playbook .sheet-topper-nav-item-quirk {
+    grid-column: 3 / 6;
+
+    height: 40px;
+
+    left: 65px;
+    top: 8px;
+
+    padding: 3px 14px;
+}
+
+/* ACTIVE PLAYBOOK:
+   Mirrors the actual black wedge instead of using a percentage
+   of the entire topper.  This is the important drift fix.
+
+   Same geometry as .sheet-topper-active-file:
+   grid 5 -> 8
+   margin-left 124px
+   width calc(100% - 124px)
+   visual nudge -3px
+*/
+.charsheet .sheet-topper-nav-playbook .sheet-topper-nav-item-playbook {
+    grid-column: 5 / 8;
+
+    margin-left: 107px !important;
+    width: calc(100% - 124px);
+    height: 69px;
+
+    left: 5px;
+    top: 20px;
+
+    padding: 2px 18px;
+}
+
+
+/* =========================================================
+   CHARACTER + QUIRK TOPPER FRAMES
+
+   All three states use the same 9-column architecture, with
+   state-specific fixed dimensions and repeatable art.
+   ========================================================= */
+
+/* Only the selected frame assembly is visible. */
+.charsheet .sheet-dossier-topper-frame-character,
+.charsheet .sheet-dossier-topper-frame-quirk,
+.charsheet .sheet-dossier-topper-frame-playbook {
+    display: none;
+}
+
+.sheet-tab-player:checked
+~ .sheet-dossier-topper
+.sheet-dossier-topper-frame-character {
+    display: grid;
+}
+
+.sheet-tab-quirk:checked
+~ .sheet-dossier-topper
+.sheet-dossier-topper-frame-quirk {
+    display: grid;
+}
+
+.sheet-tab-playbook:checked
+~ .sheet-dossier-topper
+.sheet-dossier-topper-frame-playbook {
+    display: grid;
+}
+
+
+/* ---------------------------------------------------------
+   CHARACTER FRAME — native height 139px
+   --------------------------------------------------------- */
+
+/* Fixed native dimensions. */
+.charsheet .sheet-character-left-edge .sheet-topper-fixed-art { width: 20px; height: 139px; }
+.charsheet .sheet-character-center-1 .sheet-topper-fixed-art   { width: 112px; height: 139px; }
+.charsheet .sheet-character-center-2 .sheet-topper-fixed-art   { width: 71px; height: 139px; }
+.charsheet .sheet-character-center-3 .sheet-topper-fixed-art   { width: 58px; height: 139px; }
+.charsheet .sheet-character-right-edge .sheet-topper-fixed-art { width: 57px; height: 139px; }
+
+.charsheet .sheet-character-left-edge  { width: 20px; grid-column: 1; }
+.charsheet .sheet-character-run-1      { grid-column: 2; }
+.charsheet .sheet-character-center-1   { width: 112px; grid-column: 3; }
+.charsheet .sheet-character-run-2      { grid-column: 4; }
+.charsheet .sheet-character-center-2   { width: 71px; grid-column: 5; }
+.charsheet .sheet-character-run-3      { grid-column: 6; }
+.charsheet .sheet-character-center-3   { width: 58px; grid-column: 7; }
+.charsheet .sheet-character-run-4      { grid-column: 8; }
+.charsheet .sheet-character-right-edge { width: 57px; grid-column: 9; }
+
+/* Character repeatable line-art slices.
+   Fill 2 is intentionally reused for runs 2 and 3. */
+.charsheet .sheet-character-fill-1::after {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Character%20Topper/Topper%20Fill%201.png');
+}
+.charsheet .sheet-character-fill-2::after {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Character%20Topper/Topper%20Fill%202.png');
+}
+.charsheet .sheet-character-fill-3::after {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Character%20Topper/Topper%20Fill%203.png');
+}
+
+.charsheet .sheet-dossier-topper-frame-character .sheet-topper-flex-fill::after {
+    background-size: auto 139px;
+}
+
+.charsheet .sheet-dossier-topper-frame-character {
+    grid-template-columns:
+        20px
+        1.55fr
+        112px
+        .75fr
+        71px
+        1.25fr
+        58px
+        0.35fr
+        57px;
+}
+
+/* =========================================================
+   CHARACTER BACKGROUND MASKS
+   Native frame height: 139px
+   ========================================================= */
+
+/* LEFT EDGE — lower dossier body */
+.charsheet .sheet-character-left-edge::before {
+    clip-path: polygon(
+        0px 109px,
+        20px 109px,
+        20px 139px,
+        0px 139px
+    );
+}
+
+/* FILL 1 — lower dossier body */
+.charsheet .sheet-character-run-1::before {
+    clip-path: polygon(
+        0 109px,
+        100% 109px,
+        100% 139px,
+        0 139px
+    );
+}
+
+/* CENTER 1 — chevron where the active Character file meets
+   the first inactive white tab/body. */
+.charsheet .sheet-character-center-1::before {
+    clip-path: polygon(
+        66px 9px,
+        112px 0px,
+        112px 139px,
+        0px 139px,
+        0px 112px,
+        95px 39px,
+        105px 39px
+    );
+}
+
+/* FILL 2A — first inactive white tab continues across here. */
+.charsheet .sheet-character-run-2::before {
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 139px,
+        0 139px
+    );
+}
+
+/* CENTER 2 — joint between the two inactive tabs. */
+.charsheet .sheet-character-center-2::before {
+    clip-path: polygon(
+        0px 0px,
+        5px 0px,
+        57px 40px,
+        62px 45px,
+        80px 45px,
+        30px 10px,
+        40px 5px,
+        139px 0px,
+        139px 139px,
+        0px 139px
+    );
+}
+
+/* FILL 2B — second inactive tab. */
+.charsheet .sheet-character-run-3::before {
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 139px,
+        0 139px
+    );
+}
+
+/* CENTER 3 — right-hand tab diagonal dropping into the body. */
+.charsheet .sheet-character-center-3::before {
+    clip-path: polygon(
+        0px 0px,
+        58px 41px,
+        58px 139px,
+        0px 139px
+    );
+}
+
+/* FILL 3 — lower body begins at roughly y=40 here. */
+.charsheet .sheet-character-run-4::before {
+    clip-path: polygon(
+        0 40px,
+        100% 40px,
+        100% 139px,
+        0 139px
+    );
+}
+
+/* RIGHT EDGE — final sloped outer edge. */
+.charsheet .sheet-character-right-edge::before {
+    clip-path: polygon(
+        0px 40px,
+        8px 44px,
+        57px 80px,
+        57px 139px,
+        0px 139px
+    );
+}
+
+
+/* =========================================================
+   CHARACTER TOPPER LOGO DIALS
+
+   These four values are the ones to tweak:
+     width  = logo size
+     top    = distance down from the top of the Character topper
+     right  = distance left from the topper's right edge
+     rotate = logo angle
+
+   The logo is absolutely anchored to the Character frame, so changing
+   these values will not disturb the topper grid geometry.
+   ========================================================= */
+.charsheet .sheet-character-topper-logo {
+    position: absolute;
+    z-index: 3;
+
+    /* ---- EASY ADJUSTMENT DIALS ---- */
+    width: 138px;
+    top: 47px;
+    right: 60px;
+    transform: rotate(0deg);
+    /* ------------------------------- */
+
+    height: auto;
+    max-width: none !important;
+    max-height: none !important;
+    display: block;
+    margin: 0;
+    padding: 0;
+    transform-origin: center center;
+    pointer-events: none;
+}
+
+/* Active Character black file: independently seated left-hand active region. */
+.charsheet .sheet-topper-active-file-character {
+    grid-column: 1 / 4;
+    grid-row: 1;
+
+    margin-left: 0;
+    width: calc(100% - 21px);
+
+    transform: translateY(-2px);
+}
+
+
+/* ---------------------------------------------------------
+   QUIRK FRAME — native height 139px
+   EXPLICIT BACKGROUND SPAN REWRITE
+   --------------------------------------------------------- */
+
+/* Fixed native dimensions. */
+.charsheet .sheet-quirk-left-edge .sheet-topper-fixed-art { width: 53px; height: 139px; }
+.charsheet .sheet-quirk-center-1 .sheet-topper-fixed-art   { width: 41px; height: 139px; }
+.charsheet .sheet-quirk-center-2 .sheet-topper-fixed-art   { width: 108px; height: 139px; }
+.charsheet .sheet-quirk-center-3 .sheet-topper-fixed-art   { width: 57px; height: 139px; }
+.charsheet .sheet-quirk-right-edge .sheet-topper-fixed-art { width: 57px; height: 139px; }
+
+.charsheet .sheet-quirk-left-edge  { width: 53px; grid-column: 1; }
+.charsheet .sheet-quirk-run-1      { grid-column: 2; }
+.charsheet .sheet-quirk-center-1   { width: 41px; grid-column: 3; }
+.charsheet .sheet-quirk-run-2      { grid-column: 4; }
+.charsheet .sheet-quirk-center-2   { width: 108px; grid-column: 5; }
+.charsheet .sheet-quirk-run-3      { grid-column: 6; }
+.charsheet .sheet-quirk-center-3   { width: 57px; grid-column: 7; }
+.charsheet .sheet-quirk-run-4      { grid-column: 8; }
+.charsheet .sheet-quirk-right-edge { width: 57px; grid-column: 9; }
+
+/* Quirk repeatable line-art slices. */
+.charsheet .sheet-quirk-fill-1::after {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Quirk%20Topper/Topper%20Fill%201.png');
+}
+.charsheet .sheet-quirk-fill-2::after {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Quirk%20Topper/Topper%20Fill%202.png');
+}
+.charsheet .sheet-quirk-fill-3::after {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Quirk%20Topper/Topper%20Fill%203.png');
+}
+.charsheet .sheet-quirk-fill-4::after {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Quirk%20Topper/Topper%20Fill%204.png');
+}
+
+.charsheet .sheet-dossier-topper-frame-quirk .sheet-topper-flex-fill::after {
+    background-size: auto 139px;
+}
+
+/* =========================================================
+   QUIRK BACKGROUND MATERIAL
+   All Quirk background fills are explicit spans.
+   No Quirk piece uses the shared .sheet-topper-piece::before.
+   ========================================================= */
+
+/* Kill the inherited shared halftone pseudo-element across the ENTIRE Quirk frame. */
+.charsheet .sheet-dossier-topper-frame-quirk .sheet-topper-piece::before {
+    content: none !important;
+    display: none !important;
+    background: none !important;
+}
+
+/* Shared material for every explicit Quirk background span. */
+.charsheet .sheet-quirk-bg,
+.charsheet .sheet-quirk-character-tab-left,
+.charsheet .sheet-quirk-character-tab-run,
+.charsheet .sheet-quirk-character-tab-right {
+    position: absolute;
+    inset: 0;
+    display: block;
+    pointer-events: none;
+
+    background-color: #f7f7f5;
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/MHA%20Character%20Sheet%20BG.png');
+    background-repeat: repeat;
+}
+
+/* Main body spans sit beneath detached Character-tab spans. */
+.charsheet .sheet-quirk-bg {
+    z-index: 0;
+}
+
+.charsheet .sheet-quirk-character-tab-left,
+.charsheet .sheet-quirk-character-tab-run,
+.charsheet .sheet-quirk-character-tab-right {
+    z-index: 1;
+}
+
+/* =========================================================
+   QUIRK MAIN BODY — EXPLICIT SPAN POLYGONS
+   ========================================================= */
+
+/* LEFT EDGE */
+.charsheet .sheet-quirk-body-left {
+    clip-path: polygon(
+        0px 50px,
+        53px 50px,
+        53px 139px,
+        0px 139px
+    );
+}
+
+/* FILL 1 */
+.charsheet .sheet-quirk-body-run-1 {
+    clip-path: polygon(
+        0 50px,
+        100% 50px,
+        100% 139px,
+        0 139px
+    );
+}
+
+/* CENTER 1 */
+.charsheet .sheet-quirk-body-center-1 {
+    clip-path: polygon(
+        0px 50px,
+        5px 50px,
+        5px 112px,
+        41px 112px,
+        41px 139px,
+        0px 139px
+    );
+}
+
+/* FILL 2 */
+.charsheet .sheet-quirk-body-run-2 {
+    clip-path: polygon(
+        0 112px,
+        100% 112px,
+        100% 139px,
+        0 139px
+    );
+}
+
+/* CENTER 2 */
+.charsheet .sheet-quirk-body-center-2 {
+    clip-path: polygon(
+        0px 112px,
+        2px 112px,
+        90px 42px,
+        108px 42px,
+        65px 10px,
+        70px 5px,
+        108px 5px,
+        108px 139px,
+        0px 139px
+    );
+}
+
+/* FILL 3 */
+.charsheet .sheet-quirk-body-run-3 {
+    clip-path: polygon(
+        0 48px,
+        0% 5px,
+        100% 5px,
+        100% 139px,
+        0 139px
+    );
+}
+
+/* CENTER 3 */
+.charsheet .sheet-quirk-body-center-3 {
+    clip-path: polygon(
+        0px 5px,
+        10px 5px,
+        57px 43px,
+        57px 139px,
+        0px 139px
+    );
+}
+
+/* FILL 4 */
+.charsheet .sheet-quirk-body-run-4 {
+    clip-path: polygon(
+        0 43px,
+        100% 43px,
+        100% 139px,
+        0 139px
+    );
+}
+
+/* RIGHT EDGE */
+.charsheet .sheet-quirk-body-right {
+    clip-path: polygon(
+        0px 43px,
+        6px 43px,
+        57px 82px,
+        57px 139px,
+        0px 139px
+    );
+}
+
+/* =========================================================
+   DETACHED CHARACTER TAB
+   ========================================================= */
+
+.charsheet .sheet-quirk-character-tab-left {
+    clip-path: polygon(
+        0px 40px,
+        48px 5px,
+        53px 5px,
+        53px 40px
+    );
+}
+
+.charsheet .sheet-quirk-character-tab-run {
+    clip-path: polygon(
+        0 5px,
+        100% 5px,
+        100% 40px,
+        0 40px
+    );
+}
+
+.charsheet .sheet-quirk-character-tab-right {
+    clip-path: polygon(
+        0px 5px,
+        20px 5px,
+        41px 10px,
+        5px 40px,
+        0px 40px
+    );
+}
+
+/* Quirk frame sizing. */
+.charsheet .sheet-dossier-topper-frame-quirk {
+    grid-template-columns:
+        53px
+        1.3fr
+        41px
+        1.4fr
+        108px
+        1.3fr
+        57px
+        0.2fr
+        57px;
+}
+
+/* Active Quirk black file: middle active region. */
+.charsheet .sheet-topper-active-file-quirk {
+    grid-column: 3 / 6;
+    margin-left: 0;
+    width: calc(100% - 27px);
+    transform: translate(10px, -2px);
+}
+
+/* The reused black-file export is 145px tall while the Quirk frame is 139px. */
+.charsheet .sheet-topper-active-file-character .sheet-topper-file-left,
+.charsheet .sheet-topper-active-file-quirk .sheet-topper-file-left {
+    width: auto;
+    height: 139px;
+}
+
+.charsheet .sheet-topper-active-file-character .sheet-topper-file-right,
+.charsheet .sheet-topper-active-file-quirk .sheet-topper-file-right {
+    width: auto;
+    height: 139px;
+}
+
+.charsheet .sheet-topper-active-file-character .sheet-topper-file-fill,
+.charsheet .sheet-topper-active-file-quirk .sheet-topper-file-fill {
+    background-size: auto 139px;
+}
+
 
 /* entire column sizing & background */
     .charsheet .sheet-maindiv .sheet-col.sheet-odd{
-        background: #d3e5f5 url('http://i.imgur.com/b61mWlr.png') repeat left top;
+        background: none;
         margin: 0px;
         width: 235px;
     }
     .charsheet .sheet-maindiv .sheet-col.sheet-even{
-        background: #d3e5f5 url('http://i.imgur.com/b61mWlr.png') repeat left top;
+        background: none;
         margin-left: 25px;
         margin-right: 25px;
         width: calc(99% - 520px);
@@ -121,7 +1358,18 @@ label input.sheet-playbook + span {
     	font-size: 1.5em;
         line-height: 0.7em;
     }
+/* Potential track pip alignment */    
+    .sheet-potential_track {
+        display: grid;
+        grid-template-columns: repeat(5, 20px);
+        justify-content: center;
+        gap: 4px 8px;
+        padding: 4px 0 2px 0;
+    }
 
+    .sheet-potential_track label {
+        margin: 0;
+    }
 
 /* section title blocks */
     .charsheet .sheet-maindiv .sheet-col .sheet-section-title-labels,
@@ -431,6 +1679,12 @@ label.sheet-attr {
         font-weight: normal;
         font-style: italic;
     }
+
+/* Hidden copies of the playbook lock are structural proxies for sibling selectors.
+   They share attr_lock_playbook with the visible lock and must remain in the DOM. */
+.charsheet .sheet-lock-proxy {
+    display: none;
+}
 
 /* all the playbook selection wizardry */
     .sheet-beacon,
@@ -1167,7 +2421,7 @@ label.sheet-attr {
         width: 189px;
         height: 189px;
         padding: 2px;
-        background: url(http://i.imgur.com/EkH4alD.png) top left;
+        background: url(https://i.imgur.com/EkH4alD.png) top left;
         background-size: 189px 189px;
         background-repeat: no-repeat;
         border-spacing: 0;
@@ -1247,3 +2501,1522 @@ label.sheet-attr {
     .sheet-rolltemplate-aw .sheet-failure .inlinerollresult.importantroll{
         color: #B31515;
     }
+    
+    /* reusable playbook panel frame */
+.sheet-panel-frame {
+    position: relative;
+    box-sizing: border-box;
+
+    /* space between independent panels */
+    margin-bottom: 10px;
+
+    /* keep large legacy inputs from overflowing narrow columns */
+    padding: 4px;
+
+    background-color: #f7f7f5;
+
+    background-image:
+        url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Top-Left%20Corner.png'), /* top-left */
+        url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Top-Right%20Corner.png'), /* top-right */
+        url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Bottom-Left%20Corner.png'), /* bottom-left */
+        url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Bottom-Right%20Corner.png'), /* bottom-right */
+        url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Top-Edge.png'), /* top edge */
+        url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Bottom-Edge.png'), /* bottom edge */
+        url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Left-Edge.png'), /* left edge */
+        url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Right-Edge.png'), /* right edge */
+        url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/MHA%20Character%20Sheet%20BG.png'); /* halftone */
+
+    background-position:
+        left top,
+        right top,
+        left bottom,
+        right bottom,
+        left top,
+        left bottom,
+        left top,
+        right top,
+        left top;
+
+    background-repeat:
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        repeat-x,
+        repeat-x,
+        repeat-y,
+        repeat-y,
+        repeat;
+
+    background-size:
+        16px 16px,
+        16px 16px,
+        16px 16px,
+        16px 16px,
+        16px 16px,
+        16px 16px,
+        16px 16px,
+        16px 16px,
+        auto;
+}
+
+/* Potential already looked good with the roomier inset. */
+.sheet-box.sheet-panel-frame {
+    padding: 16px;
+}
+
+/* =========================================================
+   TYPOGRAPHY + COMPACT ROLL CONTROLS
+   ========================================================= */
+
+/* Primary body/UI face. Fjalla One is a single-weight face,
+   so keep ordinary utility copy at its native 400 weight. */
+.charsheet .sheet-maindiv {
+    font-family: 'Fjalla One', Arial, sans-serif;
+    font-weight: 400;
+}
+
+.charsheet .sheet-maindiv input,
+.charsheet .sheet-maindiv textarea,
+.charsheet .sheet-maindiv select,
+.charsheet .sheet-maindiv button {
+    font-family: 'Fjalla One', Arial, sans-serif;
+}
+
+/* Heavy mechanical names. */
+.charsheet .sheet-maindiv label.sheet-name,
+.charsheet .sheet-maindiv label.sheet-conditionname {
+    font-family: 'Black Han Sans', Arial, sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+/* Label names themselves are now the roll buttons. */
+.charsheet .sheet-maindiv button.sheet-label-roll,
+.charsheet .sheet-maindiv button.sheet-condition-roll {
+    float: none;
+    border: 0;
+    background: transparent;
+    background-image: none;
+    box-shadow: none;
+    text-shadow: none;
+    padding: 0;
+    margin: 0;
+    height: auto;
+    min-height: 0;
+    line-height: 1.05em;
+    font-family: 'Black Han Sans', Arial, sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Roll20 normally injects the little d20 glyph before roll buttons. */
+.charsheet .sheet-maindiv button.sheet-label-roll::before,
+.charsheet .sheet-maindiv button.sheet-condition-roll::before {
+    content: "" !important;
+    display: none !important;
+}
+
+.charsheet .sheet-maindiv button.sheet-label-roll {
+    font-size: 1.5em;
+}
+
+.charsheet .sheet-maindiv button.sheet-reject-roll {
+    font-size: 1.15em;
+}
+
+.charsheet .sheet-maindiv button.sheet-condition-roll {
+    font-size: 1.25em;
+}
+
+.charsheet .sheet-maindiv button.sheet-label-roll:hover,
+.charsheet .sheet-maindiv button.sheet-condition-roll:hover {
+    text-decoration: underline;
+}
+
+/* Keep the Label controls in one clean right-hand column. */
+.charsheet .sheet-labels-panel .sheet-attr-box {
+    position: relative;
+}
+
+.charsheet .sheet-labels-panel .sheet-attr-box > .sheet-labellock {
+    position: absolute;
+    right: 58px;
+    top: 3px;
+    margin: 0;
+}
+
+.charsheet .sheet-labels-panel .sheet-attr-box > .sheet-statline,
+.charsheet .sheet-labels-panel .sheet-attr-box > .sheet-locked {
+    position: absolute;
+    right: 2px;
+    top: 0;
+    margin: 0;
+}
+
+.charsheet .sheet-labels-panel .sheet-attr-box > .sheet-statline input[type=number],
+.charsheet .sheet-labels-panel .sheet-attr-box > .sheet-locked input[type=number] {
+    margin-right: 0;
+}
+
+/* Conditions total sits flush right beside its clickable header. */
+.charsheet .sheet-conditions-panel .sheet-normal-conditions .sheet-attr-box,
+.charsheet .sheet-conditions-panel .sheet-damaged-conditions .sheet-attr-box {
+    position: relative;
+    min-height: 52px;
+}
+
+.charsheet .sheet-conditions-panel .sheet-normal-conditions input[name="attr_conditiontotal"],
+.charsheet .sheet-conditions-panel .sheet-damaged-conditions input[name="attr_conditiontotal"] {
+    position: absolute;
+    right: 4px;
+    top: 0;
+    margin: 0;
+}
+
+/* Fjalla's synthetic bold looks muddy at these small sizes. */
+.charsheet .sheet-roll-box .sheet-clearconditions {
+    font-weight: 400;
+}
+
+/* Center-column utility labels should all render identically. */
+.charsheet .sheet-activehide,
+.charsheet .sheet-passivehide,
+.charsheet .sheet-teammovehide,
+.charsheet .sheet-momentunlock {
+    font-family: 'Fjalla One', Arial, sans-serif;
+    font-size: 0.9em;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.charsheet .sheet-notetagline {
+    font-family: 'Fjalla One', Arial, sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+
+/* Keep Protege / Mentor controls inside the framed side panel. */
+.charsheet .sheet-protege input[type="text"],
+.charsheet .sheet-protege textarea {
+    width: calc(100% - 10px);
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.charsheet .sheet-protege select {
+    max-width: calc(100% - 10px);
+    box-sizing: border-box;
+}
+
+/* =========================================================
+   TYPOGRAPHY / ALIGNMENT CLEANUP - PASS 2
+   ========================================================= */
+
+/* Match CONDITIONS to the primary Label roll controls. */
+.charsheet .sheet-maindiv button.sheet-condition-roll {
+    font-size: 1.5em;
+}
+
+/* Treat the Label total as a mechanical heading, not body copy. */
+.charsheet .sheet-labels-panel .sheet-netlabels {
+    font-family: 'Black Han Sans', Arial, sans-serif;
+    font-size: 1em;
+    font-style: normal;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-left: 10px;
+    margin-right: 16px;
+}
+
+/* Put Sum of 5/6 Labels on the same right-hand numeric axis as the Labels. */
+.charsheet .sheet-labels-panel .sheet-normal-sumoflabels .sheet-attr-box,
+.charsheet .sheet-labels-panel .sheet-soldier-sumoflabels .sheet-attr-box {
+    position: relative;
+    min-height: 52px;
+}
+
+.charsheet .sheet-labels-panel .sheet-normal-sumoflabels input[name="attr_labeltotal"],
+.charsheet .sheet-labels-panel .sheet-soldier-sumoflabels input[name="attr_labeltotal"] {
+    position: absolute;
+    right: 2px;
+    top: 0;
+    margin: 0;
+}
+
+/* Give all four center-column utility controls the same starting indent.
+   Unlock remains semantically different; only its placement is normalized. */
+.charsheet .sheet-activehide,
+.charsheet .sheet-passivehide,
+.charsheet .sheet-teammovehide,
+.charsheet .sheet-momentunlock {
+    padding-left: 66px;
+    line-height: 1.1em;
+}
+
+/* =========================================================
+   HANGING SIDE TABS
+   ========================================================= */
+
+.sheet-side-tab {
+    position: absolute;
+    width: 41px;
+    z-index: 10;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* LEFT-SIDE TAB CAPS */
+
+/* Visual top uses the asset you labeled Bottom */
+.sheet-side-tab-top {
+    width: 41px;
+    height: 27px;
+
+    background: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Tab/Tab%20Bottom.png') no-repeat center;
+    background-size: 41px 27px;
+
+    transform: rotate(180deg);
+}
+
+/* Flexible repeating middle */
+.sheet-side-tab-center {
+    width: 41px;
+    flex: 1;
+    min-height: 27px;
+
+    background: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Tab/Tab%20Center.png') repeat-y center top;
+    background-size: 41px 27px;
+
+    transform: rotate(180deg);
+}
+
+/* Visual bottom uses the asset you labeled Top */
+.sheet-side-tab-bottom {
+    width: 41px;
+    height: 27px;
+
+    background: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Tab/Tab%20Top.png') no-repeat center;
+    background-size: 41px 27px;
+
+    transform: rotate(180deg);
+}
+
+
+/* LABELS TAB TEST */
+
+.sheet-labels-side-tab {
+    left: -38px;
+    top: 70px;
+    height: 170px;
+}
+
+.sheet-labels-side-tab .sheet-side-tab-text {
+    position: absolute;
+    left: 55%;
+    top: 50%;
+
+    width: 156px;
+    height: 51px;
+    max-width: none !important;
+    max-height: none !important;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(-90deg)
+        scale(0.60);
+
+    transform-origin: center;
+}
+
+.sheet-side-tab-underline {
+    position: absolute;
+    top: 27px;
+    right: 0px;
+    bottom: 28px;
+
+    width: 3px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    z-index: 11;
+}
+
+.sheet-side-tab-underline-flourish {
+    width: 29px;
+    height: 3px;
+
+    background: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Underline/Underline%20Right.png') no-repeat center;
+    background-size: 29px 3px;
+
+    transform: rotate(-90deg);
+    transform-origin: center;
+
+    flex: 0 0 29px;
+}
+
+.sheet-side-tab-underline-main {
+    width: 3px;
+    flex: 1;
+
+    background: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Underline/Underline.png') repeat-y center top;
+    background-size: 3px 29px;
+}
+
+
+/* =========================================================
+   GRAPHIC HEADER SYSTEM - V4
+   Uses the finalized Labels tab as the master pattern.
+   ========================================================= */
+
+/* Keep old horizontal title-image rules from resurfacing where converted. */
+.charsheet .sheet-maindiv .sheet-section-title-labels {
+    display: none !important;
+}
+
+/* Logical split groups preserve the playbook visibility wrapper while allowing
+   formerly-conjoined sections to have independent frames. */
+.charsheet .sheet-split-group {
+    background: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.charsheet .sheet-split-group > .sheet-section-panel {
+    margin-bottom: 10px;
+}
+
+/* ---------- Horizontal / center headers ---------- */
+.charsheet .sheet-center-graphic-header {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 57px;
+    padding: 6px 8px 5px 8px;
+    text-align: center;
+}
+
+.charsheet .sheet-center-header-inner {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: stretch;
+    max-width: calc(100% - 8px);
+}
+
+.charsheet .sheet-graphic-header-text {
+    display: block;
+    width: auto !important;
+    height: auto !important;
+    max-width: 100% !important;
+    max-height: 42px !important;
+    margin: 0 auto;
+}
+
+.charsheet .sheet-center-header-underline {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 3px;
+    margin-top: 2px;
+}
+
+.charsheet .sheet-center-header-underline-main {
+    height: 3px;
+    flex: 1;
+    background: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Underline/Underline.png') repeat-x left center;
+    background-size: 29px 3px;
+}
+
+.charsheet .sheet-center-header-underline-flourish {
+    width: 29px;
+    height: 3px;
+    flex: 0 0 29px;
+    background: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Underline/Underline%20Right.png') no-repeat right center;
+    background-size: 29px 3px;
+}
+
+/* Small left-column center headers do not need the full legacy 57px breathing room. */
+.charsheet .sheet-potential-graphic-header,
+.charsheet .sheet-advancements-graphic-header {
+    min-height: 48px;
+    padding-top: 5px;
+    padding-bottom: 3px;
+}
+
+/* ---------- Shared side-tab geometry ---------- */
+.charsheet .sheet-side-tab {
+    position: absolute;
+    width: 41px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+}
+
+.charsheet .sheet-tab-short { height: 150px; }
+.charsheet .sheet-tab-medium { height: 175px; }
+.charsheet .sheet-tab-long { height: 215px; }
+
+/* Left-facing tabs: same inversion as the finalized Labels master. */
+.charsheet .sheet-left-side-tab {
+    left: -38px;
+    top: 20px;
+}
+
+.charsheet .sheet-left-side-tab .sheet-side-tab-top {
+    width: 41px;
+    height: 27px;
+    background: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Tab/Tab%20Bottom.png') no-repeat center;
+    background-size: 41px 27px;
+    transform: rotate(180deg);
+}
+
+.charsheet .sheet-left-side-tab .sheet-side-tab-center {
+    width: 41px;
+    flex: 1;
+    min-height: 27px;
+    background: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Tab/Tab%20Center.png') repeat-y center top;
+    background-size: 41px 27px;
+    transform: rotate(180deg);
+}
+
+.charsheet .sheet-left-side-tab .sheet-side-tab-bottom {
+    width: 41px;
+    height: 27px;
+    background: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Tab/Tab%20Top.png') no-repeat center;
+    background-size: 41px 27px;
+    transform: rotate(180deg);
+}
+
+/* Right-facing tabs: original cap orientation, no inversion. */
+.charsheet .sheet-right-side-tab {
+    right: -38px;
+    top: 20px;
+}
+
+.charsheet .sheet-right-side-tab .sheet-side-tab-top {
+    width: 41px;
+    height: 27px;
+    background: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Tab/Tab%20Top.png') no-repeat center;
+    background-size: 41px 27px;
+    transform: none;
+}
+
+.charsheet .sheet-right-side-tab .sheet-side-tab-center {
+    width: 41px;
+    flex: 1;
+    min-height: 27px;
+    background: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Tab/Tab%20Center.png') repeat-y center top;
+    background-size: 41px 27px;
+    transform: none;
+}
+
+.charsheet .sheet-right-side-tab .sheet-side-tab-bottom {
+    width: 41px;
+    height: 27px;
+    background: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Tab/Tab%20Bottom.png') no-repeat center;
+    background-size: 41px 27px;
+    transform: none;
+}
+
+/* Side-label images all share a ~51px native height. Scaling the complete image
+   preserves the different word lengths while matching Labels' visual thickness. */
+.charsheet .sheet-left-side-tab .sheet-side-tab-text,
+.charsheet .sheet-right-side-tab .sheet-side-tab-text {
+    position: absolute;
+    left: 55%;
+    top: 50%;
+    width: auto !important;
+    height: 51px !important;
+    max-width: none !important;
+    max-height: none !important;
+    transform-origin: center;
+}
+
+.charsheet .sheet-left-side-tab .sheet-side-tab-text {
+    transform: translate(-50%, -50%) rotate(-90deg) scale(0.60);
+}
+
+.charsheet .sheet-right-side-tab .sheet-side-tab-text {
+    transform: translate(-50%, -50%) rotate(90deg) scale(0.60);
+}
+
+/* Side-tab underline: inner edge of the tab. */
+.charsheet .sheet-left-side-tab .sheet-side-tab-underline,
+.charsheet .sheet-right-side-tab .sheet-side-tab-underline {
+    position: absolute;
+    top: 27px;
+    bottom: 28px;
+    width: 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 11;
+}
+
+.charsheet .sheet-left-side-tab .sheet-side-tab-underline { right: 0; }
+.charsheet .sheet-right-side-tab .sheet-side-tab-underline { left: 0; }
+
+.charsheet .sheet-side-tab-underline-main {
+    width: 3px;
+    flex: 1;
+    background: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Underline/Underline.png') repeat-y center top;
+    background-size: 3px 29px;
+}
+
+.charsheet .sheet-side-tab-underline-flourish {
+    width: 29px;
+    height: 3px;
+    flex: 0 0 29px;
+    background: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Underline/Underline%20Right.png') no-repeat center;
+    background-size: 29px 3px;
+    transform-origin: center;
+}
+
+/* Left flourish points at the visual top; right flourish is inverted to the bottom. */
+.charsheet .sheet-left-side-tab .sheet-side-tab-underline-flourish {
+    transform: rotate(-90deg);
+}
+
+.charsheet .sheet-right-side-tab .sheet-side-tab-underline-flourish {
+    transform: rotate(90deg);
+}
+
+/* Preserve the hand-tuned Labels master exactly. */
+.charsheet .sheet-labels-side-tab {
+    left: -38px;
+    top: 70px;
+    height: 170px;
+}
+
+.charsheet .sheet-labels-side-tab .sheet-side-tab-text {
+    position: absolute;
+    left: 55%;
+    top: 50%;
+    width: 156px !important;
+    height: 51px !important;
+    max-width: none !important;
+    max-height: none !important;
+    transform: translate(-50%, -50%) rotate(-90deg) scale(0.60);
+    transform-origin: center;
+}
+
+.charsheet .sheet-labels-side-tab .sheet-side-tab-underline {
+    top: 27px;
+    right: 0;
+    bottom: 28px;
+    left: auto;
+}
+
+/* ---------- Right-column overflow cleanup ---------- */
+.charsheet .sheet-right-column .sheet-panel-frame input[type="text"],
+.charsheet .sheet-right-column .sheet-panel-frame textarea,
+.charsheet .sheet-right-column .sheet-panel-frame select {
+    max-width: calc(100% - 10px) !important;
+    box-sizing: border-box;
+}
+
+.charsheet .sheet-right-column .sheet-panel-frame textarea {
+    width: calc(100% - 10px) !important;
+}
+
+/* Ensure side tabs can hang into the gutters. */
+.charsheet .sheet-panel-frame,
+.charsheet .sheet-section-panel {
+    overflow: visible;
+}
+
+
+/* Influence uses the left-tab master but starts near the top of its tracker panel. */
+.charsheet .sheet-influence-panel > .sheet-influence-side-tab {
+    top: 20px;
+    left: -38px;
+    height: 175px;
+}
+
+/* =========================================================
+   GRAPHIC HEADER SYSTEM - V5 POLISH
+   - Center headers use Labels' visual text height (~31px)
+   - Standard center headers left-align; Potential/Advancements stay centered
+   - Side-header panels regain top breathing room
+   - Right-side tab text mirrors the finalized Labels alignment
+   - Side tabs get more length where the panel allows it
+   ========================================================= */
+
+/* ---------- Center header size + alignment ---------- */
+.charsheet .sheet-center-graphic-header {
+    min-height: 43px;
+    padding: 4px 8px 3px 8px;
+    text-align: left;
+}
+
+.charsheet .sheet-center-header-inner {
+    max-width: calc(100% - 8px);
+}
+
+/* Labels is 51px high at a 0.60 scale: 30.6px visual height.
+   Use 31px as the common horizontal-header text height. */
+.charsheet .sheet-center-graphic-header .sheet-graphic-header-text {
+    width: auto !important;
+    height: 31px !important;
+    max-width: 100% !important;
+    max-height: 31px !important;
+    margin-left: 0;
+    margin-right: 0;
+    object-fit: contain;
+}
+
+/* Potential and Advancements remain centered, but use the same height rule. */
+.charsheet .sheet-potential-graphic-header,
+.charsheet .sheet-advancements-graphic-header {
+    min-height: 43px;
+    padding: 4px 8px 3px 8px;
+    text-align: center;
+}
+
+.charsheet .sheet-potential-graphic-header .sheet-center-header-inner,
+.charsheet .sheet-advancements-graphic-header .sheet-center-header-inner {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ---------- Restore breathing room where a top header was replaced by a side tab ---------- */
+.charsheet .sheet-labels-panel,
+.charsheet .sheet-influence-panel,
+.charsheet .sheet-right-column .sheet-panel-frame,
+.charsheet .sheet-right-column .sheet-section-panel {
+    padding-top: 9px;
+}
+
+/* ---------- Side-tab length refinement ---------- */
+.charsheet .sheet-tab-short { height: 170px; }
+.charsheet .sheet-tab-medium { height: 195px; }
+.charsheet .sheet-tab-long { height: 230px; }
+
+/* Local length adjustments for graphic labels that need a little more room. */
+.charsheet .sheet-bullheart-side-tab { height: 205px; }
+.charsheet .sheet-highercalling-side-tab { height: 240px; }
+
+/* Influence is intentionally kept tighter because its panel has limited room. */
+.charsheet .sheet-influence-panel > .sheet-influence-side-tab {
+    height: 175px;
+}
+
+/* Right-side tabs mirror Labels: move the lettering toward the inner underline. */
+.charsheet .sheet-right-side-tab .sheet-side-tab-text {
+    left: 45%;
+}
+
+
+/* =========================================================
+   GRAPHIC HEADER SYSTEM - V6 POLISH
+   - Replace two faint legacy HR dividers with the graphic underline language
+   - Nemesis is now a center header because its panel is too short for a side tab
+   ========================================================= */
+
+/* Standalone section divider: same visual language as center-header underline. */
+.charsheet .sheet-graphic-divider {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: calc(100% - 20px);
+    height: 3px;
+    margin: 5px 10px 6px 10px;
+}
+
+.charsheet .sheet-graphic-divider-main {
+    height: 3px;
+    flex: 1;
+    background: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Underline/Underline.png') repeat-x left center;
+    background-size: 29px 3px;
+}
+
+.charsheet .sheet-graphic-divider-flourish {
+    width: 29px;
+    height: 3px;
+    flex: 0 0 29px;
+    background: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Underline/Underline%20Right.png') no-repeat right center;
+    background-size: 29px 3px;
+}
+
+/* Nemesis uses the standard left-justified center-header treatment. */
+.charsheet .sheet-nemesis-graphic-header {
+    text-align: left;
+}
+
+/* =========================================================
+   CHARACTER INFO PAGE
+   Reuses the Playbook panel-frame and side-tab systems.
+   ========================================================= */
+
+.charsheet .sheet-character-info-page {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 0 18px 0;
+}
+
+.charsheet .sheet-character-info-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 18px;
+    width: 100%;
+    box-sizing: border-box;
+    align-items: start;
+    margin-bottom: 18px;
+}
+
+.charsheet .sheet-character-info-panel {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 18px;
+    padding: 16px 18px 18px 18px;
+    overflow: visible;
+}
+
+.charsheet .sheet-character-info-row .sheet-character-info-panel {
+    margin-bottom: 0;
+}
+
+/* Character page side tabs: use the existing Playbook tab construction,
+   with only local positioning/length adjustments here. */
+.charsheet .sheet-character-basics-side-tab {
+    top: 24px;
+    left: -38px;
+    height: 155px;
+}
+
+.charsheet .sheet-character-aspirations-side-tab {
+    top: 22px;
+    right: -38px;
+    height: 210px;
+}
+
+.charsheet .sheet-character-appearance-side-tab {
+    top: 48px;
+    left: -38px;
+    height: 220px;
+}
+
+.charsheet .sheet-character-relationships-side-tab {
+    top: 26px;
+    left: -38px;
+    height: 230px;
+}
+
+.charsheet .sheet-character-life-side-tab {
+    top: 25px;
+    right: -38px;
+    height: 155px;
+}
+
+/* ---------- BASIC FIELDS ---------- */
+.charsheet .sheet-character-field-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(110px, 0.48fr);
+    gap: 9px 12px;
+    width: 100%;
+}
+
+.charsheet .sheet-character-field,
+.charsheet .sheet-character-question,
+.charsheet .sheet-appearance-url-field,
+.charsheet .sheet-relationship-name-field,
+.charsheet .sheet-relationship-role-field {
+    display: block;
+    width: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+}
+
+.charsheet .sheet-character-field-wide {
+    grid-column: 1 / -1;
+}
+
+/* Short form labels get the heavier comic face. */
+.charsheet .sheet-character-field-label {
+    display: block;
+    width: auto;
+    margin: 0 0 3px 0;
+    font-family: 'Black Han Sans', Impact, sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1.1;
+    color: #333;
+}
+
+/* Longer questionnaire prompts stay in Fjalla for readability. */
+.charsheet .sheet-character-question-label {
+    display: block;
+    width: auto;
+    margin: 0 0 3px 0;
+    font-family: 'Fjalla One', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.15;
+    color: #333;
+}
+
+.charsheet .sheet-character-info-page input[type="text"],
+.charsheet .sheet-character-info-page input[type="number"],
+.charsheet .sheet-character-info-page select,
+.charsheet .sheet-character-info-page textarea {
+    width: 100% !important;
+    max-width: none !important;
+    box-sizing: border-box;
+    margin: 0;
+    border: 1px solid #b9b9b9;
+    background: rgba(255,255,255,0.72);
+    color: #222;
+    font-family: 'Fjalla One', Arial, sans-serif;
+}
+
+.charsheet .sheet-character-info-page input[type="text"],
+.charsheet .sheet-character-info-page input[type="number"],
+.charsheet .sheet-character-info-page select {
+    height: 31px;
+    padding: 4px 7px;
+}
+
+.charsheet .sheet-character-info-page textarea {
+    min-height: 62px;
+    padding: 6px 7px;
+    resize: vertical;
+    overflow-y: auto;
+}
+
+.charsheet .sheet-character-question {
+    margin-bottom: 9px !important;
+}
+
+.charsheet .sheet-character-question:last-child {
+    margin-bottom: 0 !important;
+}
+
+.charsheet .sheet-character-panel-intro {
+    margin: 0 0 10px 0;
+    font-size: 13px;
+    line-height: 1.25;
+}
+
+/* One-line questionnaire answers that can expand to roughly five lines.
+   field-sizing is progressive enhancement in modern Chromium; resize:vertical
+   remains available if the browser does not support automatic content sizing. */
+.charsheet .sheet-character-grow-textarea {
+    field-sizing: content;
+    min-height: 30px !important;
+    height: auto;
+    max-height: 112px;
+    line-height: 1.25;
+    resize: vertical;
+    overflow-y: auto;
+}
+
+/* ---------- BASICS ---------- */
+.charsheet .sheet-basics-panel {
+    padding-top: 18px;
+}
+
+.charsheet .sheet-character-playbook-select {
+    font-weight: 700;
+}
+
+/* ---------- ASPIRATIONS: intentionally compact ---------- */
+.charsheet .sheet-aspirations-panel {
+    padding-top: 18px;
+    padding-bottom: 14px;
+}
+
+.charsheet .sheet-aspirations-panel .sheet-character-question {
+    margin-bottom: 8px !important;
+}
+
+/* ---------- APPEARANCE: full-width visual centerpiece ---------- */
+.charsheet .sheet-appearance-panel {
+    min-height: 390px;
+    margin-bottom: 18px;
+    padding: 18px 18px 5px 18px;
+}
+
+.charsheet .sheet-appearance-layout {
+    display: grid;
+    grid-template-columns: minmax(190px, 0.9fr) minmax(280px, 1.35fr) minmax(190px, 0.9fr);
+    gap: 20px;
+    align-items: stretch;
+    width: 100%;
+    min-height: 350px;
+}
+
+.charsheet .sheet-appearance-portrait-column {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 0;
+}
+
+.charsheet .sheet-appearance-description-column {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding-top: 4px;
+}
+
+/* Portraits are intentionally unboxed; the divider below provides the visual anchor. */
+.charsheet .sheet-appearance-portrait-frame {
+    position: relative;
+    flex: 1 1 auto;
+    width: 100%;
+    min-height: 300px;
+    box-sizing: border-box;
+    overflow: hidden;
+    background: transparent;
+}
+
+.charsheet .sheet-character-portrait {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: contain;
+    background: transparent;
+}
+
+.charsheet .sheet-appearance-portrait-placeholder {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fjalla One', Arial, sans-serif;
+    font-size: 18px;
+    color: #999;
+    pointer-events: none;
+}
+
+.charsheet .sheet-portrait-url-divider {
+    flex: 0 0 auto;
+    margin: 5px 4% 4px 4%;
+}
+
+.charsheet .sheet-appearance-url-field {
+    width: 86% !important;
+    margin: auto auto 0 auto !important;
+    flex: 0 0 auto;
+}
+
+.charsheet .sheet-appearance-url-field input[type="text"] {
+    height: 26px;
+    padding: 3px 6px;
+    font-size: 11px;
+    text-align: center;
+}
+
+.charsheet .sheet-appearance-question textarea {
+    min-height: 108px;
+}
+
+.charsheet .sheet-appearance-detail-question {
+    margin: 7px 0 10px 0 !important;
+}
+
+.charsheet .sheet-appearance-detail-question input[type="text"] {
+    height: 31px;
+}
+
+.charsheet .sheet-appearance-divider {
+    margin: 9px 0 11px 0;
+}
+
+/* ---------- RELATIONSHIPS: Roll20 repeating section ---------- */
+.charsheet .sheet-relationships-panel {
+    min-height: 270px;
+}
+
+.charsheet .sheet-relationships-panel .repcontainer {
+    margin: 0;
+}
+
+.charsheet .sheet-relationships-panel .repitem {
+    margin-bottom: 9px;
+}
+
+.charsheet .sheet-relationship-entry {
+    padding: 9px;
+    box-sizing: border-box;
+    border: 2px solid rgba(34,34,34,0.72);
+    background: rgba(255,255,255,0.26);
+}
+
+.charsheet .sheet-relationship-entry-topline {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.charsheet .sheet-relationship-notes-field textarea {
+    min-height: 62px;
+}
+
+.charsheet .sheet-relationships-panel .repcontrol {
+    margin-top: 7px;
+}
+
+.charsheet .sheet-relationships-panel .repcontrol button {
+    font-family: 'Fjalla One', Arial, sans-serif;
+}
+
+/* ---------- LIFE: compact, expandable answers ---------- */
+.charsheet .sheet-life-panel {
+    padding-top: 18px;
+    padding-bottom: 14px;
+}
+
+.charsheet .sheet-life-panel .sheet-character-question {
+    margin-bottom: 8px !important;
+}
+
+/* Keep paired rows usable if Roll20 renders the sheet unusually narrow. */
+@media (max-width: 760px) {
+    .charsheet .sheet-character-info-row {
+        grid-template-columns: 1fr;
+    }
+
+    .charsheet .sheet-appearance-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .charsheet .sheet-appearance-portrait-frame {
+        min-height: 300px;
+    }
+}
+
+
+
+/* =========================================================
+   QUIRK INFO PAGE
+   Reuses the same panel-frame and side-tab language as Character Info.
+   ========================================================= */
+
+.charsheet .sheet-quirk-info-page {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 0 18px 0;
+}
+
+.charsheet .sheet-quirk-info-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 18px;
+    width: 100%;
+    box-sizing: border-box;
+    align-items: start;
+    margin-bottom: 18px;
+}
+
+.charsheet .sheet-quirk-info-panel {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 18px;
+    padding: 18px;
+    overflow: visible;
+}
+
+.charsheet .sheet-quirk-info-row .sheet-quirk-info-panel {
+    margin-bottom: 0;
+}
+
+/* Fixed side-tab sizes. These do not grow with repeating content. */
+.charsheet .sheet-quirk-data-side-tab {
+    top: 22px;
+    left: -38px;
+    height: 135px;
+}
+
+.charsheet .sheet-quirk-strengths-side-tab {
+    top: 28px;
+    left: -38px;
+    height: 185px;
+}
+
+.charsheet .sheet-quirk-weaknesses-side-tab {
+    top: 28px;
+    right: -38px;
+    height: 210px;
+}
+
+.charsheet .sheet-quirk-ultimate-side-tab {
+    top: 32px;
+    left: -38px;
+    height: 265px;
+}
+
+.charsheet .sheet-quirk-development-side-tab {
+    top: 28px;
+    right: -38px;
+    height: 225px;
+}
+
+/* ---------- SHARED QUIRK FIELDS ---------- */
+.charsheet .sheet-quirk-field,
+.charsheet .sheet-quirk-question,
+.charsheet .sheet-ultimate-move-name-field,
+.charsheet .sheet-ultimate-move-associated-field,
+.charsheet .sheet-ultimate-move-level-field,
+.charsheet .sheet-ultimate-move-other-field {
+    display: block;
+    width: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+}
+
+.charsheet .sheet-quirk-field-label {
+    display: block;
+    width: auto;
+    margin: 0 0 3px 0;
+    font-family: 'Black Han Sans', Impact, sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1.1;
+    color: #333;
+}
+
+.charsheet .sheet-quirk-question-label {
+    display: block;
+    width: auto;
+    margin: 0 0 3px 0;
+    font-family: 'Fjalla One', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.15;
+    color: #333;
+}
+
+.charsheet .sheet-quirk-info-page input[type="text"],
+.charsheet .sheet-quirk-info-page input[type="number"],
+.charsheet .sheet-quirk-info-page select,
+.charsheet .sheet-quirk-info-page textarea {
+    width: 100% !important;
+    max-width: none !important;
+    box-sizing: border-box;
+    margin: 0;
+    border: 1px solid #b9b9b9;
+    background: rgba(255,255,255,0.72);
+    color: #222;
+    font-family: 'Fjalla One', Arial, sans-serif;
+}
+
+.charsheet .sheet-quirk-info-page input[type="text"],
+.charsheet .sheet-quirk-info-page input[type="number"],
+.charsheet .sheet-quirk-info-page select {
+    height: 31px;
+    padding: 4px 7px;
+}
+
+.charsheet .sheet-quirk-info-page textarea {
+    min-height: 62px;
+    padding: 6px 7px;
+    resize: vertical;
+    overflow-y: auto;
+}
+
+.charsheet .sheet-quirk-question {
+    margin-bottom: 9px !important;
+}
+
+.charsheet .sheet-quirk-question:last-child {
+    margin-bottom: 0 !important;
+}
+
+.charsheet .sheet-quirk-grow-textarea {
+    field-sizing: content;
+    min-height: 30px !important;
+    height: auto;
+    max-height: 112px;
+    line-height: 1.25;
+    resize: vertical;
+    overflow-y: auto;
+}
+
+.charsheet .sheet-quirk-panel-intro {
+    margin: 0 0 12px 0;
+    font-family: 'Fjalla One', Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.3;
+}
+
+/* ---------- DATA ---------- */
+.charsheet .sheet-quirk-data-panel {
+    padding-top: 18px;
+}
+
+.charsheet .sheet-quirk-data-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 9px 12px;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.charsheet .sheet-quirk-data-description {
+    margin-bottom: 0 !important;
+}
+
+.charsheet .sheet-quirk-data-description textarea {
+    min-height: 88px;
+}
+
+/* ---------- STRENGTHS + WEAKNESSES ---------- */
+.charsheet .sheet-quirk-strengths-panel,
+.charsheet .sheet-quirk-weaknesses-panel {
+    min-height: 315px;
+}
+
+.charsheet .sheet-quirk-major-question textarea {
+    min-height: 105px;
+}
+
+/* ---------- ULTIMATE MOVES ---------- */
+.charsheet .sheet-quirk-ultimate-panel {
+    min-height: 345px;
+}
+
+.charsheet .sheet-quirk-ultimate-intro {
+    max-width: 94%;
+}
+
+.charsheet .sheet-quirk-ultimate-panel .repcontainer {
+    margin: 0;
+}
+
+.charsheet .sheet-quirk-ultimate-panel .repitem {
+    margin-bottom: 10px;
+}
+
+.charsheet .sheet-ultimate-move-entry {
+    padding: 10px;
+    box-sizing: border-box;
+    border: 2px solid rgba(34,34,34,0.72);
+    background: rgba(255,255,255,0.26);
+}
+
+.charsheet .sheet-ultimate-move-topline {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.25fr) 82px;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.charsheet .sheet-ultimate-move-other-field {
+    margin-bottom: 8px !important;
+}
+
+.charsheet .sheet-ultimate-move-description-field textarea {
+    min-height: 68px;
+}
+
+.charsheet .sheet-quirk-ultimate-panel .repcontrol {
+    margin-top: 7px;
+}
+
+.charsheet .sheet-quirk-ultimate-panel .repcontrol button {
+    font-family: 'Fjalla One', Arial, sans-serif;
+}
+
+/* ---------- DEVELOPMENT ---------- */
+.charsheet .sheet-quirk-development-panel {
+    padding-top: 18px;
+    padding-bottom: 14px;
+}
+
+.charsheet .sheet-quirk-development-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 12px 18px;
+}
+
+.charsheet .sheet-quirk-development-grid .sheet-quirk-question {
+    margin-bottom: 0 !important;
+}
+
+/* Development answers are intentionally roomier than the shared
+   auto-growing questionnaire fields. */
+.charsheet .sheet-quirk-development-grid .sheet-quirk-grow-textarea {
+    min-height: 130px !important;
+    max-height: 220px;
+}
+
+@media (max-width: 760px) {
+    .charsheet .sheet-quirk-info-row,
+    .charsheet .sheet-quirk-development-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .charsheet .sheet-quirk-data-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    .charsheet .sheet-ultimate-move-topline {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================================
+   FAVORITE COLOR THEMING
+   Legacy Roll20 implementation.
+
+   attr_theme_color is represented by hidden radio inputs before .sheet-maindiv.
+   The sheet worker copies Favorite Color into that attribute. Roll20 checks the
+   matching bound radio, allowing reliable :checked sibling selectors.
+
+   Default / unselected: blue background + original black underlines.
+   Black: black background + original black underlines.
+   Other colors: matching background + matching underline assets.
+   ========================================================= */
+
+.charsheet .sheet-theme-color-blue:checked ~ .sheet-maindiv {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Favorite%20Color/background/MHA%20background%20%28blue%29.png') !important;
+}
+
+.charsheet .sheet-theme-color-green:checked ~ .sheet-maindiv {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Favorite%20Color/background/MHA%20background%20%28green%29.png') !important;
+}
+
+.charsheet .sheet-theme-color-orange:checked ~ .sheet-maindiv {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Favorite%20Color/background/MHA%20background%20%28orange%29.png') !important;
+}
+
+.charsheet .sheet-theme-color-pink:checked ~ .sheet-maindiv {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Favorite%20Color/background/MHA%20background%20%28pink%29.png') !important;
+}
+
+.charsheet .sheet-theme-color-purple:checked ~ .sheet-maindiv {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Favorite%20Color/background/MHA%20background%20%28purple%29.png') !important;
+}
+
+.charsheet .sheet-theme-color-red:checked ~ .sheet-maindiv {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Favorite%20Color/background/MHA%20background%20%28red%29.png') !important;
+}
+
+.charsheet .sheet-theme-color-white:checked ~ .sheet-maindiv {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Favorite%20Color/background/MHA%20background%20%28white%29.png') !important;
+}
+
+.charsheet .sheet-theme-color-yellow:checked ~ .sheet-maindiv {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Favorite%20Color/background/MHA%20background%20%28yellow%29.png') !important;
+}
+
+.charsheet .sheet-theme-color-black:checked ~ .sheet-maindiv {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Favorite%20Color/background/MHA%20background%20%28black%29.png') !important;
+}
+
+.charsheet .sheet-theme-color-blue:checked ~ .sheet-maindiv .sheet-side-tab-underline-main,
+.charsheet .sheet-theme-color-blue:checked ~ .sheet-maindiv .sheet-center-header-underline-main,
+.charsheet .sheet-theme-color-blue:checked ~ .sheet-maindiv .sheet-graphic-divider-main {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Favorite%20Color/Underline/Underline%20%28blue%29.png') !important;
+}
+
+.charsheet .sheet-theme-color-blue:checked ~ .sheet-maindiv .sheet-side-tab-underline-flourish,
+.charsheet .sheet-theme-color-blue:checked ~ .sheet-maindiv .sheet-center-header-underline-flourish,
+.charsheet .sheet-theme-color-blue:checked ~ .sheet-maindiv .sheet-graphic-divider-flourish {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Favorite%20Color/Underline/Underline%20Right%20%28blue%29.png') !important;
+}
+
+.charsheet .sheet-theme-color-green:checked ~ .sheet-maindiv .sheet-side-tab-underline-main,
+.charsheet .sheet-theme-color-green:checked ~ .sheet-maindiv .sheet-center-header-underline-main,
+.charsheet .sheet-theme-color-green:checked ~ .sheet-maindiv .sheet-graphic-divider-main {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Favorite%20Color/Underline/Underline%20%28green%29.png') !important;
+}
+
+.charsheet .sheet-theme-color-green:checked ~ .sheet-maindiv .sheet-side-tab-underline-flourish,
+.charsheet .sheet-theme-color-green:checked ~ .sheet-maindiv .sheet-center-header-underline-flourish,
+.charsheet .sheet-theme-color-green:checked ~ .sheet-maindiv .sheet-graphic-divider-flourish {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Favorite%20Color/Underline/Underline%20Right%20%28green%29.png') !important;
+}
+
+.charsheet .sheet-theme-color-orange:checked ~ .sheet-maindiv .sheet-side-tab-underline-main,
+.charsheet .sheet-theme-color-orange:checked ~ .sheet-maindiv .sheet-center-header-underline-main,
+.charsheet .sheet-theme-color-orange:checked ~ .sheet-maindiv .sheet-graphic-divider-main {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Favorite%20Color/Underline/Underline%20%28orange%29.png') !important;
+}
+
+.charsheet .sheet-theme-color-orange:checked ~ .sheet-maindiv .sheet-side-tab-underline-flourish,
+.charsheet .sheet-theme-color-orange:checked ~ .sheet-maindiv .sheet-center-header-underline-flourish,
+.charsheet .sheet-theme-color-orange:checked ~ .sheet-maindiv .sheet-graphic-divider-flourish {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Favorite%20Color/Underline/Underline%20Right%20%28orange%29.png') !important;
+}
+
+.charsheet .sheet-theme-color-pink:checked ~ .sheet-maindiv .sheet-side-tab-underline-main,
+.charsheet .sheet-theme-color-pink:checked ~ .sheet-maindiv .sheet-center-header-underline-main,
+.charsheet .sheet-theme-color-pink:checked ~ .sheet-maindiv .sheet-graphic-divider-main {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Favorite%20Color/Underline/Underline%20%28pink%29.png') !important;
+}
+
+.charsheet .sheet-theme-color-pink:checked ~ .sheet-maindiv .sheet-side-tab-underline-flourish,
+.charsheet .sheet-theme-color-pink:checked ~ .sheet-maindiv .sheet-center-header-underline-flourish,
+.charsheet .sheet-theme-color-pink:checked ~ .sheet-maindiv .sheet-graphic-divider-flourish {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Favorite%20Color/Underline/Underline%20Right%20%28pink%29.png') !important;
+}
+
+.charsheet .sheet-theme-color-purple:checked ~ .sheet-maindiv .sheet-side-tab-underline-main,
+.charsheet .sheet-theme-color-purple:checked ~ .sheet-maindiv .sheet-center-header-underline-main,
+.charsheet .sheet-theme-color-purple:checked ~ .sheet-maindiv .sheet-graphic-divider-main {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Favorite%20Color/Underline/Underline%20%28purple%29.png') !important;
+}
+
+.charsheet .sheet-theme-color-purple:checked ~ .sheet-maindiv .sheet-side-tab-underline-flourish,
+.charsheet .sheet-theme-color-purple:checked ~ .sheet-maindiv .sheet-center-header-underline-flourish,
+.charsheet .sheet-theme-color-purple:checked ~ .sheet-maindiv .sheet-graphic-divider-flourish {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Favorite%20Color/Underline/Underline%20Right%20%28purple%29.png') !important;
+}
+
+.charsheet .sheet-theme-color-red:checked ~ .sheet-maindiv .sheet-side-tab-underline-main,
+.charsheet .sheet-theme-color-red:checked ~ .sheet-maindiv .sheet-center-header-underline-main,
+.charsheet .sheet-theme-color-red:checked ~ .sheet-maindiv .sheet-graphic-divider-main {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Favorite%20Color/Underline/Underline%20%28red%29.png') !important;
+}
+
+.charsheet .sheet-theme-color-red:checked ~ .sheet-maindiv .sheet-side-tab-underline-flourish,
+.charsheet .sheet-theme-color-red:checked ~ .sheet-maindiv .sheet-center-header-underline-flourish,
+.charsheet .sheet-theme-color-red:checked ~ .sheet-maindiv .sheet-graphic-divider-flourish {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Favorite%20Color/Underline/Underline%20Right%20%28red%29.png') !important;
+}
+
+.charsheet .sheet-theme-color-white:checked ~ .sheet-maindiv .sheet-side-tab-underline-main,
+.charsheet .sheet-theme-color-white:checked ~ .sheet-maindiv .sheet-center-header-underline-main,
+.charsheet .sheet-theme-color-white:checked ~ .sheet-maindiv .sheet-graphic-divider-main {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Favorite%20Color/Underline/Underline%20%28white%29.png') !important;
+}
+
+.charsheet .sheet-theme-color-white:checked ~ .sheet-maindiv .sheet-side-tab-underline-flourish,
+.charsheet .sheet-theme-color-white:checked ~ .sheet-maindiv .sheet-center-header-underline-flourish,
+.charsheet .sheet-theme-color-white:checked ~ .sheet-maindiv .sheet-graphic-divider-flourish {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Favorite%20Color/Underline/Underline%20Right%20%28white%29.png') !important;
+}
+
+.charsheet .sheet-theme-color-yellow:checked ~ .sheet-maindiv .sheet-side-tab-underline-main,
+.charsheet .sheet-theme-color-yellow:checked ~ .sheet-maindiv .sheet-center-header-underline-main,
+.charsheet .sheet-theme-color-yellow:checked ~ .sheet-maindiv .sheet-graphic-divider-main {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Favorite%20Color/Underline/Underline%20%28yellow%29.png') !important;
+}
+
+.charsheet .sheet-theme-color-yellow:checked ~ .sheet-maindiv .sheet-side-tab-underline-flourish,
+.charsheet .sheet-theme-color-yellow:checked ~ .sheet-maindiv .sheet-center-header-underline-flourish,
+.charsheet .sheet-theme-color-yellow:checked ~ .sheet-maindiv .sheet-graphic-divider-flourish {
+    background-image: url('https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Favorite%20Color/Underline/Underline%20Right%20%28yellow%29.png') !important;
+}
+
