@@ -1,75 +1,786 @@
+<!-- Favorite Color theme state: legacy Roll20 uses bound radios + :checked selectors. -->
+<input type="radio" name="attr_theme_color" class="theme-color-red" value="red" style="display:none;">
+<input type="radio" name="attr_theme_color" class="theme-color-orange" value="orange" style="display:none;">
+<input type="radio" name="attr_theme_color" class="theme-color-yellow" value="yellow" style="display:none;">
+<input type="radio" name="attr_theme_color" class="theme-color-green" value="green" style="display:none;">
+<input type="radio" name="attr_theme_color" class="theme-color-blue" value="blue" style="display:none;">
+<input type="radio" name="attr_theme_color" class="theme-color-purple" value="purple" style="display:none;">
+<input type="radio" name="attr_theme_color" class="theme-color-pink" value="pink" style="display:none;">
+<input type="radio" name="attr_theme_color" class="theme-color-black" value="black" style="display:none;">
+<input type="radio" name="attr_theme_color" class="theme-color-white" value="white" style="display:none;">
 <div class='sheet-maindiv'>
-    <!-- playbook selection -->
-    <label class="sheet-name">
-		<input type='checkbox' name='attr_lock_playbook' class='sheet-lock'>
-		<span data-i18n="playbook:">Playbook:</span>
-	</label>
-	<input type='checkbox' name='attr_lock_playbook' class='sheet-lock' style="display: none;">
-	<div class="sheet-playbookSelected" style="width: 640px">
-            <input type='checkbox' name='attr_lock_playbook' class='sheet-lock' style="display: none;">
-    	        <input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Beacon'/><label data-i18n="thebeacon">The Beacon</label>
-    		    <input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Bull'/><label data-i18n="thebull">The Bull</label>
-		        <input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Delinquent'/><label data-i18n="thedelinquent">The Delinquent</label>
-		        <input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Doomed'/><label data-i18n="thedoomed">The Doomed</label>
-		        <input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Janus'/><label data-i18n="thejanus">The Janus</label>
-    		    <input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Legacy'/><label data-i18n="thelegacy">The Legacy</label>
-		        <input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Nova'/><label data-i18n="thenova">The Nova</label>
-		        <input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Outsider'/><label data-i18n="theoutsider">The Outsider</label>
-		        <input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Protege'/><label data-i18n="theprotege">The Protégé</label>
-		        <input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Transformed'/><label data-i18n="thetransformed">The Transformed</label>
-				<input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Reformed'/><label data-i18n="thereformed">The Reformed</label>
-				<input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Newborn'/><label data-i18n="thenewborn">The Newborn</label>
-		        <input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Innocent'/><label data-i18n="theinnocent">The Innocent</label>
-				<input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Star'/><label data-i18n="thestar">The Star</label>
-                <input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Joined'/><label data-i18n="thejoined">The Joined</label>
-                <input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Brain'/><label data-i18n="thebrain">The Brain</label>
-                <input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Soldier'/><label data-i18n="thesoldier">The Soldier</label>
-				<input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Harbinger'/><label data-i18n="theharbinger">The Harbinger</label>
-				<input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Nomad'/><label data-i18n="thenomad">The Nomad</label>
-				<input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Scion'/><label data-i18n="thescion">The Scion</label>
-                <input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Something'/><label data-i18n="custom">Custom</label>
+
+<!-- MAIN SHEET TABS -->
+
+<input type="radio" name="attr_main_tab" id="tab-player" class="tab-player" value="player" checked="checked">
+<input type="radio" name="attr_main_tab" id="tab-quirk" class="tab-quirk" value="quirk">
+<input type="radio" name="attr_main_tab" id="tab-playbook" class="tab-playbook" value="playbook">
+
+<!-- DOSSIER TOPPER / MAIN NAVIGATION -->
+<div class="dossier-topper">
+
+    <!-- =====================================================
+         CHARACTER FRAME
+         ===================================================== -->
+    <div class="dossier-topper-frame dossier-topper-frame-character" aria-hidden="true">
+
+        <div class="topper-piece character-left-edge">
+            <img class="topper-fixed-art" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Character%20Topper/Topper%20Left%20End.png">
+        </div>
+
+        <div class="topper-piece topper-flex-fill character-fill-1 character-run-1"></div>
+
+        <div class="topper-piece character-center-1">
+            <img class="topper-fixed-art" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Character%20Topper/Topper%20Center%201.png">
+        </div>
+
+        <div class="topper-piece topper-flex-fill character-fill-2 character-run-2"></div>
+
+        <div class="topper-piece character-center-2">
+            <img class="topper-fixed-art" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Character%20Topper/Topper%20Center%202.png">
+        </div>
+
+        <div class="topper-piece topper-flex-fill character-fill-2 character-run-3"></div>
+
+        <div class="topper-piece character-center-3">
+            <img class="topper-fixed-art" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Character%20Topper/Topper%20Center%203.png">
+        </div>
+
+        <div class="topper-piece topper-flex-fill character-fill-3 character-run-4"></div>
+
+        <div class="topper-piece character-right-edge">
+            <img class="topper-fixed-art" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Character%20Topper/Topper%20Right%20End.png">
+        </div>
+
+        <!-- Existing black file assets, reused for Character active state. -->
+        <div class="topper-active-file topper-active-file-character">
+            <img class="topper-file-fixed topper-file-left" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Playbook%20Topper/File%20Piece%20-%20Left.png">
+            <div class="topper-file-fill"></div>
+            <img class="topper-file-fixed topper-file-right" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Playbook%20Topper/File%20Piece%20-%20Right.png">
+        </div>
+
+        <!-- Character Info topper logo. Position/size are controlled in the
+             CHARACTER TOPPER LOGO DIALS block in the CSS. -->
+        <img class="character-topper-logo"
+             src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Logo.png"
+             alt="">
     </div>
 
-    <div class="sheet-col sheet-classcol" style="width: 640px">
-                <label><input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Beacon'/><span data-i18n="thebeacon">The Beacon</span></label>
-				<label><input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Bull'/><span data-i18n="thebull">The Bull</span></label>
-				<label><input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Delinquent'/><span data-i18n="thedelinquent">The Delinquent</span></label>
-				<label><input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Doomed'/><span data-i18n="thedoomed">The Doomed</span></label>
-				<label><input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Janus'/><span data-i18n="thejanus">The Janus</span></label>
-				<label><input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Legacy'/><span data-i18n="thelegacy">The Legacy</span></label>
-				<label><input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Nova'/><span data-i18n="thenova">The Nova</span></label>
-				<label><input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Outsider'/><span data-i18n="theoutsider">The Outsider</span></label>
-				<label><input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Protege'/><span data-i18n="theprotege">The Protégé</span></label>
-				<label><input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Transformed'/><span data-i18n="thetransformed">The Transformed</span></label>
-				<label><input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Reformed'/><span data-i18n="thereformed">The Reformed</span></label>
-				<label><input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Newborn'/><span data-i18n="thenewborn">The Newborn</span></label>
-				<label><input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Innocent'/><span data-i18n="theinnocent">The Innocent</span></label>
-				<label><input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Star'/><span data-i18n="thestar">The Star</span></label>
-				<label><input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Joined'/><span data-i18n="thejoined">The Joined</span></label>
-				<label><input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Brain'/><span data-i18n="thebrain">The Brain</span></label>
-				<label><input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Soldier'/><span data-i18n="thesoldier">The Soldier</span></label>
-				<label><input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Harbinger'/><span data-i18n="theharbinger">The Harbinger</span></label>
-				<label><input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Nomad'/><span data-i18n="thenomad">The Nomad</span></label>
-				<label><input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Scion'/><span data-i18n="thescion">The Scion</span></label>
-				<label><input type="checkbox" name="attr_playbook" class="sheet-playbook" value='Something'/><span data-i18n="custom">Custom</span></label>
-	</div>
 
-    <!-- cityscape banner -->
-    <div class="sheet-section-header"></div>
+    <!-- =====================================================
+         QUIRK FRAME
+         Explicit background-span rewrite
+         ===================================================== -->
+    <div class="dossier-topper-frame dossier-topper-frame-quirk" aria-hidden="true">
+
+        <div class="topper-piece quirk-left-edge">
+            <span class="quirk-bg quirk-body-left"></span>
+            <span class="quirk-character-tab-left"></span>
+            <img class="topper-fixed-art" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Quirk%20Topper/Topper%20Left%20Edge.png">
+        </div>
+
+        <div class="topper-piece topper-flex-fill quirk-fill-1 quirk-run-1">
+            <span class="quirk-bg quirk-body-run-1"></span>
+            <span class="quirk-character-tab-run"></span>
+        </div>
+
+        <div class="topper-piece quirk-center-1">
+            <span class="quirk-bg quirk-body-center-1"></span>
+            <span class="quirk-character-tab-right"></span>
+            <img class="topper-fixed-art" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Quirk%20Topper/Topper%20Center%201.png">
+        </div>
+
+        <div class="topper-piece topper-flex-fill quirk-fill-2 quirk-run-2">
+            <span class="quirk-bg quirk-body-run-2"></span>
+        </div>
+
+        <div class="topper-piece quirk-center-2">
+            <span class="quirk-bg quirk-body-center-2"></span>
+            <img class="topper-fixed-art" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Quirk%20Topper/Topper%20Center%202.png">
+        </div>
+
+        <div class="topper-piece topper-flex-fill quirk-fill-3 quirk-run-3">
+            <span class="quirk-bg quirk-body-run-3"></span>
+        </div>
+
+        <div class="topper-piece quirk-center-3">
+            <span class="quirk-bg quirk-body-center-3"></span>
+            <img class="topper-fixed-art" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Quirk%20Topper/Topper%20Center%203.png">
+        </div>
+
+        <div class="topper-piece topper-flex-fill quirk-fill-4 quirk-run-4">
+            <span class="quirk-bg quirk-body-run-4"></span>
+        </div>
+
+        <div class="topper-piece quirk-right-edge">
+            <span class="quirk-bg quirk-body-right"></span>
+            <img class="topper-fixed-art" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Quirk%20Topper/Topper%20Right%20Edge.png">
+        </div>
+
+        <!-- Existing black file assets, reused for Quirk active state. -->
+        <div class="topper-active-file topper-active-file-quirk">
+            <img class="topper-file-fixed topper-file-left" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Playbook%20Topper/File%20Piece%20-%20Left.png">
+            <div class="topper-file-fill"></div>
+            <img class="topper-file-fixed topper-file-right" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Playbook%20Topper/File%20Piece%20-%20Right.png">
+        </div>
+    </div>
+
+
+    <!-- =====================================================
+         PLAYBOOK FRAME — preserved from the user's current file
+         ===================================================== -->
+    <div class="dossier-topper-frame dossier-topper-frame-playbook" aria-hidden="true">
+
+        <div class="topper-piece topper-left-edge">
+            <span class="topper-tab-fill topper-tab-character-left"></span>
+            <img class="topper-fixed-art" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Playbook%20Topper/PB%20Topper%20Left.png">
+        </div>
+
+        <div class="topper-piece topper-flex-fill topper-fill-1 topper-run-1">
+            <span class="topper-tab-fill topper-tab-character-run"></span>
+        </div>
+
+        <div class="topper-piece topper-joint-1">
+            <span class="topper-tab-fill topper-tab-character-right"></span>
+            <span class="topper-tab-fill topper-tab-quirk-left"></span>
+            <img class="topper-fixed-art" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Playbook%20Topper/PB%20Topper%20Center%201.png">
+        </div>
+
+        <div class="topper-piece topper-flex-fill topper-fill-1 topper-run-2">
+            <span class="topper-tab-fill topper-tab-quirk-run"></span>
+        </div>
+
+        <div class="topper-piece topper-joint-2">
+            <span class="topper-tab-fill topper-tab-quirk-right"></span>
+            <img class="topper-fixed-art" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Playbook%20Topper/PB%20Topper%20Center%202.png">
+        </div>
+
+        <div class="topper-piece topper-flex-fill topper-fill-2 topper-run-3"></div>
+
+        <div class="topper-piece topper-joint-3">
+            <img class="topper-fixed-art" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Playbook%20Topper/PB%20Topper%20Center%203.png">
+        </div>
+
+        <div class="topper-piece topper-flex-fill topper-fill-3 topper-run-4"></div>
+
+        <div class="topper-piece topper-right-edge">
+            <img class="topper-fixed-art" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Playbook%20Topper/PB%20Topper%20Right.png">
+        </div>
+
+        <div class="topper-active-file">
+            <img class="topper-file-fixed topper-file-left" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Playbook%20Topper/File%20Piece%20-%20Left.png">
+            <div class="topper-file-fill"></div>
+            <img class="topper-file-fixed topper-file-right" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Playbook%20Topper/File%20Piece%20-%20Right.png">
+        </div>
+    </div>
+
+
+    <!-- =====================================================
+         TOPPER NAVIGATION TEXT
+         Fixed semantic order: Character -> Quirk -> Playbook
+         Active page uses the large "... Information" artwork.
+         ===================================================== -->
+
+    <!-- CHARACTER PAGE -->
+    <div class="topper-nav-state topper-nav-character">
+        <div class="topper-nav-item topper-nav-item-character topper-nav-item-active">
+            <img src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Character%20Topper/Character%20Info.png" alt="Character Information">
+        </div>
+        <label for="tab-quirk" class="topper-nav-item topper-nav-item-quirk topper-nav-item-link">
+            <img src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Playbook%20Topper/Quirk.png" alt="Quirk">
+        </label>
+        <label for="tab-playbook" class="topper-nav-item topper-nav-item-playbook topper-nav-item-link">
+            <img src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Character%20Topper/Playbook.png" alt="Playbook">
+        </label>
+    </div>
+
+    <!-- QUIRK PAGE -->
+    <div class="topper-nav-state topper-nav-quirk">
+        <label for="tab-player" class="topper-nav-item topper-nav-item-character topper-nav-item-link">
+            <img src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Playbook%20Topper/Character.png" alt="Character">
+        </label>
+        <div class="topper-nav-item topper-nav-item-quirk topper-nav-item-active">
+            <img src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Quirk%20Topper/Quirk%20Info.png" alt="Quirk Information">
+        </div>
+        <label for="tab-playbook" class="topper-nav-item topper-nav-item-playbook topper-nav-item-link">
+            <img src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Character%20Topper/Playbook.png" alt="Playbook">
+        </label>
+    </div>
+
+    <!-- PLAYBOOK PAGE -->
+    <div class="topper-nav-state topper-nav-playbook">
+        <label for="tab-player" class="topper-nav-item topper-nav-item-character topper-nav-item-link">
+            <img src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Playbook%20Topper/Character.png" alt="Character">
+        </label>
+        <label for="tab-quirk" class="topper-nav-item topper-nav-item-quirk topper-nav-item-link">
+            <img src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Playbook%20Topper/Quirk.png" alt="Quirk">
+        </label>
+        <div class="topper-nav-item topper-nav-item-playbook topper-nav-item-active">
+            <img src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Playbook%20Topper/Player%20Information.png" alt="Playbook Information">
+        </div>
+    </div>
+</div>
+
+<div class="player-tab character-info-page">
+
+    <!-- =====================================================
+         CHARACTER INFO
+         Row 1: Basics + Aspirations
+         Row 2: Appearance (full width)
+         Row 3: Relationships + Life
+         ===================================================== -->
+
+    <!-- ROW 1: BASICS + ASPIRATIONS -->
+    <div class="character-info-row character-info-row-top">
+
+        <div class="panel-frame character-info-panel basics-panel">
+            <div class="side-tab left-side-tab tab-short character-basics-side-tab">
+                <div class="side-tab-cap side-tab-top"></div>
+                <div class="side-tab-center"></div>
+                <div class="side-tab-cap side-tab-bottom"></div>
+                <img class="side-tab-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Character%20Headers/Basics.png" alt="Basics">
+                <div class="side-tab-underline">
+                    <div class="side-tab-underline-flourish"></div>
+                    <div class="side-tab-underline-main"></div>
+                </div>
+            </div>
+
+            <div class="character-field-grid basics-field-grid">
+                <label class="character-field character-field-wide">
+                    <span class="character-field-label">Name</span>
+                    <input type="text" name="attr_character_name">
+                </label>
+
+                <label class="character-field character-field-wide">
+                    <span class="character-field-label">Pro Hero Name</span>
+                    <input type="text" name="attr_hero_name">
+                </label>
+
+                <label class="character-field">
+                    <span class="character-field-label">Pronouns</span>
+                    <input type="text" name="attr_pronouns">
+                </label>
+
+                <label class="character-field">
+                    <span class="character-field-label">Age</span>
+                    <input type="number" name="attr_age" min="0">
+                </label>
+
+                <label class="character-field">
+                    <span class="character-field-label">Year / Class</span>
+                    <input type="text" name="attr_year_class">
+                </label>
+
+                <label class="character-field">
+                    <span class="character-field-label">GPA</span>
+                    <input type="number" name="attr_gpa" min="0" max="4" step="0.01">
+                </label>
+
+                <label class="character-field character-field-wide">
+                    <span class="character-field-label">School</span>
+                    <input type="text" name="attr_school">
+                </label>
+
+                <label class="character-field character-field-wide">
+                    <span class="character-field-label">Playbook</span>
+                    <select name="attr_playbook" class="character-playbook-select">
+                        <option value="">Choose a Playbook</option>
+                        <option value="Beacon">The Beacon</option>
+                        <option value="Brain">The Brain</option>
+                        <option value="Bull">The Bull</option>
+                        <option value="Delinquent">The Delinquent</option>
+                        <option value="Doomed">The Doomed</option>
+                        <option value="Janus">The Janus</option>
+                        <option value="Joined">The Joined</option>
+                        <option value="Legacy">The Legacy</option>
+                        <option value="Nova">The Nova</option>
+                        <option value="Protege">The Protégé</option>
+                        <option value="Reformed">The Reformed</option>
+                        <option value="Scion">The Scion</option>
+                        <option value="Soldier">The Soldier</option>
+                        <option value="Star">The Star</option>
+                        <option value="Transformed">The Transformed</option>
+                    </select>
+                </label>
+
+                <label class="character-field character-field-wide">
+                    <span class="character-field-label">Favorite Pro Hero</span>
+                    <input type="text" name="attr_favorite_pro_hero">
+                </label>
+
+                <label class="character-field">
+                    <span class="character-field-label">Favorite Color</span>
+                    <select name="attr_favorite_color">
+                        <option value="">Choose a Color</option>
+                        <option value="red">Red</option>
+                        <option value="orange">Orange</option>
+                        <option value="yellow">Yellow</option>
+                        <option value="green">Green</option>
+                        <option value="blue">Blue</option>
+                        <option value="purple">Purple</option>
+                        <option value="pink">Pink</option>
+                        <option value="black">Black</option>
+                        <option value="white">White</option>
+                    </select>
+                </label>
+
+                <label class="character-field">
+                    <span class="character-field-label">Favorite Food</span>
+                    <input type="text" name="attr_favorite_food">
+                </label>
+
+                <label class="character-field character-field-wide">
+                    <span class="character-field-label">Favorite Subject</span>
+                    <input type="text" name="attr_favorite_subject">
+                </label>
+            </div>
+        </div>
+
+        <div class="panel-frame character-info-panel aspirations-panel">
+            <div class="side-tab right-side-tab tab-medium character-aspirations-side-tab">
+                <div class="side-tab-cap side-tab-top"></div>
+                <div class="side-tab-center"></div>
+                <div class="side-tab-cap side-tab-bottom"></div>
+                <img class="side-tab-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Character%20Headers/Aspirations.png" alt="Aspirations">
+                <div class="side-tab-underline">
+                    <div class="side-tab-underline-flourish"></div>
+                    <div class="side-tab-underline-main"></div>
+                </div>
+            </div>
+
+            <label class="character-question">
+                <span class="character-question-label">What kind of hero do you want to become?</span>
+                <textarea class="character-grow-textarea" rows="1" name="attr_aspiration_hero"></textarea>
+            </label>
+
+            <label class="character-question">
+                <span class="character-question-label">Who is someone that you hope to be like?</span>
+                <textarea class="character-grow-textarea" rows="1" name="attr_aspiration_role_model"></textarea>
+            </label>
+
+            <label class="character-question">
+                <span class="character-question-label">If you couldn't be a Pro Hero, what would your dream job be?</span>
+                <textarea class="character-grow-textarea" rows="1" name="attr_aspiration_dream_job"></textarea>
+            </label>
+
+            <label class="character-question">
+                <span class="character-question-label">What do you hope to accomplish?</span>
+                <textarea class="character-grow-textarea" rows="1" name="attr_aspiration_goal"></textarea>
+            </label>
+
+            <label class="character-question">
+                <span class="character-question-label">What do you want people to remember you for?</span>
+                <textarea class="character-grow-textarea" rows="1" name="attr_aspiration_legacy"></textarea>
+            </label>
+        </div>
+
+    </div>
+
+    <!-- ROW 2: APPEARANCE — FULL WIDTH -->
+    <div class="panel-frame character-info-panel appearance-panel">
+        <div class="side-tab left-side-tab tab-long character-appearance-side-tab">
+            <div class="side-tab-cap side-tab-top"></div>
+            <div class="side-tab-center"></div>
+            <div class="side-tab-cap side-tab-bottom"></div>
+            <img class="side-tab-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Character%20Headers/Appearance.png" alt="Appearance">
+            <div class="side-tab-underline">
+                <div class="side-tab-underline-flourish"></div>
+                <div class="side-tab-underline-main"></div>
+            </div>
+        </div>
+
+        <div class="appearance-layout">
+
+            <div class="appearance-portrait-column">
+                <div class="appearance-portrait-frame">
+                    <img name="attr_school_image" class="character-portrait" alt="School or everyday appearance">
+                    <div class="appearance-portrait-placeholder">PORTRAIT</div>
+                </div>
+
+                <div class="graphic-divider portrait-url-divider" aria-hidden="true">
+                    <div class="graphic-divider-main"></div>
+                    <div class="graphic-divider-flourish"></div>
+                </div>
+
+                <label class="appearance-url-field">
+                    <input type="text" name="attr_school_image" placeholder="Paste a direct image URL">
+                </label>
+            </div>
+
+            <div class="appearance-description-column">
+                <label class="character-question appearance-question">
+                    <span class="character-question-label">What do you look like?</span>
+                    <textarea name="attr_physical_description" placeholder="Build, hair, eyes, distinguishing features, usual clothing, and anything else that stands out."></textarea>
+                </label>
+
+                <label class="character-question appearance-question appearance-detail-question">
+                    <span class="character-question-label">What is something you like about your appearance?</span>
+                    <input type="text" name="attr_appearance_favorite_feature">
+                </label>
+
+                <div class="graphic-divider appearance-divider" aria-hidden="true">
+                    <div class="graphic-divider-main"></div>
+                    <div class="graphic-divider-flourish"></div>
+                </div>
+
+                <label class="character-question appearance-question">
+                    <span class="character-question-label">What does your hero costume look like?</span>
+                    <textarea name="attr_hero_costume_description" placeholder="Describe the costume, equipment, support gear, and the image you are trying to project."></textarea>
+                </label>
+
+                <label class="character-question appearance-question appearance-detail-question">
+                    <span class="character-question-label">How do you want people to feel when they see your costume?</span>
+                    <input type="text" name="attr_hero_costume_impression">
+                </label>
+            </div>
+
+            <div class="appearance-portrait-column">
+                <div class="appearance-portrait-frame">
+                    <img name="attr_hero_image" class="character-portrait" alt="Hero costume appearance">
+                    <div class="appearance-portrait-placeholder">PORTRAIT</div>
+                </div>
+
+                <div class="graphic-divider portrait-url-divider" aria-hidden="true">
+                    <div class="graphic-divider-main"></div>
+                    <div class="graphic-divider-flourish"></div>
+                </div>
+
+                <label class="appearance-url-field">
+                    <input type="text" name="attr_hero_image" placeholder="Paste a direct image URL">
+                </label>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ROW 3: RELATIONSHIPS + LIFE -->
+    <div class="character-info-row character-info-row-bottom">
+
+        <div class="panel-frame character-info-panel relationships-panel">
+            <div class="side-tab left-side-tab tab-long character-relationships-side-tab">
+                <div class="side-tab-cap side-tab-top"></div>
+                <div class="side-tab-center"></div>
+                <div class="side-tab-cap side-tab-bottom"></div>
+                <img class="side-tab-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Character%20Headers/Relationships.png" alt="Relationships">
+                <div class="side-tab-underline">
+                    <div class="side-tab-underline-flourish"></div>
+                    <div class="side-tab-underline-main"></div>
+                </div>
+            </div>
+
+            <p class="character-panel-intro">Add the people who matter to you. Relationships can grow, change, or become more complicated during play.</p>
+
+            <fieldset class="repeating_relationships">
+                <div class="relationship-entry">
+                    <div class="relationship-entry-topline">
+                        <label class="relationship-name-field">
+                            <span class="character-field-label">Name</span>
+                            <input type="text" name="attr_relationship_name">
+                        </label>
+
+                        <label class="relationship-role-field">
+                            <span class="character-field-label">Relationship / Bond</span>
+                            <input type="text" name="attr_relationship_role">
+                        </label>
+                    </div>
+
+                    <label class="character-question relationship-notes-field">
+                        <span class="character-question-label">Notes</span>
+                        <textarea name="attr_relationship_notes" placeholder="How do you know them? What do they mean to you? What has changed between you?"></textarea>
+                    </label>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="panel-frame character-info-panel life-panel">
+            <div class="side-tab right-side-tab tab-short character-life-side-tab">
+                <div class="side-tab-cap side-tab-top"></div>
+                <div class="side-tab-center"></div>
+                <div class="side-tab-cap side-tab-bottom"></div>
+                <img class="side-tab-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Character%20Headers/Life.png" alt="Life">
+                <div class="side-tab-underline">
+                    <div class="side-tab-underline-flourish"></div>
+                    <div class="side-tab-underline-main"></div>
+                </div>
+            </div>
+
+            <label class="character-question">
+                <span class="character-question-label">How do you respond under pressure?</span>
+                <textarea class="character-grow-textarea" rows="1" name="attr_life_everyday"></textarea>
+            </label>
+
+            <label class="character-question">
+                <span class="character-question-label">What do you enjoy doing outside of school?</span>
+                <textarea class="character-grow-textarea" rows="1" name="attr_life_interests"></textarea>
+            </label>
+
+            <label class="character-question">
+                <span class="character-question-label">What is your home life like?</span>
+                <textarea class="character-grow-textarea" rows="1" name="attr_life_home"></textarea>
+            </label>
+
+            <label class="character-question">
+                <span class="character-question-label">How do other students tend to see you?</span>
+                <textarea class="character-grow-textarea" rows="1" name="attr_life_reputation"></textarea>
+            </label>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="quirk-tab quirk-info-page">
+
+    <!-- =====================================================
+         QUIRK INFO
+         Row 1: Data (full width)
+         Row 2: Strengths + Weaknesses
+         Row 3: Ultimate Moves (full width, repeating)
+         Row 4: Development (full width)
+         ===================================================== -->
+
+    <!-- ROW 1: DATA -->
+    <div class="panel-frame quirk-info-panel quirk-data-panel">
+        <div class="side-tab left-side-tab tab-short quirk-data-side-tab">
+            <div class="side-tab-cap side-tab-top"></div>
+            <div class="side-tab-center"></div>
+            <div class="side-tab-cap side-tab-bottom"></div>
+            <img class="side-tab-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Quirk%20Headers/Data.png" alt="Data">
+            <div class="side-tab-underline">
+                <div class="side-tab-underline-flourish"></div>
+                <div class="side-tab-underline-main"></div>
+            </div>
+        </div>
+
+        <div class="quirk-data-grid">
+            <label class="quirk-field">
+                <span class="quirk-field-label">Quirk Name</span>
+                <input type="text" name="attr_quirk_name">
+            </label>
+
+            <label class="quirk-field">
+                <span class="quirk-field-label">Quirk Type</span>
+                <select name="attr_quirk_type">
+                    <option value="">Choose a Type</option>
+                    <option value="Emitter-Type">Emitter-Type</option>
+                    <option value="Transformation-Type">Transformation-Type</option>
+                    <option value="Mutant-Type">Mutant-Type</option>
+                </select>
+            </label>
+
+            <label class="quirk-field">
+                <span class="quirk-field-label">Manifested at Age</span>
+                <input type="number" name="attr_quirk_manifest_age" min="0">
+            </label>
+
+            <label class="quirk-field">
+                <span class="quirk-field-label">Activation</span>
+                <input type="text" name="attr_quirk_activation" placeholder="How is it activated?">
+            </label>
+
+            <label class="quirk-field">
+                <span class="quirk-field-label">Range</span>
+                <input type="text" name="attr_quirk_range" placeholder="Touch, close, distant, etc.">
+            </label>
+
+            <label class="quirk-field">
+                <span class="quirk-field-label">Visible Signs</span>
+                <input type="text" name="attr_quirk_visible_signs" placeholder="What changes when you use it?">
+            </label>
+        </div>
+
+        <label class="quirk-question quirk-data-description">
+            <span class="quirk-question-label">How does your Quirk work?</span>
+            <textarea name="attr_quirk_description"></textarea>
+        </label>
+    </div>
+
+    <!-- ROW 2: STRENGTHS + WEAKNESSES -->
+    <div class="quirk-info-row">
+
+        <div class="panel-frame quirk-info-panel quirk-strengths-panel">
+            <div class="side-tab left-side-tab tab-medium quirk-strengths-side-tab">
+                <div class="side-tab-cap side-tab-top"></div>
+                <div class="side-tab-center"></div>
+                <div class="side-tab-cap side-tab-bottom"></div>
+                <img class="side-tab-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Quirk%20Headers/Strengths.png" alt="Strengths">
+                <div class="side-tab-underline">
+                    <div class="side-tab-underline-flourish"></div>
+                    <div class="side-tab-underline-main"></div>
+                </div>
+            </div>
+
+            <label class="quirk-question quirk-major-question">
+                <span class="quirk-question-label">What are the strengths of your Quirk?</span>
+                <textarea name="attr_quirk_strengths"></textarea>
+            </label>
+
+            <label class="quirk-question">
+                <span class="quirk-question-label">When does your Quirk feel easiest or most natural to use?</span>
+                <textarea class="quirk-grow-textarea" rows="1" name="attr_quirk_strength_natural"></textarea>
+            </label>
+
+            <label class="quirk-question">
+                <span class="quirk-question-label">What do you love about having your Quirk?</span>
+                <textarea class="quirk-grow-textarea" rows="1" name="attr_quirk_strength_feeling"></textarea>
+            </label>
+        </div>
+
+        <div class="panel-frame quirk-info-panel quirk-weaknesses-panel">
+            <div class="side-tab right-side-tab tab-medium quirk-weaknesses-side-tab">
+                <div class="side-tab-cap side-tab-top"></div>
+                <div class="side-tab-center"></div>
+                <div class="side-tab-cap side-tab-bottom"></div>
+                <img class="side-tab-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Quirk%20Headers/Weaknesses.png" alt="Weaknesses">
+                <div class="side-tab-underline">
+                    <div class="side-tab-underline-flourish"></div>
+                    <div class="side-tab-underline-main"></div>
+                </div>
+            </div>
+
+            <label class="quirk-question quirk-major-question">
+                <span class="quirk-question-label">What are the weaknesses or limitations of your Quirk?</span>
+                <textarea name="attr_quirk_weaknesses"></textarea>
+            </label>
+
+            <label class="quirk-question">
+                <span class="quirk-question-label">What happens when you push your Quirk too far?</span>
+                <textarea class="quirk-grow-textarea" rows="1" name="attr_quirk_overuse"></textarea>
+            </label>
+
+            <label class="quirk-question">
+                <span class="quirk-question-label">What about your Quirk makes you feel vulnerable?</span>
+                <textarea class="quirk-grow-textarea" rows="1" name="attr_quirk_vulnerability"></textarea>
+            </label>
+        </div>
+
+    </div>
+
+    <!-- ROW 3: ULTIMATE MOVES -->
+    <div class="panel-frame quirk-info-panel quirk-ultimate-panel">
+        <div class="side-tab left-side-tab tab-long quirk-ultimate-side-tab">
+            <div class="side-tab-cap side-tab-top"></div>
+            <div class="side-tab-center"></div>
+            <div class="side-tab-cap side-tab-bottom"></div>
+            <img class="side-tab-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Quirk%20Headers/Ultimate%20Moves.png" alt="Ultimate Moves">
+            <div class="side-tab-underline">
+                <div class="side-tab-underline-flourish"></div>
+                <div class="side-tab-underline-main"></div>
+            </div>
+        </div>
+
+        <p class="quirk-panel-intro quirk-ultimate-intro">
+            Ultimate Moves are trained, named applications of your Quirk tied to a Masks move. When the fiction triggers the associated move and you call out your Ultimate Move, you may spend Potential up to its Level to modify the roll by 1 per Potential in the favorable direction.
+        </p>
+
+        <fieldset class="repeating_ultimatemoves">
+            <div class="ultimate-move-entry">
+                <div class="ultimate-move-topline">
+                    <label class="ultimate-move-name-field">
+                        <span class="quirk-field-label">Ultimate Move</span>
+                        <input type="text" name="attr_ultimate_name" placeholder="Technique name">
+                    </label>
+
+                    <label class="ultimate-move-associated-field">
+                        <span class="quirk-field-label">Associated Move</span>
+                        <select name="attr_ultimate_associated_move">
+                            <option value="">Choose a Move</option>
+                            <option value="Directly Engage a Threat">Directly Engage a Threat</option>
+                            <option value="Unleash Your Powers">Unleash Your Powers</option>
+                            <option value="Defend Someone">Defend Someone</option>
+                            <option value="Assess the Situation">Assess the Situation</option>
+                            <option value="Provoke Someone">Provoke Someone</option>
+                            <option value="Pierce the Mask">Pierce the Mask</option>
+                            <option value="Comfort or Support">Comfort or Support</option>
+                            <option value="Reject Influence">Reject Influence</option>
+                            <option value="Take a Powerful Blow">Take a Powerful Blow</option>
+                            <option value="Other">Playbook Move / Other</option>
+                        </select>
+                    </label>
+
+                    <label class="ultimate-move-level-field">
+                        <span class="quirk-field-label">Level</span>
+                        <input type="number" name="attr_ultimate_level" min="1" value="1">
+                    </label>
+                </div>
+
+                <label class="ultimate-move-other-field">
+                    <span class="quirk-field-label">Other Move</span>
+                    <input type="text" name="attr_ultimate_other_move" placeholder="If needed">
+                </label>
+
+                <label class="quirk-question ultimate-move-description-field">
+                    <span class="quirk-question-label">What does it look like, and how do you use your Quirk to pull it off?</span>
+                    <textarea name="attr_ultimate_description"></textarea>
+                </label>
+            </div>
+        </fieldset>
+    </div>
+
+    <!-- ROW 4: DEVELOPMENT -->
+    <div class="panel-frame quirk-info-panel quirk-development-panel">
+        <div class="side-tab right-side-tab tab-long quirk-development-side-tab">
+            <div class="side-tab-cap side-tab-top"></div>
+            <div class="side-tab-center"></div>
+            <div class="side-tab-cap side-tab-bottom"></div>
+            <img class="side-tab-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Quirk%20Headers/Development.png" alt="Development">
+            <div class="side-tab-underline">
+                <div class="side-tab-underline-flourish"></div>
+                <div class="side-tab-underline-main"></div>
+            </div>
+        </div>
+
+        <div class="quirk-development-grid">
+            <label class="quirk-question">
+                <span class="quirk-question-label">What part of your Quirk are you still learning to control?</span>
+                <textarea class="quirk-grow-textarea" rows="1" name="attr_quirk_development_control"></textarea>
+            </label>
+
+            <label class="quirk-question">
+                <span class="quirk-question-label">What do you want your Quirk to be capable of someday?</span>
+                <textarea class="quirk-grow-textarea" rows="1" name="attr_quirk_development_goal"></textarea>
+            </label>
+
+            <label class="quirk-question">
+                <span class="quirk-question-label">Who has taught you the most about using your Quirk?</span>
+                <textarea class="quirk-grow-textarea" rows="1" name="attr_quirk_development_teacher"></textarea>
+            </label>
+
+            <label class="quirk-question">
+                <span class="quirk-question-label">How has training changed the way you think about yourself?</span>
+                <textarea class="quirk-grow-textarea" rows="1" name="attr_quirk_development_identity"></textarea>
+            </label>
+        </div>
+    </div>
+
+</div>
+
+<div class="playbook-tab">
 
     <div class="sheet-3colrow">
 
         <!-- left column -->
         <div class="sheet-col odd">
 
+            <div class="panel-frame labels-panel">
+
+        <div class="side-tab labels-side-tab">
+            <div class="side-tab-cap side-tab-top"></div>
+            <div class="side-tab-center"></div>
+            <div class="side-tab-cap side-tab-bottom"></div>
+
+            <img class="side-tab-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Labels.png">
+
+                <div class="side-tab-underline">
+                    <div class="side-tab-underline-flourish"></div>
+                    <div class="side-tab-underline-main"></div>
+                    </div>
+                </div>
+
 			<!-- to hide or display "Soldier" label -->
 			<input type="checkbox" name="attr_playbook" class="sheet-issoldier" value='Soldier' style="display: none;" />
-
-            <div class="sheet-class-moves sheet-section-title-labels"></div>
-
-			<div class="sheet-attr-box">
-        		<button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=Danger}} {{roll_mod=@{danger}}} {{result=[[2d6 + [[{[[{[[@{danger} - @{afraid} * 2 + ?{Situational bonus/penalty?|0}]],-3}dl1]],4}kl1]][Modifier]]]}}' name='roll_danger' ></button>
-				<label data-i18n="danger:" class="sheet-name">Danger:</label>
+<div class="sheet-attr-box">
+        		<button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=Danger}} {{roll_mod=@{danger}}} {{result=[[2d6 + [[{[[{[[@{danger} - @{afraid} * 2 + ?{Situational bonus/penalty?|0}]],-3}dl1]],4}kl1]][Modifier]]]}}' name='roll_danger'  class="label-roll" data-i18n="danger:">Danger:</button>
                 <input type="checkbox" name="attr_dangerlock" class="labellock">
                 <div class="statline">
     			    <input type="number" name="attr_danger" min="-2" max="3" class="stat">
@@ -83,8 +794,7 @@
         	</div>
                 <br>
         	<div class="sheet-attr-box">
-                <button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=Freak}} {{roll_mod=@{freak}}} {{result=[[2d6 + [[{[[{[[@{freak} - @{hopeless} * 2 + ?{Situational bonus/penalty?|0}]],-3}dl1]],4}kl1]][Modifier]]]}}' name='roll_freak' ></button>
-                <label data-i18n="freak:" class="sheet-name">Freak:</label>
+                <button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=Freak}} {{roll_mod=@{freak}}} {{result=[[2d6 + [[{[[{[[@{freak} - @{hopeless} * 2 + ?{Situational bonus/penalty?|0}]],-3}dl1]],4}kl1]][Modifier]]]}}' name='roll_freak'  class="label-roll" data-i18n="freak:">Freak:</button>
                 <input type="checkbox" name="attr_freaklock" class="labellock">
                 <div class="statline">
 				    <input type="number" name="attr_freak" min="-2" max="3" class="stat">
@@ -98,8 +808,7 @@
         	</div>
                 <br>
         	<div class="sheet-attr-box">
-        		<button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=Savior}} {{roll_mod=@{savior}}} {{result=[[2d6 + [[{[[{[[@{savior} - @{insecure} * 2 + ?{Situational bonus/penalty?|0}]],-3}dl1]],4}kl1]][Modifier]]]}}' name='roll_savior' ></button>
-				<label data-i18n="savior:" class="sheet-name">Savior:</label>
+        		<button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=Savior}} {{roll_mod=@{savior}}} {{result=[[2d6 + [[{[[{[[@{savior} - @{insecure} * 2 + ?{Situational bonus/penalty?|0}]],-3}dl1]],4}kl1]][Modifier]]]}}' name='roll_savior'  class="label-roll" data-i18n="savior:">Savior:</button>
                 <input type="checkbox" name="attr_saviorlock" class="labellock">
                 <div class="statline">
         		    <input type="number" name="attr_savior" min="-2" max="3" class="stat">
@@ -113,8 +822,7 @@
         	</div>
                 <br>
 			<div class="sheet-attr-box">
-            	<button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=Superior}} {{roll_mod=@{superior}}} {{result=[[2d6 + [[{[[{[[@{superior} - @{guilty} * 2 + ?{Situational bonus/penalty?|0}]],-3}dl1]],4}kl1]][Modifier]]]}}' name='roll_superior' ></button>
-				<label data-i18n="superior:" class="sheet-name">Superior:</label>
+            	<button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=Superior}} {{roll_mod=@{superior}}} {{result=[[2d6 + [[{[[{[[@{superior} - @{guilty} * 2 + ?{Situational bonus/penalty?|0}]],-3}dl1]],4}kl1]][Modifier]]]}}' name='roll_superior'  class="label-roll" data-i18n="superior:">Superior:</button>
                 <input type="checkbox" name="attr_superiorlock" class="labellock">
                 <div class="statline">
         		    <input type="number" name="attr_superior" min="-2" max="3" class="stat">
@@ -129,8 +837,7 @@
 			</div>
                 <br>
         	<div class="sheet-attr-box">
-            	<button type='roll' align="center" value='&{template:aw} {{name=@{character_name}}} {{roll_name=Mundane}} {{roll_mod=@{mundane}}} {{result=[[2d6 + [[{[[{[[@{mundane} - @{angry} * 2 + ?{Situational bonus/penalty?|0}]],-3}dl1]],4}kl1]][Modifier]]]}}' name='roll_mundane' ></button>
-                <label data-i18n="mundane:" class="sheet-name">Mundane:</label>
+            	<button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=Mundane}} {{roll_mod=@{mundane}}} {{result=[[2d6 + [[{[[{[[@{mundane} - @{angry} * 2 + ?{Situational bonus/penalty?|0}]],-3}dl1]],4}kl1]][Modifier]]]}}' name='roll_mundane'  class="label-roll" data-i18n="mundane:">Mundane:</button>
                 <input type="checkbox" name="attr_mundanelock" class="labellock">
                 <div class="statline">
         		    <input type="number" name="attr_mundane" min="-2" max="3" class="stat">
@@ -147,8 +854,7 @@
 <!-- soldier label -->
 			<div class="sheet-attr-box sheet-soldier">
 				<br>
-            	<button type='roll' align="center" value='&{template:aw} {{name=@{character_name}}} {{roll_name=Soldier}} {{roll_mod=@{soldier}}} {{result=[[2d6 + [[{[[{[[@{soldier} + ?{Situational bonus/penalty?|0}]],-3}dl1]],4}kl1]][Modifier]]]}}' name='roll_soldier' ></button>
-                <label data-i18n="soldier:" class="sheet-name">Soldier:</label>
+            	<button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=Soldier}} {{roll_mod=@{soldier}}} {{result=[[2d6 + [[{[[{[[@{soldier} + ?{Situational bonus/penalty?|0}]],-3}dl1]],4}kl1]][Modifier]]]}}' name='roll_soldier'  class="label-roll" data-i18n="soldier:">Soldier:</button>
                 <input type="checkbox" name="attr_soldierlock" class="labellock">
                 <div class="statline">
         		    <input type="number" name="attr_soldier" min="-2" max="3" class="stat">
@@ -163,18 +869,11 @@
                 </div>
         	</div>
 				<br>
-                <hr>
-
-<!-- normal sum of labels -->
-            <!--div class="sheet-attr-box">
-                <label data-i18n="sumoflabels" class="sheet-netlabels">Sum of Labels:</label>
-    			<input type="number" name="attr_labeltotal" value='{{result=[[@{danger} + @{freak} + @{savior} + @{superior} + @{mundane}]]}}' disabled/>
-    			<div class="sheet-roll-box sheet-cf">
-				    <label data-i18n="bydefault3" class="sheet-taglines">(by default this should be a 3)</label><br>
-                    <label data-i18n="advancementmayincrease" class="sheet-taglines">(advancements may increase this)</label>
+                <div class="graphic-divider" aria-hidden="true">
+                    <div class="graphic-divider-main"></div>
+                    <div class="graphic-divider-flourish"></div>
                 </div>
-        	</div>
-				<br-->
+
 
 <!-- normal and soldier's sum of labels -->
 			<div class="sheet-subbox">
@@ -204,14 +903,6 @@
 			</div>
 			<br>
 
-<!-- normal reject roll -->
-			<!--div class="sheet-attr-box">
-        		<button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=Reject Influence}} {{roll_mod=0}} {{result=[[2d6 + [[{[[{[[0 - @{insecure} * 2 + ?{Situational bonus/penalty?|0}]],-3}dl1]],4}kl1]][Modifier]]]}}' name='roll_reject' ></button>
-				<label data-i18n="rejectinfluence" class="sheet-reject">Reject Influence</label>
-                <div class="sheet-roll-box sheet-cf">
-				    <label data-i18n="rejectsomeonesinfluence" class="sheet-taglines">(reject someone's influence)</label>
-				</div>
-        	</div-->
 
 <!-- normal reject and nomad's reject roll -->
 			<div class="sheet-subbox">
@@ -219,8 +910,7 @@
 
 				<div class="sheet-normal-reject">
 					<div class="sheet-attr-box">
-					<button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=Reject Influence}} {{roll_mod=0}} {{result=[[2d6 + [[{[[{[[0 - @{insecure} * 2 + ?{Situational bonus/penalty?|0}]],-3}dl1]],4}kl1]][Modifier]]]}}' name='roll_reject' ></button>
-					<label data-i18n="rejectinfluence" class="sheet-reject">Reject Influence</label>
+					<button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=Reject Influence}} {{roll_mod=0}} {{result=[[2d6 + [[{[[{[[0 - @{insecure} * 2 + ?{Situational bonus/penalty?|0}]],-3}dl1]],4}kl1]][Modifier]]]}}' name='roll_reject'  class="label-roll reject-roll" data-i18n="rejectinfluence">Reject Influence</button>
 					<div class="sheet-roll-box sheet-cf">
 						<label data-i18n="rejectsomeonesinfluence" class="sheet-taglines">(reject someone's influence)</label>
 					</div>
@@ -229,8 +919,7 @@
 
 				<div class="sheet-nomadic-reject">
 					<div class="sheet-attr-box">
-					<button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=Reject Influence (Nomad)}} {{roll_mod=0}} {{result=[[2d6 + [[{[[{[[-2 - @{insecure} * 2 + ?{Situational bonus/penalty?|0}]],-3}dl1]],4}kl1]][Modifier]]]}}' name='roll_reject' ></button>
-					<label data-i18n="rejectinfluence" class="sheet-reject">Reject Influence</label>
+					<button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=Reject Influence (Nomad)}} {{roll_mod=0}} {{result=[[2d6 + [[{[[{[[-2 - @{insecure} * 2 + ?{Situational bonus/penalty?|0}]],-3}dl1]],4}kl1]][Modifier]]]}}' name='roll_reject'  class="label-roll reject-roll" data-i18n="rejectinfluence">Reject Influence</button>
 					<div class="sheet-roll-box sheet-cf">
 						<label data-i18n="rejectsomeonesinfluence" class="sheet-taglines">(reject someone's influence)</label>
 					</div>
@@ -238,36 +927,24 @@
 				</div>
 			</div>
 			<br>
-
-<!-- flat 2d6 roll, used for custom rolls -->
-            <div class="sheet-attr-box">
-                <button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=something}} {{roll_mod=0}} {{result=[[2d6 + [[{[[{[[?{Situational bonus/penalty?|0}]],-3}dl1]],4}kl1]][Modifier]]]}}' name='roll_basic' ></button>
-                <label data-i18n="flat2d6" class="sheet-name">Flat 2d6</label>
-                <div class="sheet-roll-box sheet-cf">
-                    <label data-i18n="customrolls" class="sheet-taglines">(custom rolls)</label>
-                </div>
-            </div>
+            </div> <!-- end Labels panel -->
             <br>
-<!-- influence tracker -->
-			<!--div class="sheet-influence sheet-section-title-influence"></div>
-			<label data-i18n="haveinfluenceover">I have influence over:</label><br>
-			<label data-i18n="influenceroll" class="sheet-influencetaglines">(+1 to any roll that target these people)</label><br>
-			<fieldset class="repeating_influence1">
-				<input type="text" name="attr_influenceover" style="font-size: 1em; font-weight: bold" placeholder="(their name)" data-i18n-placeholder="theirname" autocomplete="off">
-			</fieldset>
-			<hr>
-			<label data-i18n="aminfluencedby">I am influenced by:</label><br>
-			<p style="text-align:center"><input type="text" name="attr_influencedbyadult" style="width: 225px; font-size: 1em; font-weight: bold" value="All adults" placeholder="(their name)" data-i18n-placeholder="theirname" autocomplete="off"></p>
-			<fieldset class="repeating_influence2">
-				<input type="text" name="attr_influencedby" style="font-size: 1em; font-weight: bold" placeholder="(their name)" data-i18n-placeholder="theirname" autocomplete="off">
-			</fieldset-->
 
 <!-- normal influence and nomadic influence tracker -->
-			<div class="sheet-subbox">
+			<div class="panel-frame sheet-subbox influence-panel">
+                <div class="side-tab left-side-tab tab-medium influence-side-tab">
+                    <div class="side-tab-cap side-tab-top"></div>
+                    <div class="side-tab-center"></div>
+                    <div class="side-tab-cap side-tab-bottom"></div>
+                    <img class="side-tab-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Influence.png">
+                    <div class="side-tab-underline">
+                        <div class="side-tab-underline-flourish"></div>
+                        <div class="side-tab-underline-main"></div>
+                    </div>
+                </div>
 				<input type="checkbox" name="attr_playbook" class="sheet-isnomad" value='Nomad' style="display: none;" />
 
 				<div class="sheet-normal-influence">
-					<div class="sheet-influence sheet-section-title-influence"></div>
 					<label data-i18n="haveinfluenceover">I have influence over:</label><br>
 					<label data-i18n="influenceroll" class="sheet-influencetaglines">(+1 to any roll that target these people)</label><br>
 					<fieldset class="repeating_influence1">
@@ -282,7 +959,6 @@
 				</div>
 
 				<div class="sheet-nomadic-influence">
-					<div class="sheet-influence sheet-section-title-influence"></div>
 					<label data-i18n="haveinfluenceover">I have influence over:</label><br>
 					<label data-i18n="influenceroll" class="sheet-influencetaglines">(+1 to any roll that target these people)</label><br>
 					<fieldset class="repeating_influence1">
@@ -306,7 +982,7 @@
 			<div class="sheet-subbox">
                     <input type="checkbox" name="attr_playbook" class="sheet-isscion" value='Scion' style="display: none;" />
 
-					<div class="sheet-scion">
+					<div class="panel-frame sheet-scion">
 						<div class="sheet-section-title-scionlineage">
                             </div>
 							<label data-i18n="scionlineage-desc" class="sheet-sciontagline">You are the child of a true supervillain. You strive to be different than them, but they are a part of you. Answer each question below to describe them:</label>
@@ -320,8 +996,16 @@
 			</div>
 
 <!-- potential tracker -->
-            <div class="sheet-box">
-       	        <div class="sheet-exp sheet-section-title-potential"></div>
+            <div class="sheet-box panel-frame">
+       	        <div class="graphic-header center-graphic-header potential-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Potential.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
                 <div class="potential_track" align="center">
                     <label><input type="checkbox" name="attr_1exp"></label>
                     <label><input type="checkbox" name="attr_2exp"></label>
@@ -336,8 +1020,16 @@
                 </div>
         	</div>
 <!-- advancements -->
-            <div>
-    			<div class="sheet-advancements sheet-section-title-advancements"></div>
+            <div class="panel-frame">
+    			<div class="graphic-header center-graphic-header advancements-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Advancements.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
                 <fieldset class="repeating_advancements">
 				<input type="text" name="attr_advancements" placeholder="(what did you take?)" data-i18n-placeholder="whatdidyoutake" autocomplete="off">
                 </fieldset>
@@ -357,9 +1049,17 @@
 					<input type="checkbox" name="attr_playbook" class="sheet-issoldier" value='Soldier' style="display: none;" />
 					<input type="checkbox" name="attr_playbook" class="sheet-isharbinger" value='Harbinger' style="display: none;" />
 
-				<div class="sheet-doomed">
-                            <div class="sheet-section-title-doomeddoom">
-                            </div>
+				<div class="sheet-doomed split-group">
+                    <div class="panel-frame section-panel">
+                            <div class="graphic-header center-graphic-header doom-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Doom.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 							<label data-i18n="doom-desc" class="sheet-doomtagline">What brings your Doom closer? Choose two:</label>
 							<table>
                                     <tr><td style="padding-left:5px"><input type="checkbox" name="attr_doomcloser1"><label data-i18n="doomcloser1" class="sheet-doomtagline">overexerting yourself</label></td>
@@ -383,8 +1083,17 @@
                             </div>
 							<label data-i18n="doomtrack-fill" class="sheet-doomtagline">Whenever your Doomtrack fills, clear it and take one of your Doomsigns</label>
 
-							<div class="sheet-section-title-doomeddoomsigns">
-                            </div>
+							</div>
+                    <div class="panel-frame section-panel">
+                            <div class="graphic-header center-graphic-header doomsigns-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Doomsigns.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 							<label data-i18n="doomsign-desc" class="sheet-doomtagline">These are abilities that come to you with your approaching Doom. Once you have taken all five Doomsigns above the line, you must take \"Your doom arrives\" the next time your Doomtrack fills. <b>Choose 1 Doomsign you already have at character creation</b>.</label>
 							<label class="doomsign"><input type="checkbox" name="attr_doomsign1"> <span data-i18n="doomsign1-desc"><b>Dark Visions</b>: Mark your Doomtrack to have a vision about the situation at hand. After the vision, ask the GM a question; they will answer it honestly.</span></label>
 							<label class="doomsign"><input type="checkbox" name="attr_doomsign2"> <span data-i18n="doomsign2-desc"><b>Infinite Powers</b>: Mark your Doomtrack to use an ability from any playbook, one time.</span></label>
@@ -394,10 +1103,19 @@
 							<hr>
 							<label class="doomsign"><input type="checkbox" name="attr_doomsign6"> <span data-i18n="doomsign6-desc"><b>Your Doom arrives</b>; confront it and perish.</span></label>
                 </div>
+                </div>
 
-				<div class="sheet-janus">
-                            <div class="sheet-section-title-specialmove">
-                            </div>
+				<div class="sheet-janus split-group">
+                    <div class="panel-frame section-panel">
+                            <div class="graphic-header center-graphic-header special-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Special%20Move.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 							<label data-i18n="themask-janus">The Mask:</label> <label data-i18n="themask-janus-desc1" class="sheet-themask">You wear a mask and hide your real identity. Choose what Label you try to embody while wearing your mask:</label>
 							<table>
                                     <tr><td style="padding-left:10px"><input type="checkbox" name="attr_janusmasklabel1"><label data-i18n="danger" class="sheet-themask">Danger</label></td>
@@ -409,17 +1127,34 @@
 							<label data-i18n="themask-janus-desc2" class="sheet-themask"><b>Once per session</b>, you can affirm either your heroic or secret identity to switch your Mundane with your mask's Label.</label>
 							<label data-i18n="themask-janus-desc3" class="sheet-themask">When you <b>reveal your secret identity to someone who didn't know it already</b>, mark potential.</label>
 
-                            <div class="sheet-section-title-janussecretidentity">
                             </div>
+                    <div class="panel-frame section-panel">
+                            <div class="graphic-header center-graphic-header secret-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Secret%20Identity.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 							<label data-i18n="secretid-janus-desc1" class="sheet-themask">Your mundane life comes with a series of obligations. Choose a total of 3 obligations:</label>
 							<textarea name="attr_secretid-janus" placeholder="(your obligations among jobs, school, home and social)" data-i18n-placeholder="obligationjanus" autocomplete="off"></textarea>
 							<p style="text-align:center"><label data-i18n="mundane:">Mundane:</label><button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=Obligations}} {{roll_mod=@{mundane}}} {{result=[[2d6 + [[{[[{[[@{mundane} + ?{Situational bonus/penalty?|0}]],-3}dl1]],4}kl1]][Modifier]]]}}' name='roll_mundane' ></button></p>
 							<label data-i18n="secretid-janus-desc2" class="sheet-themask"><b>When time passes</b>, roll to see how you're managing your obligations. On a hit, things are going pretty well — you have an opportunity or advantage thanks to one of your obligations. On a 7-9, you've lapsed on one obligation, your choice. On a miss, you haven't given your normal life anywhere near the attention it deserves; the GM chooses 2 obligations that are going to bite you in the butt.</label>
 				</div>
+                </div>
 
-				<div class="sheet-nova">
-                            <div class="sheet-section-title-novaburnflare">
-                            </div>
+				<div class="panel-frame sheet-nova">
+                            <div class="graphic-header center-graphic-header burn-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Burns%20&%20Flares.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 							<p style="text-align:center"><label data-i18n="conditions-marked">Conditions marked:</label><button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=Burn}} {{roll_mod=[[@{afraid} + @{angry} + @{guilty} + @{hopeless} + @{insecure}]]}} {{result=[[2d6 + [[{[[{[[[[@{afraid} + @{angry} + @{guilty} + @{hopeless} + @{insecure}]] + ?{Situational bonus/penalty?|0}]],-3}dl1]],4}kl1]][Modifier]]]}}' name='roll_conditions' ></button>
                             <label data-i18n="hold:" class="burntitle">Hold:</label><input type="number" name="attr_burnhold" min="0"></p>
 							<label data-i18n="burn-nova-desc1" class="sheet-novaburnflare">When you charge up your powers, roll. On a hit, hold 3 burn. On a 7-9, mark a condition. On a miss, hold 2 burn and mark 3 conditions.</label>
@@ -438,7 +1173,7 @@
 							</div>
 				</div>
 
-				<div class="sheet-innocent">
+				<div class="panel-frame sheet-innocent">
                             <div class="sheet-section-title-innocentfutureself">
                             </div>
 							<label data-i18n="futureself-innocent-desc1" class="sheet-futureself">Your future self is out there, an important figure in Halcyon City and the world beyond — and everything you'd hoped you'd never be. But finding out how they became who they are may be all it takes to push you along a similar path. Pick 1 step of your future self's path that you already know at character creation, and mark it (left side checkbox). When you <b>learn of another step of your future self's path</b>, mark it. You can have at most 5 steps marked.</label>
@@ -458,27 +1193,52 @@
 							<label class="futurepath"><input type="checkbox" name="attr_futurereplace5"> <span data-i18n="futurereplace5-desc"><b>Become an NPC antagonist</b> — your path is irreconcilably set along the same course that your future self followed.</span></label>
                 </div>
 
-				<div class="sheet-joined">
-                            <div class="sheet-section-title-joinedbonds">
-                            </div>
+				<div class="sheet-joined split-group">
+                    <div class="panel-frame section-panel">
+                            <div class="graphic-header center-graphic-header bonds-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Bonds.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 							<label data-i18n="bond-joined-desc" class="sheet-bondsdistinctions">At character creation you start with <b>Two of a kind</b>, and choose one other bond.</label>
 							<label class="bondsdistinct"><input type="checkbox" name="attr_bond1" checked=true> <span data-i18n="bond1-desc"><b>Two of a kind</b>: When time passes, you and your other half gain Influence over each other. When you or your other half <b>pierces the other's mask</b>, mark a condition to take a 10+.</span></label>
 							<label class="bondsdistinct"><input type="checkbox" name="attr_bond2"> <span data-i18n="bond2-desc"><b>Fastball special</b>: When you perform a coordinated fighting maneuver with your other half, say who takes the lead and who assists. The leader rolls the adult move <b>overwhelm a vulnerable foe</b>. The assistant marks a condition.</span></label>
 							<label class="bondsdistinct"><input type="checkbox" name="attr_bond3"> <span data-i18n="bond3-desc"><b>Powers, activate!</b>: When you and your other half pool your powers, say who takes the lead and who assists. The leader <b>unleashes their powers</b> with your combined Freak (max +4). The assistant shifts Savior down, Mundane up.</span></label>
 							<label class="bondsdistinct"><input type="checkbox" name="attr_bond4"> <span data-i18n="bond4-desc"><b>Four eyes are better</b>: When you and your other half <b>assess the situation</b> from two different vantage points, one of you makes the move, and the other may either clear a condition or ask an additional question. You both get +1 when following the answers.</span></label>
 
-							<div class="sheet-section-title-joineddistinctions">
-                            </div>
+							</div>
+                    <div class="panel-frame section-panel">
+                            <div class="graphic-header center-graphic-header distinctions-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Distinctions.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 							<label data-i18n="distinction-joined-desc" class="sheet-bondsdistinctions">When either you or your other half locks a Label, unmark one of your chosen bonds and choose a distinction.</label>
 							<label class="bondsdistinct"><input type="checkbox" name="attr_distinction1"> <span data-i18n="distinction1-desc"><b>Mirror, mirror</b>: When you <b>pierce someone's mask</b>, you can ask them \"What are you really feeling right now?\", even on a miss. If you do, they can ask you the same question.</span></label>
 							<label class="bondsdistinct"><input type="checkbox" name="attr_distinction2"> <span data-i18n="distinction2-desc"><b>Shouldering the burden</b>: When you push yourself to do something your other half failed at or can't do, mark a condition to use the adult move <b>wield your powers</b>.</span></label>
 							<label class="bondsdistinct"><input type="checkbox" name="attr_distinction3"> <span data-i18n="distinction3-desc"><b>Going solo</b>: When you <b>directly engage a threat</b> entirely on your own, you can roll +Superior instead of +Danger.</span></label>
 							<label class="bondsdistinct"><input type="checkbox" name="attr_distinction4"> <span data-i18n="distinction4-desc"><b>Internal strife</b>: When you snipe about your other half behind their back, remove one Team from the pool and clear a condition.</span></label>
                 </div>
+                </div>
 
-				<div class="sheet-soldier">
-                            <div class="sheet-section-title-specialmove">
-                            </div>
+				<div class="panel-frame sheet-soldier">
+                            <div class="graphic-header center-graphic-header special-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Special%20Move.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 							<label data-i18n="beforewegetstarted-soldier">Before we get started:</label><br>
 							<p style="text-align:center"><label data-i18n="savior:">Savior:</label><button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=Before we get started}} {{roll_mod=@{savior}}} {{result=[[2d6 + [[{[[{[[@{savior} + ?{Situational bonus/penalty?|0}]],-3}dl1]],4}kl1]][Modifier]]]}}' name='roll_savior' ></button>
 							&nbsp; &nbsp; <label data-i18n="hold:" class="beforestarttitle">Hold:</label> <input type="number" name="attr_soldierhold" min="0"></p>
@@ -490,7 +1250,7 @@
 							<label data-i18n="beforestart-soldier-list5" class="sheet-beforewegetstarted">&#9679; ...escape any bindings or impediments they attempt to place on you.</label><br>
                 </div>
 
-				<div class="sheet-harbinger">
+				<div class="panel-frame sheet-harbinger">
                             <div class="sheet-section-title-harbingerconnectingdots">
                             </div>
 							<div class="sheet-memories">
@@ -528,7 +1288,16 @@
 			</div>
 
 <!-- active moves -->
-            <div class="sheet-section-title-activemoves"></div>
+            <div class="panel-frame">
+            <div class="graphic-header center-graphic-header active-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Active%20Moves.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 			<label data-i18n="activemove-hide" class="sheet-activehide">Hide your Active Moves</label> <input type="checkbox" name="attr_activehide" class="activeshowhide">
 
 			<div class="sheet-activehidecontent">
@@ -556,9 +1325,19 @@
 				<label data-i18n="activemove-note" class="sheet-notetagline"><b>Note</b>: Adult moves count as Active Moves</label>
             </div>
 			</div>
+            </div> <!-- end Active Moves panel -->
 
 <!-- passive moves -->
-        	<div class="sheet-section-title-passivemoves"></div>
+            <div class="panel-frame">
+        	<div class="graphic-header center-graphic-header passive-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Passive%20Moves.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 			<label data-i18n="passivemove-hide" class="sheet-passivehide">Hide your Passive Moves</label> <input type="checkbox" name="attr_passivehide" class="passiveshowhide">
 
 			<div class="sheet-passivehidecontent">
@@ -575,9 +1354,19 @@
     			</fieldset>
             </div>
 			</div>
+            </div> <!-- end Passive Moves panel -->
 
 <!-- team moves, different for each playbook -->
-        	<div class="sheet-section-title-teammoves"></div>
+            <div class="panel-frame">
+        	<div class="graphic-header center-graphic-header team-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Team%20Moves.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 			<label data-i18n="teammove-hide" class="sheet-teammovehide">Hide your Team Moves</label> <input type="checkbox" name="attr_teammovehide" class="teammoveshowhide">
 
 			<div class="sheet-teammovecontent">
@@ -692,10 +1481,20 @@
                 </div>
 			</div>
 			</div>
+            </div> <!-- end Team Moves panel -->
 
 <!-- moment of truth, different for each playbook -->
-        	<div class="sheet-section-title-momentoftruth"></div>
-			<label data-i18n="momentoftruth-unlock" class="sheet-momentunlock"><b>Unlock your Moment of Truth</b></label> <input type="checkbox" name="attr_momentlock" class="momentshow">
+            <div class="panel-frame">
+        	<div class="graphic-header center-graphic-header moment-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Moment%20of%20Truth.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
+			<label data-i18n="momentoftruth-unlock" class="sheet-momentunlock">Unlock your Moment of Truth</label> <input type="checkbox" name="attr_momentlock" class="momentshow">
 
 			<div class="sheet-momentcontent">
 				<div class="sheet-subbox">
@@ -792,6 +1591,7 @@
 				<label data-i18n="moment-label-lock" class="sheet-moment"><b>After you use your Moment of Truth, permanently lock one Label.</b></label>
 				</div>
 			</div>
+            </div> <!-- end Moment of Truth panel -->
 
 <!-- extras gained by advancement viz. burn and flare for the doomed, drives for the janus etc. -->
 			<div class="sheet-subbox">
@@ -811,8 +1611,16 @@
                     <input type="checkbox" name="attr_playbook" class="sheet-isscion" value='Scion' style="display: none;" />
 					<input type="checkbox" name="attr_playbook" class="sheet-issomething" value='Something' style="display: none;" />
 
-				<div class="sheet-doomed">				<!-- gets burn and 3 flares -->
-					<div class="sheet-section-title-advancedspecial"></div>
+				<div class="panel-frame sheet-doomed">				<!-- gets burn and 3 flares -->
+					<div class="graphic-header center-graphic-header advanced-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Advanced%20Special.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 					<label data-i18n="advancedspecial-view" class="sheet-advspecview">View after taking the corresponding Advancement</label><input type="checkbox" name="attr_advspecview" class="advspecshow">
 					<div class="sheet-advspeccontent">
 						<div class="sheet-section-title-novaburnflare">
@@ -848,8 +1656,16 @@
 					</div>
 				</div>
 
-				<div class="sheet-janus">				<!-- gets drives -->
-					<div class="sheet-section-title-advancedspecial"></div>
+				<div class="panel-frame sheet-janus">				<!-- gets drives -->
+					<div class="graphic-header center-graphic-header advanced-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Advanced%20Special.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 					<label data-i18n="advancedspecial-view" class="sheet-advspecview">View after taking the corresponding Advancement</label><input type="checkbox" name="attr_advspecview" class="advspecshow">
 					<div class="sheet-advspeccontent">
 						<div class="sheet-section-title-beacondrives">
@@ -875,8 +1691,16 @@
 					</div>
 				</div>
 
-				<div class="sheet-legacy">				<!-- gets sanctuary -->
-					<div class="sheet-section-title-advancedspecial"></div>
+				<div class="panel-frame sheet-legacy">				<!-- gets sanctuary -->
+					<div class="graphic-header center-graphic-header advanced-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Advanced%20Special.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 					<label data-i18n="advancedspecial-view" class="sheet-advspecview">View after taking the corresponding Advancement</label><input type="checkbox" name="attr_advspecview" class="advspecshow">
 					<div class="sheet-advspeccontent">
 						<div class="sheet-section-title-doomedsanctuary">
@@ -895,8 +1719,16 @@
 					</div>
 				</div>
 
-				<div class="sheet-nova">				<!-- gets bull's heart -->
-					<div class="sheet-section-title-advancedspecial"></div>
+				<div class="panel-frame sheet-nova">				<!-- gets bull's heart -->
+					<div class="graphic-header center-graphic-header advanced-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Advanced%20Special.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 					<label data-i18n="advancedspecial-view" class="sheet-advspecview">View after taking the corresponding Advancement</label><input type="checkbox" name="attr_advspecview" class="advspecshow">
 					<div class="sheet-advspeccontent">
 						<div class="sheet-section-title-bullheart">
@@ -918,8 +1750,16 @@
 					</div>
 				</div>
 
-				<div class="sheet-outsider">			<!-- gets the mask and secret identity -->
-					<div class="sheet-section-title-advancedspecial"></div>
+				<div class="panel-frame sheet-outsider">			<!-- gets the mask and secret identity -->
+					<div class="graphic-header center-graphic-header advanced-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Advanced%20Special.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 					<label data-i18n="advancedspecial-view" class="sheet-advspecview">View after taking the corresponding Advancement</label><input type="checkbox" name="attr_advspecview" class="advspecshow">
 					<div class="sheet-advspeccontent">
 						<div class="sheet-section-title-specialmove">
@@ -944,8 +1784,16 @@
 					</div>
 				</div>
 
-				<div class="sheet-transformed">			<!-- gets doom, doomtrack and doomsigns -->
-					<div class="sheet-section-title-advancedspecial"></div>
+				<div class="panel-frame sheet-transformed">			<!-- gets doom, doomtrack and doomsigns -->
+					<div class="graphic-header center-graphic-header advanced-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Advanced%20Special.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 					<label data-i18n="advancedspecial-view" class="sheet-advspecview">View after taking the corresponding Advancement</label><input type="checkbox" name="attr_advspecview" class="advspecshow">
 					<div class="sheet-advspeccontent">
 						<div class="sheet-section-title-doomeddoom">
@@ -986,8 +1834,16 @@
 					</div>
 				</div>
 
-				<div class="sheet-reformed">			<!-- gets drives -->
-					<div class="sheet-section-title-advancedspecial"></div>
+				<div class="panel-frame sheet-reformed">			<!-- gets drives -->
+					<div class="graphic-header center-graphic-header advanced-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Advanced%20Special.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 					<label data-i18n="advancedspecial-view" class="sheet-advspecview">View after taking the corresponding Advancement</label><input type="checkbox" name="attr_advspecview" class="advspecshow">
 					<div class="sheet-advspeccontent">
 						<div class="sheet-section-title-beacondrives">
@@ -1013,8 +1869,16 @@
 					</div>
 				</div>
 
-				<div class="sheet-newborn">				<!-- gets burn and 3 flares -->
-					<div class="sheet-section-title-advancedspecial"></div>
+				<div class="panel-frame sheet-newborn">				<!-- gets burn and 3 flares -->
+					<div class="graphic-header center-graphic-header advanced-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Advanced%20Special.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 					<label data-i18n="advancedspecial-view" class="sheet-advspecview">View after taking the corresponding Advancement</label><input type="checkbox" name="attr_advspecview" class="advspecshow">
 					<div class="sheet-advspeccontent">
 						<div class="sheet-section-title-novaburnflare">
@@ -1050,8 +1914,16 @@
 					</div>
 				</div>
 
-				<div class="sheet-innocent">			<!-- gets mentor -->
-					<div class="sheet-section-title-advancedspecial"></div>
+				<div class="panel-frame sheet-innocent">			<!-- gets mentor -->
+					<div class="graphic-header center-graphic-header advanced-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Advanced%20Special.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 					<label data-i18n="advancedspecial-view" class="sheet-advspecview">View after taking the corresponding Advancement</label><input type="checkbox" name="attr_advspecview" class="advspecshow">
 					<div class="sheet-advspeccontent">
 						<div class="sheet-section-title-protegementor">
@@ -1088,8 +1960,16 @@
 					</div>
 				</div>
 
-				<div class="sheet-star">				<!-- gets legacy -->
-					<div class="sheet-section-title-advancedspecial"></div>
+				<div class="panel-frame sheet-star">				<!-- gets legacy -->
+					<div class="graphic-header center-graphic-header advanced-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Advanced%20Special.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 					<label data-i18n="advancedspecial-view" class="sheet-advspecview">View after taking the corresponding Advancement</label><input type="checkbox" name="attr_advspecview" class="advspecshow">
 					<div class="sheet-advspeccontent">
 						<div class="sheet-section-title-legacyextra">
@@ -1111,16 +1991,32 @@
 					</div>
 				</div>
 
-				<div class="sheet-joined">				<!-- gets any extra -->
-					<div class="sheet-section-title-advancedspecial"></div>
+				<div class="panel-frame sheet-joined">				<!-- gets any extra -->
+					<div class="graphic-header center-graphic-header advanced-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Advanced%20Special.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 					<label data-i18n="advancedspecial-view" class="sheet-advspecview">View after taking the corresponding Advancement</label><input type="checkbox" name="attr_advspecview" class="advspecshow">
 					<div class="sheet-advspeccontent">
 						<textarea name="attr_advspec-joined" placeholder="(describe your advanced special)" data-i18n-placeholder="describeadvspec" autocomplete="off"></textarea>
 					</div>
 				</div>
 
-				<div class="sheet-brain">				<!-- gets sanctuary and drives -->
-					<div class="sheet-section-title-advancedspecial"></div>
+				<div class="panel-frame sheet-brain">				<!-- gets sanctuary and drives -->
+					<div class="graphic-header center-graphic-header advanced-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Advanced%20Special.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 					<label data-i18n="advancedspecial-brain1" class="sheet-advspecbraintext1">View after taking Sanctuary</label><input type="checkbox" name="attr_advspecbrain1" class="advspecbrain1">
 					<div class="sheet-advspeccontent">
 						<div class="sheet-section-title-doomedsanctuary">
@@ -1163,8 +2059,16 @@
 					</div>
 				</div>
 
-				<div class="sheet-soldier">				<!-- gets mentor -->
-					<div class="sheet-section-title-advancedspecial"></div>
+				<div class="panel-frame sheet-soldier">				<!-- gets mentor -->
+					<div class="graphic-header center-graphic-header advanced-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Advanced%20Special.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 					<label data-i18n="advancedspecial-view" class="sheet-advspecview">View after taking the corresponding Advancement</label><input type="checkbox" name="attr_advspecview" class="advspecshow">
 					<div class="sheet-advspeccontent">
 						<div class="sheet-section-title-protegementor">
@@ -1201,8 +2105,16 @@
 					</div>
 				</div>
 
-				<div class="sheet-scion">				<!-- gets the mask and secret identity -->
-					<div class="sheet-section-title-advancedspecial"></div>
+				<div class="panel-frame sheet-scion">				<!-- gets the mask and secret identity -->
+					<div class="graphic-header center-graphic-header advanced-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Advanced%20Special.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 					<label data-i18n="advancedspecial-view" class="sheet-advspecview">View after taking the corresponding Advancement</label><input type="checkbox" name="attr_advspecview" class="advspecshow">
 					<div class="sheet-advspeccontent">
 						<div class="sheet-section-title-specialmove">
@@ -1227,8 +2139,16 @@
 					</div>
 				</div>
 
-				<div class="sheet-something">				<!-- gets any extra -->
-					<div class="sheet-section-title-advancedspecial"></div>
+				<div class="panel-frame sheet-something">				<!-- gets any extra -->
+					<div class="graphic-header center-graphic-header advanced-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Advanced%20Special.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 					<label data-i18n="advancedspecial-view" class="sheet-advspecview">View after taking the corresponding Advancement</label><input type="checkbox" name="attr_advspecview" class="advspecshow">
 					<div class="sheet-advspeccontent">
 						<textarea name="attr_advspec-custom" placeholder="(describe your advanced special)" data-i18n-placeholder="describeadvspec" autocomplete="off"></textarea>
@@ -1239,19 +2159,20 @@
 		</div>
 
         <!-- right column -->
-        <div class="sheet-col odd">
+        <div class="sheet-col odd right-column">
             <!-- conditions -->
-   			<div class="sheet-conditions sheet-section-title-conditions"></div>
+            <div class="panel-frame conditions-panel">
+   			<div class="side-tab right-side-tab tab-medium conditions-side-tab">
+    <div class="side-tab-cap side-tab-top"></div>
+    <div class="side-tab-center"></div>
+    <div class="side-tab-cap side-tab-bottom"></div>
+    <img class="side-tab-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Conditions.png">
+    <div class="side-tab-underline">
+        <div class="side-tab-underline-main"></div>
+        <div class="side-tab-underline-flourish"></div>
+    </div>
+</div>
 
-<!-- normal conditions roll -->
-            <!--div class="sheet-attr-box">
-                <button type='roll' align="center" value='&{template:aw} {{name=@{character_name}}} {{roll_name=Conditions}} {{roll_mod=[[@{afraid} + @{angry} + @{guilty} + @{hopeless} + @{insecure} + @{damaged}]]}} {{result=[[2d6 + [[{[[{[[[[@{afraid} + @{angry} + @{guilty} + @{hopeless} + @{insecure} + @{damaged}]] + ?{Situational bonus/penalty?|0}]],-3}dl1]],4}kl1]][Modifier]]]}}' name='roll_conditions' ></button>
-                <label data-i18n="conditions:" class="sheet-nameconditions">Conditions:</label>
-                <input type="number" name="attr_conditiontotal" value='{{result=[[@{afraid} + @{angry} + @{guilty} + @{hopeless} + @{insecure} + @{damaged}]]}}' disabled/>
-    			<div class="sheet-roll-box sheet-cf">
-				    <label data-i18n="takeapowerfulblow" class="sheet-taglines">(take a powerful blow)</label>
-                </div>
-            </div-->
 
 <!-- normal conditions and damaged conditions roll -->
 			<div class="sheet-subbox">
@@ -1259,8 +2180,7 @@
 
 				<div class="sheet-normal-conditions">
 					<div class="sheet-attr-box">
-						<button type='roll' align="center" value='&{template:aw} {{name=@{character_name}}} {{roll_name=Conditions}} {{roll_mod=[[@{afraid} + @{angry} + @{guilty} + @{hopeless} + @{insecure}]]}} {{result=[[2d6 + [[{[[{[[[[@{afraid} + @{angry} + @{guilty} + @{hopeless} + @{insecure}]] + ?{Situational bonus/penalty?|0}]],-3}dl1]],4}kl1]][Modifier]]]}}' name='roll_conditions' ></button>
-						<label data-i18n="conditions:" class="sheet-nameconditions">Conditions:</label>
+						<button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=Conditions}} {{roll_mod=[[@{afraid} + @{angry} + @{guilty} + @{hopeless} + @{insecure}]]}} {{result=[[2d6 + [[{[[{[[[[@{afraid} + @{angry} + @{guilty} + @{hopeless} + @{insecure}]] + ?{Situational bonus/penalty?|0}]],-3}dl1]],4}kl1]][Modifier]]]}}' name='roll_conditions'  class="condition-roll" data-i18n="conditions:">Conditions:</button>
 						<input type="number" name="attr_conditiontotal" value='{{result=[[@{afraid} + @{angry} + @{guilty} + @{hopeless} + @{insecure}]]}}' disabled/>
 						<div class="sheet-roll-box sheet-cf">
 							<label data-i18n="takeapowerfulblow" class="sheet-taglines">(take a powerful blow)</label>
@@ -1270,8 +2190,7 @@
 
 				<div class="sheet-damaged-conditions">
 					<div class="sheet-attr-box">
-						<button type='roll' align="center" value='&{template:aw} {{name=@{character_name}}} {{roll_name=Conditions}} {{roll_mod=[[@{afraid} + @{angry} + @{guilty} + @{hopeless} + @{insecure} + @{damaged}]]}} {{result=[[2d6 + [[{[[{[[[[@{afraid} + @{angry} + @{guilty} + @{hopeless} + @{insecure} + @{damaged}]] + ?{Situational bonus/penalty?|0}]],-3}dl1]],4}kl1]][Modifier]]]}}' name='roll_conditions' ></button>
-						<label data-i18n="conditions:" class="sheet-nameconditions">Conditions:</label>
+						<button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=Conditions}} {{roll_mod=[[@{afraid} + @{angry} + @{guilty} + @{hopeless} + @{insecure} + @{damaged}]]}} {{result=[[2d6 + [[{[[{[[[[@{afraid} + @{angry} + @{guilty} + @{hopeless} + @{insecure} + @{damaged}]] + ?{Situational bonus/penalty?|0}]],-3}dl1]],4}kl1]][Modifier]]]}}' name='roll_conditions'  class="condition-roll" data-i18n="conditions:">Conditions:</button>
 						<input type="number" name="attr_conditiontotal" value='{{result=[[@{afraid} + @{angry} + @{guilty} + @{hopeless} + @{insecure} + @{damaged}]]}}' disabled/>
 						<div class="sheet-roll-box sheet-cf">
 							<label data-i18n="takeapowerfulblow" class="sheet-taglines">(take a powerful blow)</label>
@@ -1280,7 +2199,10 @@
 				</div>
 			</div>
 
-                <hr>
+                <div class="graphic-divider" aria-hidden="true">
+                    <div class="graphic-divider-main"></div>
+                    <div class="graphic-divider-flourish"></div>
+                </div>
                 <br>
 
             <div class="sheet-attr-box">
@@ -1333,6 +2255,7 @@
         	</div>
 			<hr>
 			<label data-i18n="conditions-note" class="sheet-notetagline"><b>Note</b>: Conditions do not affect Active Moves</label>
+            </div> <!-- end Conditions panel -->
 
             <!-- playbook-specific elements -->
         	<div class="sheet-subbox">
@@ -1350,9 +2273,17 @@
                     <input type="checkbox" name="attr_playbook" class="sheet-isnomad" value='Nomad' style="display: none;" />
                     <input type="checkbox" name="attr_playbook" class="sheet-isscion" value='Scion' style="display: none;" />
 
-					    <div class="sheet-beacon">
-						    <div class="sheet-section-title-beacondrives">
-						    </div>
+					    <div class="panel-frame sheet-beacon">
+						    <div class="side-tab right-side-tab tab-short drives-side-tab">
+    <div class="side-tab-cap side-tab-top"></div>
+    <div class="side-tab-center"></div>
+    <div class="side-tab-cap side-tab-bottom"></div>
+    <img class="side-tab-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Drives.png">
+    <div class="side-tab-underline">
+        <div class="side-tab-underline-main"></div>
+        <div class="side-tab-underline-flourish"></div>
+    </div>
+</div>
 							<label data-i18n="whenyoumarkdrive" class="sheet-drivetagline"><b>When you mark a drive</b>, choose one: mark potential, clear a condition, take influence over someone involved</label>
                                 <fieldset class="repeating_beacondrives">
                                     <input type="checkbox" name="attr_beacondrivehide" class="beacondrivehide">
@@ -1373,9 +2304,17 @@
 							<label data-i18n="whenalldrivesmarked" class="sheet-drivetagline"><b>When all drives are marked</b>, choose one: change playbooks, retire from the life, become a paragon of the city</label>
                         </div>
 
-                        <div class="sheet-bull">
-                            <div class="sheet-section-title-bullheart">
-                            </div>
+                        <div class="panel-frame sheet-bull">
+                            <div class="side-tab right-side-tab tab-medium bullheart-side-tab">
+    <div class="side-tab-cap side-tab-top"></div>
+    <div class="side-tab-center"></div>
+    <div class="side-tab-cap side-tab-bottom"></div>
+    <img class="side-tab-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Bull's%20Heart.png">
+    <div class="side-tab-underline">
+        <div class="side-tab-underline-main"></div>
+        <div class="side-tab-underline-flourish"></div>
+    </div>
+</div>
 							<label data-i18n="bullheartdesc" class="sheet-hearttagline">You can change your love or rival at any time; give the new person influence over you</label>
                                 <div class="sheet-bullheart">
                                     <label data-i18n="love:">Love:</label>
@@ -1392,15 +2331,33 @@
 							<label class="bullheartrole"><input type="checkbox" name="attr_bullheartrole4"> <span data-i18n="bullrole4"><b>Enabler</b>: When you provoke your love or rival, roll +Danger if you are trying to provoke them to rash or poorly thought out action.</span></label>
                         </div>
 
-                        <div class="sheet-doomed">
-                            <div class="sheet-section-title-doomednemesis">
-                            </div>
+                        <div class="sheet-doomed split-group">
+                    <div class="panel-frame section-panel">
+                            <div class="graphic-header center-graphic-header nemesis-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Nemesis.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
                             <label data-i18n="nemesisdesc1" class="sheet-doomtagline">Your Nemesis is an epic and powerful enemy representing and embodying your Doom.</label>
 							<input type="text" name="attr_nemesisdoomed" style="font-size: 1em; font-weight: bold;" placeholder="(their name)" data-i18n-placeholder="theirname" autocomplete="off">
 							<label data-i18n="nemesisdesc2" class="sheet-doomtagline"><b>At the end of every session</b>, answer the question: Did you make progress on defeating your Nemesis? If the answer is yes, mark potential. If the answer is no, mark your Doomtrack.</label>
 
-							<div class="sheet-section-title-doomedsanctuary">
-                            </div>
+							</div>
+                    <div class="panel-frame section-panel">
+                            <div class="side-tab right-side-tab tab-medium sanctuary-side-tab">
+    <div class="side-tab-cap side-tab-top"></div>
+    <div class="side-tab-center"></div>
+    <div class="side-tab-cap side-tab-bottom"></div>
+    <img class="side-tab-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Sanctuary.png">
+    <div class="side-tab-underline">
+        <div class="side-tab-underline-main"></div>
+        <div class="side-tab-underline-flourish"></div>
+    </div>
+</div>
 							<label data-i18n="sanctuarydesc1" class="sheet-doomtagline">You have a place where you can rest, recover, and reflect upon your powers. Write <b>3 features</b> of your Sanctuary:</label>
 							<textarea name="attr_sanctuaryfeatures-doomed" autocomplete="off"></textarea>
 							<label data-i18n="sanctuarydesc2" class="sheet-doomtagline">Write <b>2 downsides</b> of your Sanctuary:</label>
@@ -1413,10 +2370,19 @@
 							<label class="sanctuaryreq"><input type="checkbox" name="attr_sanctuaryreq5"> <span data-i18n="sanctuary-req5">You'll need to mark one box on your Doomtrack</span></label>
 							<label class="sanctuaryreq"><input type="checkbox" name="attr_sanctuaryreq6"> <span data-i18n="sanctuary-req6">You'll have to obtain...</span></label>
                         </div>
+                </div>
 
-						<div class="sheet-legacy">
-                            <div class="sheet-section-title-legacyextra">
-                            </div>
+						<div class="panel-frame sheet-legacy">
+                            <div class="side-tab right-side-tab tab-short legacy-side-tab">
+    <div class="side-tab-cap side-tab-top"></div>
+    <div class="side-tab-center"></div>
+    <div class="side-tab-cap side-tab-bottom"></div>
+    <img class="side-tab-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Legacy.png">
+    <div class="side-tab-underline">
+        <div class="side-tab-underline-main"></div>
+        <div class="side-tab-underline-flourish"></div>
+    </div>
+</div>
 							<label data-i18n="legacydesc1" class="sheet-legacytagline">Name some members of your legacy (at least 2):</label>
 							<label class="legacytagline"><span data-i18n="bullet">&#9679;</span><input type="text" name="attr_legacymember1" style="font-size: 1em; font-weight: bold;" autocomplete="off"> <span data-i18n="legacymember1">is still active and prominent in the city.</span></label>
 							<label class="legacytagline"><span data-i18n="bullet">&#9679;</span><input type="text" name="attr_legacymember2" style="font-size: 1em; font-weight: bold;" autocomplete="off"> <span data-i18n="legacymember2">is retired and quite judgmental.</span></label>
@@ -1431,9 +2397,17 @@
 							<label data-i18n="legacydesc3" class="sheet-legacytagline">On a hit, one of them offers you meaningful encouragement, an opportunity, or an advantage. On a 7-9, another is upset with your most recent actions, and will make their displeasure known. On a miss, something you did stirred up the hornet's nest — expect several members of your legacy to meddle with your life.</label>
                         </div>
 
-                        <div class="sheet-protege">
-            			    <div class="sheet-section-title-protegementor">
-						    </div>
+                        <div class="panel-frame sheet-protege">
+            			    <div class="side-tab right-side-tab tab-short mentor-side-tab">
+    <div class="side-tab-cap side-tab-top"></div>
+    <div class="side-tab-center"></div>
+    <div class="side-tab-cap side-tab-bottom"></div>
+    <img class="side-tab-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Mentor.png">
+    <div class="side-tab-underline">
+        <div class="side-tab-underline-main"></div>
+        <div class="side-tab-underline-flourish"></div>
+    </div>
+</div>
 							<label data-i18n="mentor-desc1" class="sheet-mentortagline">You have a mentor, someone who's taught you, trained you, given you aid, or raised you up. Someone who might have confined you a bit too rigidly to a single path.</label>
 							<input type="text" name="attr_mentorprotege" style="font-size: 1em; font-weight: bold;" placeholder="(their name)" data-i18n-placeholder="theirname" autocomplete="off"><br><br>
 							<div class="protegementor">
@@ -1463,9 +2437,17 @@
 							<textarea name="attr_mentorresource" placeholder="(resources provided by your mentor)" data-i18n-placeholder="mentorresource" autocomplete="off"></textarea>
                         </div>
 
-						<div class="sheet-reformed">
-                    	    <div class="sheet-section-title-reformedcontacts">
-						    </div>
+						<div class="panel-frame sheet-reformed">
+                    	    <div class="side-tab right-side-tab tab-medium contacts-side-tab">
+    <div class="side-tab-cap side-tab-top"></div>
+    <div class="side-tab-center"></div>
+    <div class="side-tab-cap side-tab-bottom"></div>
+    <img class="side-tab-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Contacts.png">
+    <div class="side-tab-underline">
+        <div class="side-tab-underline-main"></div>
+        <div class="side-tab-underline-flourish"></div>
+    </div>
+</div>
 							<label data-i18n="friendsinlowplaces1" class="sheet-reformedtagline">You have ties to villains from your previous career, a.k.a. <b>Friends in Low Places</b>.</label>
 							<label data-i18n="friendsinlowplaces2" class="sheet-reformedtagline">Write 3 names and fill in their details. At character creation, mark 2 obligations on one villain and mark 1 obligation on another.</label>
 
@@ -1490,7 +2472,7 @@
 							<label data-i18n="friendsinlowplaces-help3" class="sheet-reformedtagline">When you <b>help one of these villains with their problems</b>, erase 2 obligations on them.</label>
 					    </div>
 
-                        <div class="sheet-newborn">
+                        <div class="panel-frame sheet-newborn">
                 		    <div class="sheet-section-title-newbornablankslate">
 						    </div>
 							<label data-i18n="lessonsnewborn-desc" class="sheet-newborntagline">When you learn something that helps you make sense of the world, write it down as a <b>Lesson</b>. Fill in 2 lessons at character creation. Fill in the others during play.</label>
@@ -1510,9 +2492,17 @@
 							<label data-i18n="lessonsnewborn-creator2" class="sheet-newborntagline">If you accept their help, they'll rewrite one of your lessons.</label>
 						</div>
 
-						<div class="sheet-star">
-                            <div class="sheet-section-title-staraudience">
-                            </div>
+						<div class="panel-frame sheet-star">
+                            <div class="side-tab right-side-tab tab-medium audience-side-tab">
+    <div class="side-tab-cap side-tab-top"></div>
+    <div class="side-tab-center"></div>
+    <div class="side-tab-cap side-tab-bottom"></div>
+    <img class="side-tab-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Audience.png">
+    <div class="side-tab-underline">
+        <div class="side-tab-underline-main"></div>
+        <div class="side-tab-underline-flourish"></div>
+    </div>
+</div>
 							<label data-i18n="audiencestar-desc" class="sheet-startagline">You are a celebrity in the city. By default, your audience is a limited group of interested fans, and you speak to them through after-action interviews, infrequent press conferences, etc. Why does your audience love you? Mark all that apply.</label>
 							<label class="staraudiencelist"><input type="checkbox" name="attr_audiencewhy1"> <span data-i18n="audience-why1">You're just like them</span></label>
 							<label class="staraudiencelist"><input type="checkbox" name="attr_audiencewhy2"> <span data-i18n="audience-why2">You're a dangerous person, a bad seed</span></label>
@@ -1543,9 +2533,17 @@
 							<label data-i18n="audiencestar-help" class="sheet-startagline">When you <b>seek help from your audience</b>, roll. On a hit, someone in your audience can hook you up. On a 10+, they only make a small demand. On a 7-9, their demands are a lot higher. On a miss, you've made a mistake, and your audience won't help you until you've redeemed yourself in their eyes.</label>
                         </div>
 
-						<div class="sheet-joined">
-                            <div class="sheet-section-title-joinedotherhalf">
-                            </div>
+						<div class="panel-frame sheet-joined">
+                            <div class="side-tab right-side-tab tab-medium otherhalf-side-tab">
+    <div class="side-tab-cap side-tab-top"></div>
+    <div class="side-tab-center"></div>
+    <div class="side-tab-cap side-tab-bottom"></div>
+    <img class="side-tab-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Other%20Half.png">
+    <div class="side-tab-underline">
+        <div class="side-tab-underline-main"></div>
+        <div class="side-tab-underline-flourish"></div>
+    </div>
+</div>
 							<label data-i18n="otherhalfjoined-desc" class="sheet-joinedtagline">You share a deep bond with your other half. You are stronger together than you are apart, for now. If your other half's playbook has no extra, then take 2 playbook moves from them; one they have and one they don't. If your other half's playbook has extras (drives, bull's heart, burn, the mask, legacy etc.), then you share the extras, gaining further merits and demerits.</label>
 							<label data-i18n="otherhalfjoined-more" class="sheet-joinedtagline">For more details, <b>refer to pages 102 to 109 in the Masks: Halcyon City Herald Collection supplement</b>.</label>
 							<hr>
@@ -1574,9 +2572,17 @@
 							<textarea name="attr_otherhalfjoined-extra" placeholder="(describe what extras you gain from/share with your other half)" data-i18n-placeholder="otherhalfextra" autocomplete="off"></textarea>
                         </div>
 
-						<div class="sheet-brain">
-                            <div class="sheet-section-title-brainshame">
-                            </div>
+						<div class="panel-frame sheet-brain">
+                            <div class="side-tab right-side-tab tab-short shame-side-tab">
+    <div class="side-tab-cap side-tab-top"></div>
+    <div class="side-tab-center"></div>
+    <div class="side-tab-cap side-tab-bottom"></div>
+    <img class="side-tab-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Shame.png">
+    <div class="side-tab-underline">
+        <div class="side-tab-underline-main"></div>
+        <div class="side-tab-underline-flourish"></div>
+    </div>
+</div>
 							<label data-i18n="brainshame-desc" class="sheet-braintagline">You have a deep and abiding sense of guilt for something you have created or had a hand in creating. Just as you are a world-class intellect, your shame is a world-class problem. Whatever the case, your role in its creation is not publicly known... yet.</label>
 							<p style="text-align:center"><label data-i18n="brainshame-title" class="brainshametitle">Your Shame:</label></p>
 							<select name="attr_brainshamelist" class="sheet-brainshamelist">
@@ -1593,9 +2599,17 @@
 							<label data-i18n="brainshame-endsession3" class="sheet-braintagline">If the answer is yes, mark potential. If the answer is no, give Influence to one of your teammates.</label>
                         </div>
 
-						<div class="sheet-soldier">
-                            <div class="sheet-section-title-soldierhighercalling">
-                            </div>
+						<div class="panel-frame sheet-soldier">
+                            <div class="side-tab right-side-tab tab-long highercalling-side-tab">
+    <div class="side-tab-cap side-tab-top"></div>
+    <div class="side-tab-center"></div>
+    <div class="side-tab-cap side-tab-bottom"></div>
+    <img class="side-tab-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Higher%20Calling.png">
+    <div class="side-tab-underline">
+        <div class="side-tab-underline-main"></div>
+        <div class="side-tab-underline-flourish"></div>
+    </div>
+</div>
 							<label data-i18n="highercalling-desc" class="sheet-soldiertagline">You work for A.E.G.I.S., an agency that keeps the world safe from all manners of superhuman, supernatural, and extraterrestrial threats.</label>
 							<label data-i18n="soldierlabel-desc" class="sheet-soldiertagline">The Soldier Label functions like any other Label. Characters with Influence over you can shift it, and you mark a condition if it would ever shift above +3 or below -2. You can only lock Soldier with the corresponding advancement. You can only cancel the influence A.E.G.I.S. holds over you with the corresponding advancement.</label>
 							<hr>
@@ -1604,7 +2618,7 @@
 							<label data-i18n="highercalling-move3" class="sheet-soldiertagline">When you <b>ask A.E.G.I.S. for additional resources, equipment, or information during a mission</b>, roll +Soldier. On a hit, they'll resupply you as best they can. On a 10+, the resources are highly classified or experimental; take +1 ongoing to deploying them throughout the mission. On a miss, A.E.G.I.S. sends what they think you need, regardless of what you actually requested.</label>
                         </div>
 
-						<div class="sheet-nomad">
+						<div class="panel-frame sheet-nomad">
                             <div class="sheet-section-title-nomadroots">
                             </div>
 							<label data-i18n="nomadroots-desc1" class="sheet-nomadtagline">&#9679; During play, you can only give Influence by <b>revealing a vulnerability or weakness</b> to someone and through the end of session move.</label>
@@ -1645,9 +2659,17 @@
 							</div>
                         </div>
 
-						<div class="sheet-scion">
-							<div class="sheet-section-title-scionrespect">
-                            </div>
+						<div class="panel-frame sheet-scion">
+							<div class="side-tab right-side-tab tab-short respect-side-tab">
+    <div class="side-tab-cap side-tab-top"></div>
+    <div class="side-tab-center"></div>
+    <div class="side-tab-cap side-tab-bottom"></div>
+    <img class="side-tab-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Respect.png">
+    <div class="side-tab-underline">
+        <div class="side-tab-underline-main"></div>
+        <div class="side-tab-underline-flourish"></div>
+    </div>
+</div>
 							<label data-i18n="scionrespect-desc1" class="sheet-sciontagline">Write down the names of at least 2 characters whose respect you need to earn in order to differentiate yourself from your parent. You may fill in new names whenever appropriate.</label>
 
 							<label data-i18n="scionrespect-list1" class="sheet-sciontagline">&#9679; Your parent's greatest enemy:</label>
@@ -1837,3 +2859,17 @@
         </tr>
     </table>
 </rolltemplate>
+
+<script type="text/worker">
+(function () {
+    const syncFavoriteColorTheme = function () {
+        getAttrs(["favorite_color"], function (values) {
+            setAttrs({
+                theme_color: values.favorite_color || ""
+            }, { silent: true });
+        });
+    };
+
+    on("sheet:opened change:favorite_color", syncFavoriteColorTheme);
+}());
+</script>
