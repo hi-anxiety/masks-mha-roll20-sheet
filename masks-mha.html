@@ -865,7 +865,7 @@
     			<div class="sheet-roll-box sheet-cf">
 				    <label data-i18n="actonorders" class="sheet-taglines">(act on orders and rely on training)</label><br>
                     <label data-i18n="invokeauthority" class="sheet-taglines">(invoke your authority)</label><br>
-					<label data-i18n="askaegis" class="sheet-taglines">(ask A.E.G.I.S. for resources)</label>
+					<label data-i18n="askaegis" class="sheet-taglines">(ask your org. for resources)</label>
                 </div>
         	</div>
 				<br>
@@ -982,9 +982,17 @@
 			<div class="sheet-subbox">
                     <input type="checkbox" name="attr_playbook" class="sheet-isscion" value='Scion' style="display: none;" />
 
-					<div class="panel-frame sheet-scion">
-						<div class="sheet-section-title-scionlineage">
-                            </div>
+					<div class="panel-frame sheet-scion scion-lineage-panel">
+						<div class="side-tab left-side-tab tab-short lineage-side-tab">
+    <div class="side-tab-cap side-tab-top"></div>
+    <div class="side-tab-center"></div>
+    <div class="side-tab-cap side-tab-bottom"></div>
+    <img class="side-tab-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Lineage.png" alt="Lineage">
+    <div class="side-tab-underline">
+        <div class="side-tab-underline-flourish"></div>
+        <div class="side-tab-underline-main"></div>
+    </div>
+</div>
 							<label data-i18n="scionlineage-desc" class="sheet-sciontagline">You are the child of a true supervillain. You strive to be different than them, but they are a part of you. Answer each question below to describe them:</label>
 							<label data-i18n="scionlineage-ques1" class="sheet-sciontagline">What kind of villain are they?</label>
 							<input type="text" name="attr_scionlineage-ans1" autocomplete="off">
@@ -1099,7 +1107,7 @@
 							<label class="doomsign"><input type="checkbox" name="attr_doomsign2"> <span data-i18n="doomsign2-desc"><b>Infinite Powers</b>: Mark your Doomtrack to use an ability from any playbook, one time.</span></label>
 							<label class="doomsign"><input type="checkbox" name="attr_doomsign3"> <span data-i18n="doomsign3-desc"><b>Portal</b>: Mark your Doomtrack to appear in a scene with anyone you want.</span></label>
 							<label class="doomsign"><input type="checkbox" name="attr_doomsign4"> <span data-i18n="doomsign4-desc"><b>Burning Bright</b>: Mark your Doomtrack to ignore one of the GM's stated requirements when you call upon the resources of your Sanctuary.</span></label>
-							<label class="doomsign"><input type="checkbox" name="attr_doomsign5"> <span data-i18n="doomsign5-desc"><b>Bolstered</b>: Mark your Doomtrack to use an Adult Move one time.</span></label>
+							<label class="doomsign"><input type="checkbox" name="attr_doomsign5"> <span data-i18n="doomsign5-desc"><b>Bolstered</b>: Mark your Doomtrack to use a Pro Move one time.</span></label>
 							<hr>
 							<label class="doomsign"><input type="checkbox" name="attr_doomsign6"> <span data-i18n="doomsign6-desc"><b>Your Doom arrives</b>; confront it and perish.</span></label>
                 </div>
@@ -1206,7 +1214,7 @@
 </div>
 							<label data-i18n="bond-joined-desc" class="sheet-bondsdistinctions">At character creation you start with <b>Two of a kind</b>, and choose one other bond.</label>
 							<label class="bondsdistinct"><input type="checkbox" name="attr_bond1" checked=true> <span data-i18n="bond1-desc"><b>Two of a kind</b>: When time passes, you and your other half gain Influence over each other. When you or your other half <b>pierces the other's mask</b>, mark a condition to take a 10+.</span></label>
-							<label class="bondsdistinct"><input type="checkbox" name="attr_bond2"> <span data-i18n="bond2-desc"><b>Fastball special</b>: When you perform a coordinated fighting maneuver with your other half, say who takes the lead and who assists. The leader rolls the adult move <b>overwhelm a vulnerable foe</b>. The assistant marks a condition.</span></label>
+							<label class="bondsdistinct"><input type="checkbox" name="attr_bond2"> <span data-i18n="bond2-desc"><b>Fastball special</b>: When you perform a coordinated fighting maneuver with your other half, say who takes the lead and who assists. The leader rolls the Pro Move <b>overwhelm a vulnerable foe</b>. The assistant marks a condition.</span></label>
 							<label class="bondsdistinct"><input type="checkbox" name="attr_bond3"> <span data-i18n="bond3-desc"><b>Powers, activate!</b>: When you and your other half pool your powers, say who takes the lead and who assists. The leader <b>unleashes their powers</b> with your combined Freak (max +4). The assistant shifts Savior down, Mundane up.</span></label>
 							<label class="bondsdistinct"><input type="checkbox" name="attr_bond4"> <span data-i18n="bond4-desc"><b>Four eyes are better</b>: When you and your other half <b>assess the situation</b> from two different vantage points, one of you makes the move, and the other may either clear a condition or ask an additional question. You both get +1 when following the answers.</span></label>
 
@@ -1223,7 +1231,7 @@
 </div>
 							<label data-i18n="distinction-joined-desc" class="sheet-bondsdistinctions">When either you or your other half locks a Label, unmark one of your chosen bonds and choose a distinction.</label>
 							<label class="bondsdistinct"><input type="checkbox" name="attr_distinction1"> <span data-i18n="distinction1-desc"><b>Mirror, mirror</b>: When you <b>pierce someone's mask</b>, you can ask them \"What are you really feeling right now?\", even on a miss. If you do, they can ask you the same question.</span></label>
-							<label class="bondsdistinct"><input type="checkbox" name="attr_distinction2"> <span data-i18n="distinction2-desc"><b>Shouldering the burden</b>: When you push yourself to do something your other half failed at or can't do, mark a condition to use the adult move <b>wield your powers</b>.</span></label>
+							<label class="bondsdistinct"><input type="checkbox" name="attr_distinction2"> <span data-i18n="distinction2-desc"><b>Shouldering the burden</b>: When you push yourself to do something your other half failed at or can't do, mark a condition to use the Pro Move <b>wield your powers</b>.</span></label>
 							<label class="bondsdistinct"><input type="checkbox" name="attr_distinction3"> <span data-i18n="distinction3-desc"><b>Going solo</b>: When you <b>directly engage a threat</b> entirely on your own, you can roll +Superior instead of +Danger.</span></label>
 							<label class="bondsdistinct"><input type="checkbox" name="attr_distinction4"> <span data-i18n="distinction4-desc"><b>Internal strife</b>: When you snipe about your other half behind their back, remove one Team from the pool and clear a condition.</span></label>
                 </div>
@@ -1322,7 +1330,7 @@
                     </div>
                     <hr>
     			</fieldset>
-				<label data-i18n="activemove-note" class="sheet-notetagline"><b>Note</b>: Adult moves count as Active Moves</label>
+				<label data-i18n="activemove-note" class="sheet-notetagline"><b>Note</b>: Pro Moves count as Active Moves</label>
             </div>
 			</div>
             </div> <!-- end Active Moves panel -->
@@ -1623,8 +1631,15 @@
 </div>
 					<label data-i18n="advancedspecial-view" class="sheet-advspecview">View after taking the corresponding Advancement</label><input type="checkbox" name="attr_advspecview" class="advspecshow">
 					<div class="sheet-advspeccontent">
-						<div class="sheet-section-title-novaburnflare">
-                        </div>
+						<div class="graphic-header center-graphic-header burn-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Burns%20&%20Flares.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 							<p style="text-align:center"><label data-i18n="conditions-marked">Conditions marked:</label><button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=Burn}} {{roll_mod=[[@{afraid} + @{angry} + @{guilty} + @{hopeless} + @{insecure}]]}} {{result=[[2d6 + [[{[[{[[[[@{afraid} + @{angry} + @{guilty} + @{hopeless} + @{insecure}]] + ?{Situational bonus/penalty?|0}]],-3}dl1]],4}kl1]][Modifier]]]}}' name='roll_conditions' ></button>
                             <label data-i18n="hold:" class="burntitle">Hold:</label><input type="number" name="attr_burnhold" min="0"></p>
 							<label data-i18n="burn-nova-desc1" class="sheet-advspectagline">When you charge up your powers, roll. On a hit, hold 3 burn. On a 7-9, mark a condition. On a miss, hold 2 burn and mark 3 conditions.</label>
@@ -1668,8 +1683,15 @@
 </div>
 					<label data-i18n="advancedspecial-view" class="sheet-advspecview">View after taking the corresponding Advancement</label><input type="checkbox" name="attr_advspecview" class="advspecshow">
 					<div class="sheet-advspeccontent">
-						<div class="sheet-section-title-beacondrives">
-						    </div>
+						<div class="graphic-header center-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Drives.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 							<label data-i18n="whenyoumarkdrive" class="sheet-advspectagline"><b>When you mark a drive</b>, choose one: mark potential, clear a condition, take influence over someone involved</label>
                                 <fieldset class="repeating_beacondrives">
                                     <input type="checkbox" name="attr_beacondrivehide" class="beacondrivehide">
@@ -1687,7 +1709,7 @@
                                     <hr>
                                 </fieldset>
 							<label data-i18n="whencompleteadriveset" class="sheet-advspectagline">When you complete a set of drives, add another set with 4 new drives.</label>
-							<label data-i18n="whenalldrivesmarked" class="sheet-advspectagline"><b>When all drives are marked</b>, choose one: change playbooks, retire from the life, become a paragon of the city</label>
+							<label data-i18n="whenalldrivesmarked" class="sheet-advspectagline"><b>When all drives are marked</b>, choose one: change playbooks, leave the Hero Course, or graduate and become a Pro Hero.</label>
 					</div>
 				</div>
 
@@ -1703,8 +1725,15 @@
 </div>
 					<label data-i18n="advancedspecial-view" class="sheet-advspecview">View after taking the corresponding Advancement</label><input type="checkbox" name="attr_advspecview" class="advspecshow">
 					<div class="sheet-advspeccontent">
-						<div class="sheet-section-title-doomedsanctuary">
-                            </div>
+						<div class="graphic-header center-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Sanctuary.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 							<label data-i18n="sanctuarydesc1" class="sheet-advspectagline">You have a place where you can rest, recover, and reflect upon your powers. Write <b>3 features</b> of your Sanctuary:</label>
 							<textarea name="attr_sanctuaryfeatures-doomed" autocomplete="off"></textarea>
 							<label data-i18n="sanctuarydesc2" class="sheet-advspectagline">Write <b>2 downsides</b> of your Sanctuary:</label>
@@ -1731,8 +1760,15 @@
 </div>
 					<label data-i18n="advancedspecial-view" class="sheet-advspecview">View after taking the corresponding Advancement</label><input type="checkbox" name="attr_advspecview" class="advspecshow">
 					<div class="sheet-advspeccontent">
-						<div class="sheet-section-title-bullheart">
-                            </div>
+						<div class="graphic-header center-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Bull's%20Heart.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 							<label data-i18n="bullheartdesc" class="sheet-advspectagline">You can change your love or rival at any time; give the new person influence over you</label>
                                 <div class="sheet-advbullheart">
                                     <label data-i18n="love:" class="sheet-advbigtitle">Love:</label>
@@ -1796,8 +1832,15 @@
 </div>
 					<label data-i18n="advancedspecial-view" class="sheet-advspecview">View after taking the corresponding Advancement</label><input type="checkbox" name="attr_advspecview" class="advspecshow">
 					<div class="sheet-advspeccontent">
-						<div class="sheet-section-title-doomeddoom">
-                            </div>
+						<div class="graphic-header center-graphic-header doom-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Doom.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 							<label data-i18n="doom-desc" class="sheet-advspectagline">What brings your Doom closer? Choose two:</label>
 							<table>
                                     <tr><td style="padding-left:5px"><input type="checkbox" name="attr_doomcloser1"><label data-i18n="doomcloser1" class="sheet-advspecdoomtagline">overexerting yourself</label></td>
@@ -1821,14 +1864,21 @@
                             </div>
 							<label data-i18n="doomtrack-fill" class="sheet-advspectagline">Whenever your Doomtrack fills, clear it and take one of your Doomsigns</label>
 
-							<div class="sheet-section-title-doomeddoomsigns">
-                            </div>
+							<div class="graphic-header center-graphic-header doomsigns-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Doomsigns.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 							<label data-i18n="doomsign-desc" class="sheet-advspectagline">These are abilities that come to you with your approaching Doom. Once you have taken all five Doomsigns above the line, you must take \"Your doom arrives\" the next time your Doomtrack fills. <b>Choose 1 Doomsign you already have at character creation</b>.</label>
 							<label class="advcheckbox"><input type="checkbox" name="attr_doomsign1"> <span data-i18n="doomsign1-desc"><b>Dark Visions</b>: Mark your Doomtrack to have a vision about the situation at hand. After the vision, ask the GM a question; they will answer it honestly.</span></label>
 							<label class="advcheckbox"><input type="checkbox" name="attr_doomsign2"> <span data-i18n="doomsign2-desc"><b>Infinite Powers</b>: Mark your Doomtrack to use an ability from any playbook, one time.</span></label>
 							<label class="advcheckbox"><input type="checkbox" name="attr_doomsign3"> <span data-i18n="doomsign3-desc"><b>Portal</b>: Mark your Doomtrack to appear in a scene with anyone you want.</span></label>
 							<label class="advcheckbox"><input type="checkbox" name="attr_doomsign4"> <span data-i18n="doomsign4-desc"><b>Burning Bright</b>: Mark your Doomtrack to ignore one of the GM's stated requirements when you call upon the resources of your Sanctuary.</span></label>
-							<label class="advcheckbox"><input type="checkbox" name="attr_doomsign5"> <span data-i18n="doomsign5-desc"><b>Bolstered</b>: Mark your Doomtrack to use an Adult Move one time.</span></label>
+							<label class="advcheckbox"><input type="checkbox" name="attr_doomsign5"> <span data-i18n="doomsign5-desc"><b>Bolstered</b>: Mark your Doomtrack to use a Pro Move one time.</span></label>
 							<hr>
 							<label class="advcheckbox"><input type="checkbox" name="attr_doomsign6"> <span data-i18n="doomsign6-desc"><b>Your Doom arrives</b>; confront it and perish.</span></label>
 					</div>
@@ -1846,8 +1896,15 @@
 </div>
 					<label data-i18n="advancedspecial-view" class="sheet-advspecview">View after taking the corresponding Advancement</label><input type="checkbox" name="attr_advspecview" class="advspecshow">
 					<div class="sheet-advspeccontent">
-						<div class="sheet-section-title-beacondrives">
-						    </div>
+						<div class="graphic-header center-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Drives.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 							<label data-i18n="whenyoumarkdrive" class="sheet-advspectagline"><b>When you mark a drive</b>, choose one: mark potential, clear a condition, take influence over someone involved</label>
                                 <fieldset class="repeating_beacondrives">
                                     <input type="checkbox" name="attr_beacondrivehide" class="beacondrivehide">
@@ -1865,7 +1922,7 @@
                                     <hr>
                                 </fieldset>
 							<label data-i18n="whencompleteadriveset" class="sheet-advspectagline">When you complete a set of drives, add another set with 4 new drives.</label>
-							<label data-i18n="whenalldrivesmarked" class="sheet-advspectagline"><b>When all drives are marked</b>, choose one: change playbooks, retire from the life, become a paragon of the city</label>
+							<label data-i18n="whenalldrivesmarked" class="sheet-advspectagline"><b>When all drives are marked</b>, choose one: change playbooks, leave the Hero Course, or graduate and become a Pro Hero.</label>
 					</div>
 				</div>
 
@@ -1972,8 +2029,15 @@
 </div>
 					<label data-i18n="advancedspecial-view" class="sheet-advspecview">View after taking the corresponding Advancement</label><input type="checkbox" name="attr_advspecview" class="advspecshow">
 					<div class="sheet-advspeccontent">
-						<div class="sheet-section-title-legacyextra">
-                            </div>
+						<div class="graphic-header center-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Legacy.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 							<label data-i18n="legacydesc1" class="sheet-advspectagline">Name some members of your legacy (at least 2):</label>
 							<div class="advspeclegacy">
 								<label class="advspectagline"><span data-i18n="bullet">&#9679;</span><input type="text" name="attr_legacymember1" style="font-size: 1em; font-weight: bold;" autocomplete="off"> <span data-i18n="legacymember1">is still active and prominent in the city.</span></label>
@@ -2019,8 +2083,15 @@
 </div>
 					<label data-i18n="advancedspecial-brain1" class="sheet-advspecbraintext1">View after taking Sanctuary</label><input type="checkbox" name="attr_advspecbrain1" class="advspecbrain1">
 					<div class="sheet-advspeccontent">
-						<div class="sheet-section-title-doomedsanctuary">
-                            </div>
+						<div class="graphic-header center-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Sanctuary.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 							<label data-i18n="sanctuarydesc1" class="sheet-advspectagline">You have a place where you can rest, recover, and reflect upon your powers. Write <b>3 features</b> of your Sanctuary:</label>
 							<textarea name="attr_sanctuaryfeatures-doomed" autocomplete="off"></textarea>
 							<label data-i18n="sanctuarydesc2" class="sheet-advspectagline">Write <b>2 downsides</b> of your Sanctuary:</label>
@@ -2036,8 +2107,15 @@
 					<hr>
 					<label data-i18n="advancedspecial-brain2" class="sheet-advspecbraintext2">View after taking Drives</label><input type="checkbox" name="attr_advspecbrain2" class="advspecbrain2">
 					<div class="sheet-advspeccontent">
-						<div class="sheet-section-title-beacondrives">
-						    </div>
+						<div class="graphic-header center-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Drives.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 							<label data-i18n="whenyoumarkdrive" class="sheet-advspectagline"><b>When you mark a drive</b>, choose one: mark potential, clear a condition, take influence over someone involved</label>
                                 <fieldset class="repeating_beacondrives">
                                     <input type="checkbox" name="attr_beacondrivehide" class="beacondrivehide">
@@ -2055,7 +2133,7 @@
                                     <hr>
                                 </fieldset>
 							<label data-i18n="whencompleteadriveset" class="sheet-advspectagline">When you complete a set of drives, add another set with 4 new drives.</label>
-							<label data-i18n="whenalldrivesmarked" class="sheet-advspectagline"><b>When all drives are marked</b>, choose one: change playbooks, retire from the life, become a paragon of the city</label>
+							<label data-i18n="whenalldrivesmarked" class="sheet-advspectagline"><b>When all drives are marked</b>, choose one: change playbooks, leave the Hero Course, or graduate and become a Pro Hero.</label>
 					</div>
 				</div>
 
@@ -2071,8 +2149,15 @@
 </div>
 					<label data-i18n="advancedspecial-view" class="sheet-advspecview">View after taking the corresponding Advancement</label><input type="checkbox" name="attr_advspecview" class="advspecshow">
 					<div class="sheet-advspeccontent">
-						<div class="sheet-section-title-protegementor">
-						    </div>
+						<div class="graphic-header center-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Mentor.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 							<label data-i18n="mentor-desc1" class="sheet-advspectagline">You have a mentor, someone who's taught you, trained you, given you aid, or raised you up. Someone who might have confined you a bit too rigidly to a single path.</label>
 							<div class="sheet-advspecmentor">
 							<input type="text" name="attr_mentorprotege" style="font-size: 1em; font-weight: bold;" placeholder="(their name)" data-i18n-placeholder="theirname" autocomplete="off"><br><br>
@@ -2117,8 +2202,15 @@
 </div>
 					<label data-i18n="advancedspecial-view" class="sheet-advspecview">View after taking the corresponding Advancement</label><input type="checkbox" name="attr_advspecview" class="advspecshow">
 					<div class="sheet-advspeccontent">
-						<div class="sheet-section-title-specialmove">
-                            </div>
+						<div class="graphic-header center-graphic-header special-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Special%20Move.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 							<label data-i18n="themask-janus">The Mask:</label> <label data-i18n="themask-janus-desc1" class="sheet-advspectagline">You wear a mask and hide your real identity. Choose what Label you try to embody while wearing your mask:</label>
 							<table>
                                     <tr><td style="padding-left:10px"><input type="checkbox" name="attr_janusmasklabel1"><label data-i18n="danger" class="sheet-advspectagline">Danger</label></td>
@@ -2130,8 +2222,15 @@
 							<label data-i18n="themask-janus-desc2" class="sheet-advspectagline"><b>Once per session</b>, you can affirm either your heroic or secret identity to switch your Mundane with your mask's Label.</label>
 							<label data-i18n="themask-janus-desc3" class="sheet-advspectagline">When you <b>reveal your secret identity to someone who didn't know it already</b>, mark potential.</label>
 
-                            <div class="sheet-section-title-janussecretidentity">
-                            </div>
+                            <div class="graphic-header center-graphic-header secret-graphic-header">
+    <div class="center-header-inner">
+        <img class="graphic-header-text" src="https://raw.githubusercontent.com/hi-anxiety/masks-mha-roll20-sheet/main/image/Roll20%20Sheet%20Assets/Labels/Secret%20Identity.png">
+        <div class="center-header-underline">
+            <div class="center-header-underline-main"></div>
+            <div class="center-header-underline-flourish"></div>
+        </div>
+    </div>
+</div>
 							<label data-i18n="secretid-janus-desc1" class="sheet-advspectagline">Your mundane life comes with a series of obligations. Choose a total of 3 obligations:</label>
 							<textarea name="attr_secretid-janus" placeholder="(your obligations among jobs, school, home and social)" data-i18n-placeholder="obligationjanus" autocomplete="off"></textarea>
 							<p style="text-align:center"><label data-i18n="mundane:">Mundane:</label><button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=Obligations}} {{roll_mod=@{mundane}}} {{result=[[2d6 + [[{[[{[[@{mundane} + ?{Situational bonus/penalty?|0}]],-3}dl1]],4}kl1]][Modifier]]]}}' name='roll_mundane' ></button></p>
@@ -2301,7 +2400,7 @@
                                     <hr>
                                 </fieldset>
 							<label data-i18n="whencompleteadriveset" class="sheet-drivetagline">When you complete a set of drives, add another set with 4 new drives.</label>
-							<label data-i18n="whenalldrivesmarked" class="sheet-drivetagline"><b>When all drives are marked</b>, choose one: change playbooks, retire from the life, become a paragon of the city</label>
+							<label data-i18n="whenalldrivesmarked" class="sheet-drivetagline"><b>When all drives are marked</b>, choose one: change playbooks, leave the Hero Course, or graduate and become a Pro Hero.</label>
                         </div>
 
                         <div class="panel-frame sheet-bull">
@@ -2503,7 +2602,7 @@
         <div class="side-tab-underline-flourish"></div>
     </div>
 </div>
-							<label data-i18n="audiencestar-desc" class="sheet-startagline">You are a celebrity in the city. By default, your audience is a limited group of interested fans, and you speak to them through after-action interviews, infrequent press conferences, etc. Why does your audience love you? Mark all that apply.</label>
+							<label data-i18n="audiencestar-desc" class="sheet-startagline">You're something of a celebrity. By default, your audience is a limited group of interested fans, and you speak to them through after-action interviews, infrequent press conferences, etc. Why does your audience love you? Mark all that apply.</label>
 							<label class="staraudiencelist"><input type="checkbox" name="attr_audiencewhy1"> <span data-i18n="audience-why1">You're just like them</span></label>
 							<label class="staraudiencelist"><input type="checkbox" name="attr_audiencewhy2"> <span data-i18n="audience-why2">You're a dangerous person, a bad seed</span></label>
 							<label class="staraudiencelist"><input type="checkbox" name="attr_audiencewhy3"> <span data-i18n="audience-why3">You're noble warrior for justice</span></label>
@@ -2610,12 +2709,12 @@
         <div class="side-tab-underline-flourish"></div>
     </div>
 </div>
-							<label data-i18n="highercalling-desc" class="sheet-soldiertagline">You work for A.E.G.I.S., an agency that keeps the world safe from all manners of superhuman, supernatural, and extraterrestrial threats.</label>
-							<label data-i18n="soldierlabel-desc" class="sheet-soldiertagline">The Soldier Label functions like any other Label. Characters with Influence over you can shift it, and you mark a condition if it would ever shift above +3 or below -2. You can only lock Soldier with the corresponding advancement. You can only cancel the influence A.E.G.I.S. holds over you with the corresponding advancement.</label>
+							<label data-i18n="highercalling-desc" class="sheet-soldiertagline">You work with or have been specially trained by an organization, such as the Hero Public Safety Commission, that handles major threats, utilizes heroes, and expects a great deal from you.</label>
+							<label data-i18n="soldierlabel-desc" class="sheet-soldiertagline">The Soldier Label functions like any other Label. Characters with Influence over you can shift it, and you mark a Condition if it would ever shift above +3 or below -2. You can only lock Soldier with the corresponding advancement. Your organization begins with Influence over you, and you can only permanently cancel that Influence with the corresponding advancement.</label>
 							<hr>
-							<label data-i18n="highercalling-move1" class="sheet-soldiertagline">When you're <b>acting on orders and relying on your training</b>, give A.E.G.I.S. influence to use Soldier instead of any other Label when you make a basic or playbook move.</label>
-							<label data-i18n="highercalling-move2" class="sheet-soldiertagline">When you <b>invoke your authority over civilians, Halcyon City personnel, or A.E.G.I.S. staff</b>, roll +Soldier. On a hit, your words carry weight. On a 7-9, someone will push back against your instructions or orders... sooner rather than later. On a miss, your attempts to control the situation create an opportunity for your enemies within A.E.G.I.S. to act against you.</label>
-							<label data-i18n="highercalling-move3" class="sheet-soldiertagline">When you <b>ask A.E.G.I.S. for additional resources, equipment, or information during a mission</b>, roll +Soldier. On a hit, they'll resupply you as best they can. On a 10+, the resources are highly classified or experimental; take +1 ongoing to deploying them throughout the mission. On a miss, A.E.G.I.S. sends what they think you need, regardless of what you actually requested.</label>
+							<label data-i18n="highercalling-move1" class="sheet-soldiertagline">When you <b>act on official orders or rely on your organization’s training</b>, give your organization Influence over you to use Soldier instead of another Label when making a basic or playbook move.</label>
+							<label data-i18n="highercalling-move2" class="sheet-soldiertagline">When you <b>invoke your status or authority over civilians, school personnel, sidekicks, or other heroes</b>, roll + Soldier. On a hit, your words carry weight. On a 7–9, someone pushes back against your instructions sooner rather than later. On a miss, your attempt to control the situation creates an opportunity for someone opposed to you or your organization to act.</label>
+							<label data-i18n="highercalling-move3" class="sheet-soldiertagline">When you <b>ask your organization for additional resources, equipment, or information during a mission</b>, roll +Soldier. On a hit, they resupply or assist you as best they can. On a 10+, the resources are cutting-edge, restricted, or experimental; take +1 ongoing when using them during the mission. On a miss, your organization sends what they think you need, regardless of what you actually requested.</label>
                         </div>
 
 						<div class="panel-frame sheet-nomad">
@@ -2717,7 +2816,7 @@
 							</div>
 							<hr>
 
-							<label data-i18n="scionrespect-list4" class="sheet-sciontagline">&#9679; The city's greatest leader:</label>
+							<label data-i18n="scionrespect-list4" class="sheet-sciontagline">&#9679; The world's greatest leader:</label>
 							<input type="text" name="attr_scionrespectlist4" autocomplete="off">
 							<div class="respecttrack4" align="center">
 								<label data-i18n="respect:" class="sheet-sciontagline">Respect:</label>
@@ -2732,7 +2831,7 @@
 							</div>
 							<hr>
 
-							<label data-i18n="scionrespect-list5" class="sheet-sciontagline">&#9679; The city's greatest hero:</label>
+							<label data-i18n="scionrespect-list5" class="sheet-sciontagline">&#9679; The world's greatest hero:</label>
 							<input type="text" name="attr_scionrespectlist5" autocomplete="off">
 							<div class="respecttrack5" align="center">
 								<label data-i18n="respect:" class="sheet-sciontagline">Respect:</label>
@@ -2747,7 +2846,7 @@
 							</div>
 							<hr>
 
-							<label data-i18n="scionrespect-list6" class="sheet-sciontagline">&#9679; The city's biggest celebrity:</label>
+							<label data-i18n="scionrespect-list6" class="sheet-sciontagline">&#9679; The world's greatest celebrity:</label>
 							<input type="text" name="attr_scionrespectlist6" autocomplete="off">
 							<div class="respecttrack6" align="center">
 								<label data-i18n="respect:" class="sheet-sciontagline">Respect:</label>
