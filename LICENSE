@@ -1,21 +1,62 @@
-MIT License
+# MHA-Inspired Masks Roll20 Character Sheet
 
-Copyright (c) 2026 hi-anxiety
+An unofficial fan-made Roll20 character sheet designed for playing
+Masks: A New Generation in a superhero-academy setting inspired by
+My Hero Academia.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+This project is not affiliated with or endorsed by Magpie Games,
+Roll20, Kohei Horikoshi, Shueisha, Bones, or Viz Media.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+## Requirements
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+- Roll20 Pro account for Custom Character Sheets
+- Legacy Custom Sheet mode
+- Masks: A New Generation
+
+## Installation
+
+1. Open your Roll20 game's Character Sheet settings.
+2. Select Custom.
+3. Enable Legacy mode.
+4. Paste the HTML into the HTML tab.
+5. Paste the CSS into the CSS tab.
+6. Add the Masks translation JSON to the Translation tab.
+7. Save and reload.
+
+## Features
+
+- Character Info, Quirk Info, and Playbook Info tabs
+- Quirk profile and development fields
+- Repeating Ultimate Moves
+- Favorite Color themes
+- MHA-inspired visual presentation
+- Existing Masks playbook mechanics
+
+## Licensing
+
+### Code
+The HTML, CSS, and sheet-worker code are derived from the Roll20
+Masks: A New Generation community sheet and are distributed under
+the MIT License.
+
+See LICENSE-MIT.
+
+### Masks Material
+Masks: A New Generation rules text is © Magpie Games and is used
+under the Creative Commons Attribution 4.0 International License.
+
+Masks: A New Generation by Brendan Conway / Magpie Games:
+https://magpiegames.com/
+
+CC BY 4.0:
+https://creativecommons.org/licenses/by/4.0/
+
+### Fan Content / My Hero Academia
+
+This project is an unofficial, noncommercial fan work.
+
+My Hero Academia and related names, characters, settings, and
+trademarks are the property of their respective rights holders.
+No ownership or endorsement is claimed.
+
+This repository is not intended for commercial sale or distribution.
