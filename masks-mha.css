@@ -242,8 +242,8 @@ label input.sheet-playbook + span {
         157px 127px,
         137px 127px,
         117px 145px,
-        5px 145px,
-        20px 127px,
+        7px 145px,
+        22px 127px,
         0px 127px
     );
 }
@@ -261,13 +261,13 @@ label input.sheet-playbook + span {
 .charsheet .sheet-topper-joint-2::before {
     clip-path: polygon(
         0px 55px,
-        118px 55px,
-        118px 118px,
+        116px 55px,
+        116px 118px,
         152px 118px,
 
         152px 145px,
-        5px 145px,
-        20px 127px,
+        7px 145px,
+        22px 127px,
         0px 127px
     );
 }
@@ -333,8 +333,8 @@ label input.sheet-playbook + span {
 .charsheet .sheet-topper-tab-character-left {
     clip-path: polygon(
         0px 45px,
-        54px 5px,
-        59px 5px,
+        54px 7px,
+        59px 7px,
         59px 46px,
         0px 46px
     );
@@ -342,8 +342,8 @@ label input.sheet-playbook + span {
 
 .charsheet .sheet-topper-tab-character-run {
     clip-path: polygon(
-        0 5px,
-        100% 5px,
+        0 7px,
+        100% 7px,
         100% 46px,
         0 46px
     );
@@ -352,8 +352,8 @@ label input.sheet-playbook + span {
 /* Character tab right chevron. */
 .charsheet .sheet-topper-tab-character-right {
     clip-path: polygon(
-        0px 5px,
-        109px 5px,
+        0px 7px,
+        109px 7px,
         126px 19px,
         94px 46px,
         0px 46px
@@ -373,8 +373,8 @@ label input.sheet-playbook + span {
 
 .charsheet .sheet-topper-tab-quirk-run {
     clip-path: polygon(
-        0 5px,
-        100% 5px,
+        0 7px,
+        100% 7px,
         100% 46px,
         0 46px
     );
@@ -383,8 +383,8 @@ label input.sheet-playbook + span {
 /* Quirk tab right chevron. */
 .charsheet .sheet-topper-tab-quirk-right {
     clip-path: polygon(
-        0px 5px,
-        129px 5px,
+        0px 7px,
+        129px 7px,
         145px 19px,
         110px 46px,
         0px 46px
@@ -1153,10 +1153,10 @@ label input.sheet-playbook + span {
     clip-path: polygon(
         0px 112px,
         2px 112px,
-        90px 42px,
+        91px 42px,
         108px 42px,
-        65px 10px,
-        70px 5px,
+        66px 10px,
+        73px 4px,
         108px 5px,
         108px 139px,
         0px 139px
@@ -1232,8 +1232,8 @@ label input.sheet-playbook + span {
     clip-path: polygon(
         0px 5px,
         20px 5px,
-        41px 10px,
-        5px 40px,
+        38px 10px,
+        3px 38px,
         0px 40px
     );
 }
@@ -2265,6 +2265,18 @@ label.sheet-attr {
         box-sizing: border-box;
     }
 
+/* Scion Lineage: match the usable field width of Respect in the fixed 235px side column.
+   Respect is already clamped by the right-column overflow rules; Lineage needs the same
+   10px inset so its 5px left margin does not run into the panel frame. */
+.charsheet .sheet-scion-lineage-panel input[type="text"],
+.charsheet .sheet-scion-lineage-panel textarea {
+    width: calc(100% - 10px) !important;
+    max-width: calc(100% - 10px) !important;
+    margin-left: 5px;
+    margin-right: 5px;
+    box-sizing: border-box;
+}
+
 /* Advanced Specials */
 	.sheet-advspeccontent .sheet-advspectagline{
         padding-left: 5px;
@@ -3204,6 +3216,13 @@ label.sheet-attr {
 /* Local length adjustments for graphic labels that need a little more room. */
 .charsheet .sheet-bullheart-side-tab { height: 205px; }
 .charsheet .sheet-highercalling-side-tab { height: 240px; }
+
+/* Scion Lineage uses the standard left-hanging short tab. */
+.charsheet .sheet-lineage-side-tab {
+    top: 20px;
+    left: -38px;
+    height: 170px;
+}
 
 /* Influence is intentionally kept tighter because its panel has limited room. */
 .charsheet .sheet-influence-panel > .sheet-influence-side-tab {
